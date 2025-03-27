@@ -11,6 +11,8 @@ import { Form } from "react-bootstrap";
  * - `name` (string): The question title.
  * - `body` (string): The question instructions.
  * - `options` (string[]): An array of possible answer choices.
+ * - `limit` (number | null): A limit to how many answer choices can be selected. If null,
+ * then user can select any amount of answer choices.
  *
  * State:
  * - `answers` (string[]): Stores the selected answers.
@@ -20,10 +22,12 @@ export function ChecklistQuestion({
   name,
   body,
   options,
+  limit,
 }: {
   name: string;
   body: string;
   options: string[];
+  limit: number | null;
 }): React.JSX.Element {
   const [answers, setAnswers] = useState<string[]>([]);
 
@@ -33,9 +37,11 @@ export function ChecklistQuestion({
     if (answers.includes(answer)) {
       // Remove the given answer
       setAnswers(answers.filter((e) => e !== answer));
-    } else {
-      // Append the given answer
+    } else if (limit !== null && limit >= answers.length + 1) {
+      // Append answer if the limit is not met yet
       setAnswers([...answers, answer]);
+    } else if (limit === null) {
+      setAnswers([...answers, answer]); // If there is not a limit, append answer
     }
   }
 

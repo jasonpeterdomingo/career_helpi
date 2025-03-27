@@ -14,6 +14,7 @@ export const BASIC_QUESTIONS: Question[] = [
       "Looking for a career that aligns with my passions",
       "Exploring new opportunities after a major life change",
     ],
+    limit: null,
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ export const BASIC_QUESTIONS: Question[] = [
       "I thrive in leadership roles and enjoy making decisions.",
       "I like working with technology and staying up to date on advancements.",
     ],
+    limit: null,
   },
   {
     id: 3,
@@ -51,6 +53,7 @@ export const BASIC_QUESTIONS: Question[] = [
       "Law & Criminal Justice",
       "Education & Teaching",
     ],
+    limit: null,
   },
   {
     id: 4,
@@ -63,6 +66,7 @@ export const BASIC_QUESTIONS: Question[] = [
       "A mix of both, depending on the task",
       "Leading a group and making key decisions",
     ],
+    limit: null,
   },
   {
     id: 5,
@@ -76,6 +80,7 @@ export const BASIC_QUESTIONS: Question[] = [
       "Disagree",
       "Strongly disagree",
     ],
+    limit: null,
   },
   {
     id: 6,
@@ -89,6 +94,7 @@ export const BASIC_QUESTIONS: Question[] = [
       "Disagree",
       "Strongly disagree",
     ],
+    limit: null,
   },
   {
     id: 7,
@@ -102,6 +108,7 @@ export const BASIC_QUESTIONS: Question[] = [
       ["Writing an article", "Designing a product"],
       ["Analyzing financial data", "Conducting a social experiment"],
     ],
+    limit: null,
   },
   {
     id: 8,
@@ -118,6 +125,7 @@ export const BASIC_QUESTIONS: Question[] = [
       ["Performing on stage", "Editing a film"],
       ["Creating marketing campaigns", "Researching medical breakthroughs"],
     ],
+    limit: null,
   },
 ];
 
@@ -136,6 +144,7 @@ export const DETAILED_QUESTIONS: Question[] = [
       "Starting my own business",
       "Not sure",
     ],
+    limit: null,
   },
   {
     id: 2,
@@ -155,6 +164,7 @@ export const DETAILED_QUESTIONS: Question[] = [
       "Alignment with my personal values",
       "Finding fulfillment in my work (Receiving recognition and respect)",
     ],
+    limit: 2,
   },
   {
     id: 3,
@@ -168,6 +178,7 @@ export const DETAILED_QUESTIONS: Question[] = [
       "Integrating work seamlessly into my life",
       "I'm open to a variety of work-life balance styles",
     ],
+    limit: null,
   },
   {
     id: 4,
@@ -181,6 +192,7 @@ export const DETAILED_QUESTIONS: Question[] = [
       "Independent and self-driven",
       "Creative and experimental",
     ],
+    limit: null,
   },
   {
     id: 5,
@@ -194,6 +206,7 @@ export const DETAILED_QUESTIONS: Question[] = [
       "Outdoors or field-based",
       "Lab or hands-on environment",
     ],
+    limit: null,
   },
   {
     id: 6,
@@ -205,6 +218,7 @@ export const DETAILED_QUESTIONS: Question[] = [
       "Somewhat important—as long as it’s professional and supportive",
       "Not a priority—as long as I can do my job well",
     ],
+    limit: null,
   },
   {
     id: 7,
@@ -218,6 +232,7 @@ export const DETAILED_QUESTIONS: Question[] = [
       "Becoming an entrepreneur or freelancer",
       "Climbing the corporate ladder in a large company",
     ],
+    limit: null,
   },
   {
     id: 8,
@@ -229,6 +244,7 @@ export const DETAILED_QUESTIONS: Question[] = [
       "I’m open to some risk if it leads to growth",
       "I thrive on taking bold risks and challenges",
     ],
+    limit: null,
   },
   {
     id: 9,
@@ -240,5 +256,6 @@ export const DETAILED_QUESTIONS: Question[] = [
       "With some flexibility, but clear expectations",
       "With full autonomy and creative freedom",
     ],
+    limit: null,
   },
 ];

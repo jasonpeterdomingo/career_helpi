@@ -13,4 +13,6 @@ export interface Question {
     type: QuestionType;
     /** The possible answers for a Question */
     options: string[] | string[][];
+    /** Limited the number of options you are allowed to choose (For checklist_question type) */
+    limit: number | null;
 }

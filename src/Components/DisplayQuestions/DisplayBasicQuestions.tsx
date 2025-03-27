@@ -39,7 +39,8 @@ export function DisplayBasicQuestions() {
           currentQuestion.name,
           currentQuestion.body,
           currentQuestion.type,
-          currentQuestion.options
+          currentQuestion.options,
+          currentQuestion.limit
         )}
       </Form.Group>
 
