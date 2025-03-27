@@ -2,86 +2,50 @@
 
 import { Form } from "react-bootstrap";
 import React, { useState } from "react";
-import { Question, QuestionType } from "../interfaces/question";
 import { basicQuestions } from "../data/questions";
-import { MultipleChoiceQuestion } from "./QuestionTypes/MultipeChoiceQuestion";
-import { BinaryQuestion } from "./QuestionTypes/BinaryQuestion";
-import { ChecklistQuestion } from "./QuestionTypes/ChecklistQuestion";
-import { OpinionQuestion } from "./QuestionTypes/OpinionQuestion";
+import { createQuestion } from "../Helpers/displayQuestionHelpers";
+import { Button } from "react-bootstrap";
 
-function createQuestion(
-  name: string,
-  body: string,
-  type: QuestionType,
-  options: string[] | string[][]
-) {
-  switch (type) {
-    case "multiple_choice_question":
-      return (
-        <div>
-          <MultipleChoiceQuestion
-            name={name}
-            body={body}
-            options={options as string[]}
-          ></MultipleChoiceQuestion>
-        </div>
-      );
-    case "binary_question":
-      return (
-        <div>
-          <BinaryQuestion
-            name={name}
-            body={body}
-            options={options as string[][]}
-          ></BinaryQuestion>
-        </div>
-      );
-    case "checklist_question":
-      return (
-        <div>
-          <ChecklistQuestion
-            name={name}
-            body={body}
-            options={options as string[]}
-          ></ChecklistQuestion>
-        </div>
-      );
-    case "opinion_question":
-      return (
-        <div>
-          <OpinionQuestion
-            name={name}
-            body={body}
-            options={options as string[]}
-          ></OpinionQuestion>
-        </div>
-      );
-    default:
-      throw Error("Invalid question type!");
-  }
-}
-
+/**
+ * DisplayBasicQuestions Component
+ *
+ * This component renders questions where users can navigate through one question at a time.
+ * The user can move to the next question by clicking a "Next" button.
+ *
+ * Props:
+ * - `basicQuestions` (Question[]): An array of question objects.
+ *
+ * State:
+ * - `index` (number): Tracks the index of the currently displayed question.
+ *
+ */
 export function DisplayBasicQuestions() {
-  //pass in whatever state we want changes/to keep track of from app.tsx
-  //const [index, setIndex] = useState<number>(1);
+  const [index, setIndex] = useState<number>(0);
+  const currentQuestion = basicQuestions[index];
+
+  function next() {
+    if (index < basicQuestions.length - 1) {
+      setIndex(index + 1); // Move to next question
+    }
+  }
 
   return (
     <div>
-      {basicQuestions.map((question: Question) => {
-        return (
-          <Form.Group
-            controlId={`formQuestion${question.id}`}
-            key={question.id}
-          >
-            {createQuestion(
-              question.name,
-              question.body,
-              question.type,
-              question.options
-            )}
-          </Form.Group>
-        );
-      })}
+      <Form.Group
+        controlId={`formQuestion${currentQuestion.id}`}
+        key={currentQuestion.id}
+      >
+        {createQuestion(
+          currentQuestion.name,
+          currentQuestion.body,
+          currentQuestion.type,
+          currentQuestion.options
+        )}
+      </Form.Group>
+
+      <Button onClick={next} disabled={index >= basicQuestions.length - 1}>
+        Next
+      </Button>
     </div>
   );
 }
