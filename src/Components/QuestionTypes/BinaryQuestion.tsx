@@ -34,11 +34,11 @@ export function BinaryQuestion({
   );
 
   // Update answer for the selected option pair
-  const updateAnswers = (index: number, answer: string) => {
+  function updateAnswers(index: number, answer: string) {
     const updatedAnswers = [...answers];
     updatedAnswers[index] = answer;
     setAnswers(updatedAnswers);
-  };
+  }
 
   return (
     <div>
@@ -67,12 +67,7 @@ export function BinaryQuestion({
       ))}
 
       {/*For testing if answers are correctly updated.*/}
-      <div>
-        Answer:{" "}
-        {answers.map((answer) => (
-          <p>{answer}</p>
-        ))}
-      </div>
+      <div>Answer: {answers.join(", ")}</div>
     </div>
   );
 }

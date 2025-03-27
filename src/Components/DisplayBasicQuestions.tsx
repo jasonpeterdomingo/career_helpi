@@ -4,8 +4,10 @@ import { Form } from "react-bootstrap";
 import React, { useState } from "react";
 import { Question, QuestionType } from "../interfaces/question";
 import { basicQuestions } from "../data/questions";
-import { MultipleChoiceQuestion } from "./MultipeChoiceQuestion";
-import { BinaryQuestion } from "./BinaryQuestion";
+import { MultipleChoiceQuestion } from "./QuestionTypes/MultipeChoiceQuestion";
+import { BinaryQuestion } from "./QuestionTypes/BinaryQuestion";
+import { ChecklistQuestion } from "./QuestionTypes/ChecklistQuestion";
+import { OpinionQuestion } from "./QuestionTypes/OpinionQuestion";
 
 function createQuestion(
   name: string,
@@ -35,9 +37,25 @@ function createQuestion(
         </div>
       );
     case "checklist_question":
-      return;
+      return (
+        <div>
+          <ChecklistQuestion
+            name={name}
+            body={body}
+            options={options as string[]}
+          ></ChecklistQuestion>
+        </div>
+      );
     case "opinion_question":
-      return;
+      return (
+        <div>
+          <OpinionQuestion
+            name={name}
+            body={body}
+            options={options as string[]}
+          ></OpinionQuestion>
+        </div>
+      );
     default:
       throw Error("Invalid question type!");
   }

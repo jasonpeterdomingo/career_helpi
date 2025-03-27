@@ -27,6 +27,10 @@ export function MultipleChoiceQuestion({
 }): React.JSX.Element {
   const [answer, setAnswer] = useState<string>("");
 
+  function updateAnswers(e: React.ChangeEvent<HTMLInputElement>) {
+    setAnswer(e.target.value);
+  }
+
   return (
     <div>
       <h3>{name}</h3>
@@ -40,7 +44,7 @@ export function MultipleChoiceQuestion({
             label={option}
             value={option}
             checked={answer === option}
-            onChange={(e) => setAnswer(e.target.value)} // Update state when selection changes
+            onChange={(e) => updateAnswers(e)} // Update state when selection changes
           />
         ))}
       </Form.Group>
