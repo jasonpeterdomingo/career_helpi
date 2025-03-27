@@ -2,7 +2,7 @@
 
 import { Form } from "react-bootstrap";
 import React, { useState } from "react";
-import { basicQuestions } from "../data/questions";
+import { BASIC_QUESTIONS } from "../data/questions";
 import { createQuestion } from "../Helpers/displayQuestionHelpers";
 import { Button } from "react-bootstrap";
 
@@ -21,10 +21,10 @@ import { Button } from "react-bootstrap";
  */
 export function DisplayBasicQuestions() {
   const [index, setIndex] = useState<number>(0);
-  const currentQuestion = basicQuestions[index];
+  const currentQuestion = BASIC_QUESTIONS[index];
 
   function next() {
-    if (index < basicQuestions.length - 1) {
+    if (index < BASIC_QUESTIONS.length - 1) {
       setIndex(index + 1); // Move to next question
     }
   }
@@ -43,7 +43,7 @@ export function DisplayBasicQuestions() {
         )}
       </Form.Group>
 
-      <Button onClick={next} disabled={index >= basicQuestions.length - 1}>
+      <Button onClick={next} disabled={index >= BASIC_QUESTIONS.length - 1}>
         Next
       </Button>
     </div>

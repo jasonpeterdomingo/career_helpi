@@ -1,6 +1,6 @@
 import { Question } from "../interfaces/question";
 
-export const basicQuestions: Question[] = [
+export const BASIC_QUESTIONS: Question[] = [
   {
     id: 1,
     name: "Basic Question 1",
@@ -117,6 +117,128 @@ export const basicQuestions: Question[] = [
       ["Helping grow the U.S. economy", "Managing a sports team"],
       ["Performing on stage", "Editing a film"],
       ["Creating marketing campaigns", "Researching medical breakthroughs"],
+    ],
+  },
+];
+
+export const DETAILED_QUESTIONS: Question[] = [
+  {
+    id: 1,
+    name: "Detailed Question 1",
+    body: "What long-term career goal do you hope to achieve?",
+    type: "multiple_choice_question",
+    options: [
+      "Attaining a leadership position",
+      "Becoming an expert in my field",
+      "Achieving a healthy work-life balance",
+      "Making a meaningful difference in the world",
+      "Achieving financial independence",
+      "Starting my own business",
+      "Not sure",
+    ],
+  },
+  {
+    id: 2,
+    name: "Detailed Question 2",
+    body: "What do you value most in a career? (Select up to 2)",
+    type: "checklist_question",
+    options: [
+      "Financial stability/competitive compensation and benefits",
+      "Career growth opportunities/job security",
+      "Alignment with my skills",
+      "Work-life balance",
+      "Passion for the work (Aligns with my interests)",
+      "Making a positive impact on others/helps the community",
+      "Positive/inclusive company culture",
+      "Alignment with my personality traits",
+      "Creative freedom & autonomy",
+      "Alignment with my personal values",
+      "Finding fulfillment in my work (Receiving recognition and respect)",
+    ],
+  },
+  {
+    id: 3,
+    name: "Detailed Question 3",
+    body: "What does work-life balance mean to you?",
+    type: "multiple_choice_question",
+    options: [
+      "Clear separation between work and personal time",
+      "Prioritizing personal life over work",
+      "Flexibility to manage both work and personal commitments",
+      "Integrating work seamlessly into my life",
+      "I'm open to a variety of work-life balance styles",
+    ],
+  },
+  {
+    id: 4,
+    name: "Detailed Question 4",
+    body: "What type of work environment do you thrive in?",
+    type: "multiple_choice_question",
+    options: [
+      "Highly structured and predictable",
+      "Fast-paced and dynamic",
+      "Collaborative and team-oriented",
+      "Independent and self-driven",
+      "Creative and experimental",
+    ],
+  },
+  {
+    id: 5,
+    name: "Detailed Question 5",
+    body: "What is your ideal work setting?",
+    type: "multiple_choice_question",
+    options: [
+      "Office-based",
+      "Hybrid (mix of office and remote)",
+      "Fully remote",
+      "Outdoors or field-based",
+      "Lab or hands-on environment",
+    ],
+  },
+  {
+    id: 6,
+    name: "Detailed Question 6",
+    body: "How important is workplace culture to you?",
+    type: "multiple_choice_question",
+    options: [
+      "Very important—I want a strong, positive team culture",
+      "Somewhat important—as long as it’s professional and supportive",
+      "Not a priority—as long as I can do my job well",
+    ],
+  },
+  {
+    id: 7,
+    name: "Detailed Question 7",
+    body: "What is your preferred career trajectory?",
+    type: "multiple_choice_question",
+    options: [
+      "Specializing deeply in one field",
+      "Moving into leadership/management",
+      "Switching careers or exploring different industries",
+      "Becoming an entrepreneur or freelancer",
+      "Climbing the corporate ladder in a large company",
+    ],
+  },
+  {
+    id: 8,
+    name: "Detailed Question 8",
+    body: "How do you feel about taking career risks?",
+    type: "multiple_choice_question",
+    options: [
+      "I prefer stability and security over risk",
+      "I’m open to some risk if it leads to growth",
+      "I thrive on taking bold risks and challenges",
+    ],
+  },
+  {
+    id: 9,
+    name: "Detailed Question 9",
+    body: "How do you prefer to work?",
+    type: "multiple_choice_question",
+    options: [
+      "With clear instructions and structure",
+      "With some flexibility, but clear expectations",
+      "With full autonomy and creative freedom",
     ],
   },
 ];
