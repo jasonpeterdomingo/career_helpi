@@ -11,6 +11,8 @@ export interface Question {
     body: string;
     /** The kind of Question; influences how the user answers and what options are displayed */
     type: QuestionType;
-    /** The possible answers for a Question (for Multiple Choice questions) */
+    /** The possible answers for a Question */
     options: string[] | string[][];
+    /** Limited the number of options you are allowed to choose (For checklist_question type) */
+    limit: number | null;
 }

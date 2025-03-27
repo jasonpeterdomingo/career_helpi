@@ -19,6 +19,8 @@ import { QuestionType } from "../interfaces/question";
  *   - For "binary_question", a 2D array (string[][]) with two options.
  *   - For "checklist_question", a list of options (string[]) for the user to select multiple choices.
  *   - For "opinion_question", a list of options (string[]) for the user to select one opinion-based answer.
+ * - `limit` (number | null): A limit to how many answer choices can be selected. If null,
+ * then user can select any amount of answer choices (Applies to checklist_question type).
  *
  * Returns:
  * - A JSX element representing the corresponding question component. The component returned depends
@@ -33,7 +35,8 @@ export function createQuestion(
   name: string,
   body: string,
   type: QuestionType,
-  options: string[] | string[][]
+  options: string[] | string[][],
+  limit: number | null
 ) {
   switch (type) {
     case "multiple_choice_question":
@@ -63,6 +66,7 @@ export function createQuestion(
             name={name}
             body={body}
             options={options as string[]}
+            limit={limit}
           ></ChecklistQuestion>
         </div>
       );
