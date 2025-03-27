@@ -189,7 +189,7 @@ export const DETAILED_QUESTIONS: Question[] = [
     type: "multiple_choice_question",
     options: [
       "Office-based",
-      "Hybrid (mix of office and remote)",
+      "Hybrid (Mix of office and remote)",
       "Fully remote",
       "Outdoors or field-based",
       "Lab or hands-on environment",

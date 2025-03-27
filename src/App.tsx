@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Button, Form } from "react-bootstrap";
-import { DisplayBasicQuestions } from "./Components/DisplayBasicQuestions";
+import { DisplayBasicQuestions } from "./Components/DisplayQuestions/DisplayBasicQuestions";
+import { DisplayDetailedQuestions } from "./Components/DisplayQuestions/DisplayDetailedQuestions";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -33,7 +34,6 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <p>Names: Winnie Li, Jason Domingo, Ember Kerstetter</p>
-        <DisplayBasicQuestions></DisplayBasicQuestions>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -55,6 +55,14 @@ function App() {
           Submit
         </Button>
       </Form>
+
+      <hr></hr>
+      <DisplayBasicQuestions></DisplayBasicQuestions>
+      <hr></hr>
+      
+      <hr></hr>
+      <DisplayDetailedQuestions></DisplayDetailedQuestions>
+      <hr></hr>
     </div>
   );
 }

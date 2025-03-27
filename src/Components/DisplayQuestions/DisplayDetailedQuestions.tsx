@@ -2,29 +2,29 @@
 
 import { Form } from "react-bootstrap";
 import React, { useState } from "react";
-import { BASIC_QUESTIONS } from "../data/questions";
-import { createQuestion } from "../Helpers/displayQuestionHelpers";
+import { DETAILED_QUESTIONS } from "../../data/questions";
+import { createQuestion } from "../../Helpers/displayQuestionHelpers";
 import { Button } from "react-bootstrap";
 
 /**
- * DisplayBasicQuestions Component
+ * DisplayDetailedQuestions Component
  *
  * This component renders questions where users can navigate through one question at a time.
  * The user can move to the next question by clicking a "Next" button.
  *
  * Props:
- * - `basicQuestions` (Question[]): An array of question objects.
+ * - `DETAILED_QUESTIONS` (Question[]): An array of question objects.
  *
  * State:
  * - `index` (number): Tracks the index of the currently displayed question.
  *
  */
-export function DisplayBasicQuestions() {
+export function DisplayDetailedQuestions() {
   const [index, setIndex] = useState<number>(0);
-  const currentQuestion = BASIC_QUESTIONS[index];
+  const currentQuestion = DETAILED_QUESTIONS[index];
 
   function next() {
-    if (index < BASIC_QUESTIONS.length - 1) {
+    if (index < DETAILED_QUESTIONS.length - 1) {
       setIndex(index + 1); // Move to next question
     }
   }
@@ -43,7 +43,7 @@ export function DisplayBasicQuestions() {
         )}
       </Form.Group>
 
-      <Button onClick={next} disabled={index >= BASIC_QUESTIONS.length - 1}>
+      <Button onClick={next} disabled={index >= DETAILED_QUESTIONS.length - 1}>
         Next
       </Button>
     </div>
