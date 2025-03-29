@@ -5,7 +5,7 @@ import { Button, Form } from "react-bootstrap";
  * MultipleChoiceQuestion Component
  *
  * This component renders a multiple-choice question where users can select
- * one option from a list of radio buttons.
+ * one option from a list of radio buttons. Also have a clear answer button option.
  *
  * Props:
  * - `name` (string): The question title.

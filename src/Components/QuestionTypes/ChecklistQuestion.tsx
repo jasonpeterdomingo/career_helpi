@@ -5,7 +5,7 @@ import { Button, Form } from "react-bootstrap";
  * ChecklistQuestion Component
  *
  * This component renders a checklist question where users can select
- * multiple options from a list of checkboxes.
+ * multiple options from a list of checkboxes. Also have a clear answer button option.
  *
  * Props:
  * - `name` (string): The question title.
