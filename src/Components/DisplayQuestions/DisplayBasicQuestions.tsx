@@ -13,13 +13,18 @@ import { Button } from "react-bootstrap";
  * The user can move to the next question by clicking a "Next" button.
  *
  * Props:
+ * - `fontSize` (number): Font size.
  * - `BASIC_QUESTIONS` (Question[]): An array of question objects.
  *
  * State:
  * - `index` (number): Tracks the index of the currently displayed question.
  *
  */
-export function DisplayBasicQuestions() {
+export function DisplayBasicQuestions({
+  fontSize,
+}: {
+  fontSize: number;
+}): React.JSX.Element {
   const [index, setIndex] = useState<number>(0);
   const currentQuestion = BASIC_QUESTIONS[index];
 
@@ -40,7 +45,8 @@ export function DisplayBasicQuestions() {
           currentQuestion.body,
           currentQuestion.type,
           currentQuestion.options,
-          currentQuestion.limit
+          currentQuestion.limit,
+          fontSize
         )}
       </Form.Group>
 

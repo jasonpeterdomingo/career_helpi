@@ -13,6 +13,7 @@ import { Form } from "react-bootstrap";
  * - `options` (string[]): An array of possible answer choices.
  * - `limit` (number | null): A limit to how many answer choices can be selected. If null,
  * then user can select any amount of answer choices.
+ * - `fontSize` (number): Font size.
  *
  * State:
  * - `answers` (string[]): Stores the selected answers.
@@ -23,11 +24,13 @@ export function ChecklistQuestion({
   body,
   options,
   limit,
+  fontSize,
 }: {
   name: string;
   body: string;
   options: string[];
   limit: number | null;
+  fontSize: number;
 }): React.JSX.Element {
   const [answers, setAnswers] = useState<string[]>([]);
 
@@ -46,10 +49,12 @@ export function ChecklistQuestion({
   }
 
   return (
-    <div>
-      <h3>{name}</h3>
+    <div style={{ fontSize: `${fontSize}px` }}>
+      <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
       <Form.Group>
-        <Form.Label>{body}</Form.Label>
+        <Form.Label style={{ fontSize: `${fontSize - 2}px` }}>
+          {body}
+        </Form.Label>
         {options.map((option: string, index: number) => (
           <Form.Check
             key={index}

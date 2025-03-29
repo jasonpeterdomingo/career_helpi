@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 /**
  * OpinionQuestion Component
@@ -11,6 +11,7 @@ import { Button } from "react-bootstrap";
  * - `name` (string): The question title.
  * - `body` (string): The question instructions.
  * - `options` (string[]): An array of opinion choices (strongly agree, agree, neutral, etc).
+ * - `fontSize` (number): Font size.
  *
  * State:
  * - `answer` (string): Stores the selected answer.
@@ -21,10 +22,12 @@ export function OpinionQuestion({
   name,
   body,
   options,
+  fontSize,
 }: {
   name: string;
   body: string;
   options: string[];
+  fontSize: number;
 }): React.JSX.Element {
   const [answer, setAnswer] = useState<string>("");
 
@@ -34,18 +37,23 @@ export function OpinionQuestion({
   }
 
   return (
-    <div>
-      <h3>{name}</h3>
-      <p>{body}</p>
-      {options.map((option, index) => (
-        <Button
-          key={index}
-          variant={answer === option ? "primary" : "outline-primary"}
-          onClick={() => updateAnswers(option)}
-        >
-          {option}
-        </Button>
-      ))}
+    <div style={{ fontSize: `${fontSize}px` }}>
+      <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
+      <Form.Group>
+        <Form.Label style={{ fontSize: `${fontSize - 2}px` }}>
+          {body}
+        </Form.Label>
+        {options.map((option, index) => (
+          <Button
+            key={index}
+            variant={answer === option ? "primary" : "outline-primary"}
+            style={{ fontSize: `${fontSize}px` }}
+            onClick={() => updateAnswers(option)}
+          >
+            {option}
+          </Button>
+        ))}
+      </Form.Group>
 
       {/*For testing if answers are correctly updated.*/}
       <div>Answer: {answer} </div>
