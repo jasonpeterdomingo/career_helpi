@@ -7,7 +7,7 @@ import { Button, Form } from "react-bootstrap";
  * This component renders a binary-choice question with options displayed
  * as Bootstrap buttons. When a user clicks a button, it stores that specific answer
  * for each pair. Each option is presented as a pair of choices like a would you rather
- * style question.
+ * style question. Also have a clear answer button option.
  *
  * Props:
  * - `name` (string): The question title.
@@ -40,6 +40,10 @@ export function BinaryQuestion({
     const updatedAnswers = [...answers];
     updatedAnswers[index] = answer;
     setAnswers(updatedAnswers);
+  }
+
+  function clearAnswers() {
+    setAnswers([]);
   }
 
   return (
@@ -76,6 +80,7 @@ export function BinaryQuestion({
 
       {/*For testing if answers are correctly updated.*/}
       <div>Answer: {answers.join(", ")}</div>
+      <Button onClick={clearAnswers}>Clear</Button>
     </div>
   );
 }
