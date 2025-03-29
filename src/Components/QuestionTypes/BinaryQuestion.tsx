@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 /**
  * BinaryQuestion Component
@@ -13,20 +13,22 @@ import { Button } from "react-bootstrap";
  * - `name` (string): The question title.
  * - `body` (string): The question instructions.
  * - `options` (string[][]): An array of pairs of answer choices for binary questions.
+ * - `fontSize` (number): Font size.
  *
  * State:
  * - `answers` (string[]): Stores the selected answers for each pair.
  *
  */
-
 export function BinaryQuestion({
   name,
   body,
   options,
+  fontSize,
 }: {
   name: string;
   body: string;
   options: string[][];
+  fontSize: number;
 }): React.JSX.Element {
   // Track selected answers for each option pair
   const [answers, setAnswers] = useState<string[]>(
@@ -41,30 +43,36 @@ export function BinaryQuestion({
   }
 
   return (
-    <div>
-      <h3>{name}</h3>
-      <p>{body}</p>
-      {options.map((optionPair, index) => (
-        <div key={index}>
-          {/* Render two buttons for each pair of options */}
-          <Button
-            variant={
-              answers[index] === optionPair[0] ? "primary" : "outline-primary"
-            }
-            onClick={() => updateAnswers(index, optionPair[0])}
-          >
-            {optionPair[0]}
-          </Button>
-          <Button
-            variant={
-              answers[index] === optionPair[1] ? "primary" : "outline-primary"
-            }
-            onClick={() => updateAnswers(index, optionPair[1])}
-          >
-            {optionPair[1]}
-          </Button>
-        </div>
-      ))}
+    <div style={{ fontSize: `${fontSize}px` }}>
+      <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
+      <Form.Group>
+        <Form.Label style={{ fontSize: `${fontSize - 2}px` }}>
+          {body}
+        </Form.Label>
+        {options.map((optionPair, index) => (
+          <div key={index}>
+            {/* Render two buttons for each pair of options */}
+            <Button
+              variant={
+                answers[index] === optionPair[0] ? "primary" : "outline-primary"
+              }
+              style={{ fontSize: `${fontSize}px` }}
+              onClick={() => updateAnswers(index, optionPair[0])}
+            >
+              {optionPair[0]}
+            </Button>
+            <Button
+              variant={
+                answers[index] === optionPair[1] ? "primary" : "outline-primary"
+              }
+              style={{ fontSize: `${fontSize}px` }}
+              onClick={() => updateAnswers(index, optionPair[1])}
+            >
+              {optionPair[1]}
+            </Button>
+          </div>
+        ))}
+      </Form.Group>
 
       {/*For testing if answers are correctly updated.*/}
       <div>Answer: {answers.join(", ")}</div>

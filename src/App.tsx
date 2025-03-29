@@ -4,6 +4,7 @@ import "./App.css";
 import { Button, Form } from "react-bootstrap";
 import { DisplayBasicQuestions } from "./Components/DisplayQuestions/DisplayBasicQuestions";
 import { DisplayDetailedQuestions } from "./Components/DisplayQuestions/DisplayDetailedQuestions";
+import { FontSizeAdjuster } from "./Components/FontSizeAdjuster";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -15,6 +16,7 @@ if (prevKey !== null) {
 
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
+  const [fontSize, setFontSize] = useState<number>(16); // For adjusting font size
 
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -34,14 +36,6 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <p>Names: Winnie Li, Jason Domingo, Ember Kerstetter</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
       <Form>
         <Form.Label>API Key:</Form.Label>
@@ -56,13 +50,17 @@ function App() {
         </Button>
       </Form>
 
-      <hr></hr>
-      <DisplayBasicQuestions></DisplayBasicQuestions>
-      <hr></hr>
-      
-      <hr></hr>
-      <DisplayDetailedQuestions></DisplayDetailedQuestions>
-      <hr></hr>
+      <hr />
+      <FontSizeAdjuster setFontSize={setFontSize} />
+      <hr />
+
+      <hr />
+      <DisplayBasicQuestions fontSize={fontSize} />
+      <hr />
+
+      <hr />
+      <DisplayDetailedQuestions fontSize={fontSize} />
+      <hr />
     </div>
   );
 }
