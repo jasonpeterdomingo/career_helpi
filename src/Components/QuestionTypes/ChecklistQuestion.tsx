@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 /**
  * ChecklistQuestion Component
@@ -48,6 +48,10 @@ export function ChecklistQuestion({
     }
   }
 
+  function clearAnswers() {
+    setAnswers([]);
+  }
+
   return (
     <div style={{ fontSize: `${fontSize}px` }}>
       <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
@@ -69,6 +73,7 @@ export function ChecklistQuestion({
       </Form.Group>
 
       <div> Answers: {answers.join(", ")}</div>
+      <Button onClick={clearAnswers}>Clear</Button>
     </div>
   );
 }
