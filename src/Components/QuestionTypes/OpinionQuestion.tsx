@@ -5,7 +5,7 @@ import { Button, Form } from "react-bootstrap";
  * OpinionQuestion Component
  *
  * This component renders an opinion-based question where users can select
- * one option from a list of Bootstrap buttons.
+ * one option from a list of Bootstrap buttons. Also have a clear answer button option.
  *
  * Props:
  * - `name` (string): The question title.
@@ -36,6 +36,10 @@ export function OpinionQuestion({
     setAnswer(answer);
   }
 
+  function clearAnswers() {
+    setAnswer("");
+  }
+
   return (
     <div style={{ fontSize: `${fontSize}px` }}>
       <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
@@ -57,6 +61,7 @@ export function OpinionQuestion({
 
       {/*For testing if answers are correctly updated.*/}
       <div>Answer: {answer} </div>
+      <Button onClick={clearAnswers}>Clear</Button>
     </div>
   );
 }

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 /**
  * ChecklistQuestion Component
  *
  * This component renders a checklist question where users can select
- * multiple options from a list of checkboxes.
+ * multiple options from a list of checkboxes. Also have a clear answer button option.
  *
  * Props:
  * - `name` (string): The question title.
@@ -48,6 +48,10 @@ export function ChecklistQuestion({
     }
   }
 
+  function clearAnswers() {
+    setAnswers([]);
+  }
+
   return (
     <div style={{ fontSize: `${fontSize}px` }}>
       <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
@@ -69,6 +73,7 @@ export function ChecklistQuestion({
       </Form.Group>
 
       <div> Answers: {answers.join(", ")}</div>
+      <Button onClick={clearAnswers}>Clear</Button>
     </div>
   );
 }

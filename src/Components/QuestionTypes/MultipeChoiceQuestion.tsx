@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 /**
  * MultipleChoiceQuestion Component
  *
  * This component renders a multiple-choice question where users can select
- * one option from a list of radio buttons.
+ * one option from a list of radio buttons. Also have a clear answer button option.
  *
  * Props:
  * - `name` (string): The question title.
@@ -30,8 +30,12 @@ export function MultipleChoiceQuestion({
 }): React.JSX.Element {
   const [answer, setAnswer] = useState<string>("");
 
-  function updateAnswers(e: React.ChangeEvent<HTMLInputElement>) {
+  function updateAnswer(e: React.ChangeEvent<HTMLInputElement>) {
     setAnswer(e.target.value);
+  }
+
+  function clearAnswer() {
+    setAnswer("");
   }
 
   return (
@@ -49,12 +53,13 @@ export function MultipleChoiceQuestion({
             label={option}
             value={option}
             checked={answer === option}
-            onChange={(e) => updateAnswers(e)} // Update state when selection changes
+            onChange={(e) => updateAnswer(e)} // Update state when selection changes
           />
         ))}
       </Form.Group>
 
       <div> Answer: {answer}</div>
+      <Button onClick={clearAnswer}>Clear</Button>
     </div>
   );
 }
