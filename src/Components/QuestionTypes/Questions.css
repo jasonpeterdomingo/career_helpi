@@ -1,0 +1,23 @@
+.question {
+  display: flex;
+  justify-content: center;
+}
+.multiple-choice {
+  display: table-cell;
+  vertical-align: middle;
+  align-items: middle;
+  margin: auto;
+}
+
+.binary-question {
+}
+
+.opinion-question {
+}
+
+.checklist-question {
+  display: table-cell;
+  vertical-align: middle;
+  align-items: middle;
+  margin: auto;
+}
