@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { Button, Form } from "react-bootstrap";
+import { Homepage } from "./Components/Homepage";
 import { DisplayBasicQuestions } from "./Components/DisplayQuestions/DisplayBasicQuestions";
 import { DisplayDetailedQuestions } from "./Components/DisplayQuestions/DisplayDetailedQuestions";
 import { FontSizeAdjuster } from "./Components/FontSizeAdjuster";
@@ -14,9 +14,13 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
+// Pages
+type Page = "home" | "basic" | "detailed";
+
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [fontSize, setFontSize] = useState<number>(16); // For adjusting font size
+  const [currentPage, setPage] = useState<Page>("home"); // For rendering different pages
 
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
@@ -28,13 +32,22 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  // Conditional logic for deciding what component to render
+  function renderPage() {
+    switch (currentPage) {
+      case "basic":
+        return <DisplayBasicQuestions fontSize={fontSize} />;
+      case "detailed":
+        return <DisplayDetailedQuestions fontSize={fontSize} />;
+      default:
+        return <Homepage navigatePage={setPage} />; // Render the homepage by default
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p> */}
         <p>Names: Winnie Li, Jason Domingo, Ember Kerstetter</p>
       </header>
       <Form>
@@ -45,22 +58,12 @@ function App() {
           onChange={changeKey}
         ></Form.Control>
         <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>
+        {/* <Button className="Submit-Button" onClick={handleSubmit}>
           Submit
-        </Button>
+        </Button> */}
       </Form>
 
-      <hr />
-      <FontSizeAdjuster setFontSize={setFontSize} />
-      <hr />
-
-      <hr />
-      <DisplayBasicQuestions fontSize={fontSize} />
-      <hr />
-
-      <hr />
-      <DisplayDetailedQuestions fontSize={fontSize} />
-      <hr />
+      {renderPage()}
     </div>
   );
 }
