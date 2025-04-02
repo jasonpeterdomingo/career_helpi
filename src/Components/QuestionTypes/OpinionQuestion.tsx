@@ -42,7 +42,7 @@ export function OpinionQuestion({
   }
 
   return (
-    <div style={{ fontSize: `${fontSize}px` }}>
+    <div className="text" style={{ fontSize: `${fontSize}px` }}>
       <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
       <Form.Group>
         <Form.Label style={{ fontSize: `${fontSize - 2}px` }}>
