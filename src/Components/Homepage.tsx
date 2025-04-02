@@ -4,6 +4,7 @@ type Page = "home" | "basic" | "detailed";
 
 interface HomepageProps {
   navigatePage: (page: Page) => void;
+  fontSize: number;
 }
 
 /**
@@ -15,9 +16,9 @@ interface HomepageProps {
  *  - `navigatePage` (function): A function to navigate to different pages.
  *
  */
-export function Homepage({ navigatePage }: HomepageProps) {
+export function Homepage({ navigatePage, fontSize }: HomepageProps) {
   return (
-    <div>
+    <div style={{ fontSize: `${fontSize}px` }}>
       <h1>Welcome to The Career Helpi!</h1>
       <p>Description here...</p>
 

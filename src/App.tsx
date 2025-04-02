@@ -45,7 +45,7 @@ function App() {
       case "detailed":
         return <DisplayDetailedQuestions fontSize={fontSize} />;
       default:
-        return <Homepage navigatePage={setPage} />; // Render the homepage by default
+        return <Homepage navigatePage={setPage} fontSize={fontSize} />; // Render the homepage by default
     }
   }
 
