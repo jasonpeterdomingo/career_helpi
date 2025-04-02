@@ -4,7 +4,24 @@
   font-family: "Nunito", sans-serif;
 }
 
-.description-body {
-  width: auto;
-  margin: 0 auto;
+.header {
+  font-weight: bolder;
+}
+
+.title {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-weight: bold;
+}
+
+.description-text {
+  max-width: 80vw;
+  margin-top: 2%;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
 }

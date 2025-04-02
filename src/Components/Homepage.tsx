@@ -19,19 +19,21 @@ interface HomepageProps {
 export function Homepage({ navigatePage }: HomepageProps) {
   return (
     <div className="text">
-      <h1>Welcome to The Career Helpi!</h1>
-      <h2>Basic Questions</h2>
-      <p>
-        Answer a set of fundamental questions to receive broad yet insightful
-        career recommendations. The results are tailored to your interests and
-        personality, providing a variety of potential career paths that align
-        with your traits. A progress bar will track your completion, and once
-        all questions are answered, you'll unlock your results.
-      </p>
+      <h1 className="header">Welcome to The Career Helpi!</h1>
+      <h2 className="title">Basic Questions</h2>
+      <body>
+        <p className="description-text">
+          Answer a set of fundamental questions to receive broad yet insightful
+          career recommendations. The results are tailored to your interests and
+          personality, providing a variety of potential career paths that align
+          with your traits. A progress bar will track your completion, and once
+          all questions are answered, you'll unlock your results.
+        </p>
+      </body>
       <Button onClick={() => navigatePage("basic")}>Start Here</Button>
 
-      <h2>Detailed Questions</h2>
-      <p>
+      <h2 className="title">Detailed Questions</h2>
+      <p className="description-text">
         Dive deeper into your career preferences by providing more specific
         information about your work experience and priorities. This section
         allows you to indicate whether you have career experience, enabling more
