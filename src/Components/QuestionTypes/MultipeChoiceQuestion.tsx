@@ -43,21 +43,25 @@ export function MultipleChoiceQuestion({
     <div style={{ fontSize: `${fontSize}px` }}>
       <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
       <div className="question">
-        <Form.Group className="multiple-choice">
-          <Form.Label style={{ fontSize: `${fontSize - 2}px` }}>
+        <Form.Group>
+          <Form.Label
+            className="question-prompt"
+            style={{ fontSize: `${fontSize - 2}px` }}
+          >
             {body}
           </Form.Label>
           {options.map((option: string, index: number) => (
-            <Form.Check
-              style={{ textAlign: "left" }}
-              key={index}
-              type="radio"
-              name={name}
-              label={option}
-              value={option}
-              checked={answer === option}
-              onChange={(e) => updateAnswer(e)} // Update state when selection changes
-            />
+            <div key={index} className="mult-choice-item">
+              <Form.Check
+                key={index}
+                type="radio"
+                name={name}
+                label={option}
+                value={option}
+                checked={answer === option}
+                onChange={(e) => updateAnswer(e)} // Update state when selection changes
+              />
+            </div>
           ))}
         </Form.Group>
       </div>

@@ -2,11 +2,37 @@
   display: flex;
   justify-content: center;
 }
-.multiple-choice {
-  display: table-cell;
-  vertical-align: middle;
-  align-items: middle;
+
+.question-prompt {
+  align-items: center;
+  display: block;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+.checklist-question {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin: auto;
+  width: auto;
+  max-width: 90vw;
+}
+
+.mult-choice-item {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 5px 10px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  width: auto;
+  padding-top: 3px;
+  padding-bottom: 4px;
+  margin-left: 5vw;
 }
 
 .binary-question {
@@ -15,9 +41,9 @@
 .opinion-question {
 }
 
-.checklist-question {
-  display: table-cell;
-  vertical-align: middle;
-  align-items: middle;
+.multiple-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin: auto;
 }

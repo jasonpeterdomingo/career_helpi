@@ -57,22 +57,28 @@ export function ChecklistQuestion({
     <div style={{ fontSize: `${fontSize}px` }}>
       <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
       <div className="question">
-        <Form.Group className="checklist-question">
-          <Form.Label style={{ fontSize: `${fontSize - 2}px` }}>
+        <Form.Group>
+          <Form.Label
+            className="question-prompt"
+            style={{ fontSize: `${fontSize - 2}px` }}
+          >
             {body}
           </Form.Label>
-          {options.map((option: string, index: number) => (
-            <Form.Check
-              style={{ textAlign: "left" }}
-              key={index}
-              type="checkbox"
-              name={name}
-              label={option}
-              value={option}
-              checked={answers.includes(option)}
-              onChange={(e) => updateAnswers(e)}
-            />
-          ))}
+          <div className="checklist-question">
+            {options.map((option: string, index: number) => (
+              <div key={option} className="checklist-item">
+                <Form.Check
+                  key={index}
+                  type="checkbox"
+                  name={name}
+                  label={option}
+                  value={option}
+                  checked={answers.includes(option)}
+                  onChange={(e) => updateAnswers(e)}
+                />
+              </div>
+            ))}
+          </div>
         </Form.Group>
       </div>
       <div> Answers: {answers.join(", ")}</div>
