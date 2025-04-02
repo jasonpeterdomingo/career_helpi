@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import "./Questions.css";
 
 /**
  * BinaryQuestion Component
@@ -54,7 +55,7 @@ export function BinaryQuestion({
           {body}
         </Form.Label>
         {options.map((optionPair, index) => (
-          <div key={index}>
+          <div className="binary-question" key={index}>
             {/* Render two buttons for each pair of options */}
             <Button
               variant={

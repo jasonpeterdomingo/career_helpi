@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import "./Questions.css";
 
 /**
  * MultipleChoiceQuestion Component
@@ -41,23 +42,29 @@ export function MultipleChoiceQuestion({
   return (
     <div style={{ fontSize: `${fontSize}px` }}>
       <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
-      <Form.Group>
-        <Form.Label style={{ fontSize: `${fontSize - 2}px` }}>
-          {body}
-        </Form.Label>
-        {options.map((option: string, index: number) => (
-          <Form.Check
-            key={index}
-            type="radio"
-            name={name}
-            label={option}
-            value={option}
-            checked={answer === option}
-            onChange={(e) => updateAnswer(e)} // Update state when selection changes
-          />
-        ))}
-      </Form.Group>
-
+      <div className="question">
+        <Form.Group>
+          <Form.Label
+            className="question-prompt"
+            style={{ fontSize: `${fontSize - 2}px` }}
+          >
+            {body}
+          </Form.Label>
+          {options.map((option: string, index: number) => (
+            <div key={index} className="mult-choice-item">
+              <Form.Check
+                key={index}
+                type="radio"
+                name={name}
+                label={option}
+                value={option}
+                checked={answer === option}
+                onChange={(e) => updateAnswer(e)} // Update state when selection changes
+              />
+            </div>
+          ))}
+        </Form.Group>
+      </div>
       <div> Answer: {answer}</div>
       <Button onClick={clearAnswer}>Clear</Button>
     </div>

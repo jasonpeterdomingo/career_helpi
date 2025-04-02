@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import "./Questions.css";
 
 /**
  * ChecklistQuestion Component
@@ -55,23 +56,31 @@ export function ChecklistQuestion({
   return (
     <div style={{ fontSize: `${fontSize}px` }}>
       <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
-      <Form.Group>
-        <Form.Label style={{ fontSize: `${fontSize - 2}px` }}>
-          {body}
-        </Form.Label>
-        {options.map((option: string, index: number) => (
-          <Form.Check
-            key={index}
-            type="checkbox"
-            name={name}
-            label={option}
-            value={option}
-            checked={answers.includes(option)}
-            onChange={(e) => updateAnswers(e)}
-          />
-        ))}
-      </Form.Group>
-
+      <div className="question">
+        <Form.Group>
+          <Form.Label
+            className="question-prompt"
+            style={{ fontSize: `${fontSize - 2}px` }}
+          >
+            {body}
+          </Form.Label>
+          <div className="checklist-question">
+            {options.map((option: string, index: number) => (
+              <div key={option} className="checklist-item">
+                <Form.Check
+                  key={index}
+                  type="checkbox"
+                  name={name}
+                  label={option}
+                  value={option}
+                  checked={answers.includes(option)}
+                  onChange={(e) => updateAnswers(e)}
+                />
+              </div>
+            ))}
+          </div>
+        </Form.Group>
+      </div>
       <div> Answers: {answers.join(", ")}</div>
       <Button onClick={clearAnswers}>Clear</Button>
     </div>
