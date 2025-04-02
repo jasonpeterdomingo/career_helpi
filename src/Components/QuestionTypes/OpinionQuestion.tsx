@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import "./Questions.css";
 
 /**
  * OpinionQuestion Component
@@ -47,16 +48,18 @@ export function OpinionQuestion({
         <Form.Label style={{ fontSize: `${fontSize - 2}px` }}>
           {body}
         </Form.Label>
-        {options.map((option, index) => (
-          <Button
-            key={index}
-            variant={answer === option ? "primary" : "outline-primary"}
-            style={{ fontSize: `${fontSize}px` }}
-            onClick={() => updateAnswers(option)}
-          >
-            {option}
-          </Button>
-        ))}
+        <div className="opinion-question">
+          {options.map((option, index) => (
+            <Button
+              key={index}
+              variant={answer === option ? "primary" : "outline-primary"}
+              style={{ fontSize: `${fontSize}px` }}
+              onClick={() => updateAnswers(option)}
+            >
+              {option}
+            </Button>
+          ))}
+        </div>
       </Form.Group>
 
       {/*For testing if answers are correctly updated.*/}
