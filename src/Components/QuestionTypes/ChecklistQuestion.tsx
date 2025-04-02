@@ -54,7 +54,7 @@ export function ChecklistQuestion({
   }
 
   return (
-    <div style={{ fontSize: `${fontSize}px` }}>
+    <div className="text" style={{ fontSize: `${fontSize}px` }}>
       <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
       <div className="question">
         <Form.Group>

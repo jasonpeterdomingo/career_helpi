@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import "./Component.css";
+import "./Components.css";
 
 type Page = "home" | "basic" | "detailed";
 
@@ -21,7 +21,7 @@ export function Homepage({ navigatePage }: HomepageProps) {
     <div className="text">
       <h1>Welcome to The Career Helpi!</h1>
       <h2>Basic Questions</h2>
-      <p className="">
+      <p>
         Answer a set of fundamental questions to receive broad yet insightful
         career recommendations. The results are tailored to your interests and
         personality, providing a variety of potential career paths that align
