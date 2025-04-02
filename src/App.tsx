@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Form } from "react-bootstrap";
+import { Form, Navbar, Nav, Container } from "react-bootstrap";
 import { Homepage } from "./Components/Homepage";
 import { DisplayBasicQuestions } from "./Components/DisplayQuestions/DisplayBasicQuestions";
 import { DisplayDetailedQuestions } from "./Components/DisplayQuestions/DisplayDetailedQuestions";
@@ -45,7 +45,7 @@ function App() {
       case "detailed":
         return <DisplayDetailedQuestions fontSize={fontSize} />;
       default:
-        return <Homepage navigatePage={setPage} />; // Render the homepage by default
+        return <Homepage navigatePage={setPage} fontSize={fontSize} />; // Render the homepage by default
     }
   }
 
@@ -54,6 +54,24 @@ function App() {
       <header className="App-header">
         <p>Names: Winnie Li, Jason Domingo, Ember Kerstetter</p>
       </header>
+      {/* Bootstrap Navbar */}
+      <Navbar bg="primary" data-bs-theme="dark">
+        <Container>
+          <Navbar.Brand onClick={() => setPage("home")}>
+            Career Helpi
+          </Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link onClick={() => setPage("home")}>Home</Nav.Link>
+            <Nav.Link onClick={() => setPage("basic")}>
+              Basic Questions
+            </Nav.Link>
+            <Nav.Link onClick={() => setPage("detailed")}>
+              Detailed Questions
+            </Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control
