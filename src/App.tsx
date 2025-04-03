@@ -77,6 +77,7 @@ function App() {
       <hr />
       {renderPage()}
 
+      {/* Footer with API Key Input */}
       <footer className="App-footer">
         <Form>
           <Form.Label>API Key:</Form.Label>

@@ -3,8 +3,10 @@
 }
 
 .App-footer {
-  background-color: #282c34;
+  background-color: #d3d2d2;
   color: white;
+  padding-top: 10px; 
+  padding-bottom: 10px;
 }
 
 /*
