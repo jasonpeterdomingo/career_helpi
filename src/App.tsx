@@ -72,22 +72,25 @@ function App() {
         </Container>
       </Navbar>
 
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder={key ? "" : "Insert API Key Here"} // originally just "Insert API Key Here", but i had to use the key variable so there were no deploy errors
-          onChange={changeKey}
-        ></Form.Control>
-        <br></br>
-        {/* <Button className="Submit-Button" onClick={handleSubmit}>
-          Submit
-        </Button> */}
-      </Form>
       <hr />
       <FontSizeAdjuster setFontSize={setFontSize} />
       <hr />
       {renderPage()}
+
+      <footer className="App-footer">
+        <Form>
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder={key ? "" : "Insert API Key Here"} // originally just "Insert API Key Here", but i had to use the key variable so there were no deploy errors
+            onChange={changeKey}
+          ></Form.Control>
+          <br></br>
+          {/* <Button className="Submit-Button" onClick={handleSubmit}>
+            Submit
+          </Button> */}
+        </Form>
+      </footer>
     </div>
   );
 }
