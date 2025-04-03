@@ -1,6 +1,24 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
+.App-footer {
+  flex: 1;
+  background-color: #d3d2d2;
+  width: 100%;
+  color: black;
+  padding-top: 10px; 
+}
+
 /*
 .App-logo {
   height: 40vmin;

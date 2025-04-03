@@ -51,43 +51,46 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Names: Winnie Li, Jason Domingo, Ember Kerstetter</p>
-      </header>
       {/* Bootstrap Navbar */}
-      <Navbar bg="primary" data-bs-theme="dark">
-        <Container>
-          <Navbar.Brand onClick={() => setPage("home")}>
-            Career Helpi
-          </Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link onClick={() => setPage("home")}>Home</Nav.Link>
-            <Nav.Link onClick={() => setPage("basic")}>
-              Basic Questions
-            </Nav.Link>
-            <Nav.Link onClick={() => setPage("detailed")}>
-              Detailed Questions
-            </Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder={key ? "" : "Insert API Key Here"} // originally just "Insert API Key Here", but i had to use the key variable so there were no deploy errors
-          onChange={changeKey}
-        ></Form.Control>
-        <br></br>
-        {/* <Button className="Submit-Button" onClick={handleSubmit}>
-          Submit
-        </Button> */}
-      </Form>
+      <header>
+        <Navbar bg="primary" data-bs-theme="dark">
+          <Container>
+            <Navbar.Brand onClick={() => setPage("home")}>
+              Career Helpi
+            </Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link onClick={() => setPage("home")}>Home</Nav.Link>
+              <Nav.Link onClick={() => setPage("basic")}>
+                Basic Questions
+              </Nav.Link>
+              <Nav.Link onClick={() => setPage("detailed")}>
+                Detailed Questions
+              </Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+      </header>
       <hr />
       <FontSizeAdjuster setFontSize={setFontSize} />
       <hr />
       {renderPage()}
+
+      {/* Footer with API Key Input */}
+      <footer className="App-footer">
+        <Form>
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder={key ? "" : "Insert API Key Here"} // originally just "Insert API Key Here", but i had to use the key variable so there were no deploy errors
+            onChange={changeKey}
+          ></Form.Control>
+          <br></br>
+          {/* <Button className="Submit-Button" onClick={handleSubmit}>
+            Submit
+          </Button> */}
+        </Form>
+        <p>Names: Winnie Li, Jason Domingo, Ember Kerstetter</p>
+      </footer>
     </div>
   );
 }
