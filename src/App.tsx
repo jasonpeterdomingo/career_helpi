@@ -51,27 +51,25 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Names: Winnie Li, Jason Domingo, Ember Kerstetter</p>
-      </header>
       {/* Bootstrap Navbar */}
-      <Navbar bg="primary" data-bs-theme="dark">
-        <Container>
-          <Navbar.Brand onClick={() => setPage("home")}>
-            Career Helpi
-          </Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link onClick={() => setPage("home")}>Home</Nav.Link>
-            <Nav.Link onClick={() => setPage("basic")}>
-              Basic Questions
-            </Nav.Link>
-            <Nav.Link onClick={() => setPage("detailed")}>
-              Detailed Questions
-            </Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-
+      <header>
+        <Navbar bg="primary" data-bs-theme="dark">
+          <Container>
+            <Navbar.Brand onClick={() => setPage("home")}>
+              Career Helpi
+            </Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link onClick={() => setPage("home")}>Home</Nav.Link>
+              <Nav.Link onClick={() => setPage("basic")}>
+                Basic Questions
+              </Nav.Link>
+              <Nav.Link onClick={() => setPage("detailed")}>
+                Detailed Questions
+              </Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+      </header>
       <hr />
       <FontSizeAdjuster setFontSize={setFontSize} />
       <hr />
@@ -91,6 +89,7 @@ function App() {
             Submit
           </Button> */}
         </Form>
+        <p>Names: Winnie Li, Jason Domingo, Ember Kerstetter</p>
       </footer>
     </div>
   );
