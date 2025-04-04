@@ -59,11 +59,22 @@ function App() {
               Career Helpi
             </Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link onClick={() => setPage("home")}>Home</Nav.Link>
-              <Nav.Link onClick={() => setPage("basic")}>
+              <Nav.Link
+                className="custom-nav-link"
+                onClick={() => setPage("home")}
+              >
+                Home
+              </Nav.Link>
+              <Nav.Link
+                className="custom-nav-link"
+                onClick={() => setPage("basic")}
+              >
                 Basic Questions
               </Nav.Link>
-              <Nav.Link onClick={() => setPage("detailed")}>
+              <Nav.Link
+                className="custom-nav-link"
+                onClick={() => setPage("detailed")}
+              >
                 Detailed Questions
               </Nav.Link>
             </Nav>
