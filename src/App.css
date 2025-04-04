@@ -1,4 +1,6 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -16,10 +18,27 @@ html, body, #root {
   background-color: #d3d2d2;
   width: 100%;
   color: black;
-  padding-top: 10px; 
+  padding-top: 10px;
 }
 
+.custom-nav-link {
+  transition: background-color 0.2s ease-in-out;
+}
+
+.custom-nav-link:hover {
+  background-color: lightskyblue !important;
+  border-radius: 5px;
+}
 /*
+.custom-nav-link {
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: black !important;
+  font-weight: bolder;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
