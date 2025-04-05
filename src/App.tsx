@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Form, Navbar, Nav, Container } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { Homepage } from "./Components/Homepage";
+import { NavigationBar } from "./Components/NavigationBar";
 import { DisplayBasicQuestions } from "./Components/DisplayQuestions/DisplayBasicQuestions";
 import { DisplayDetailedQuestions } from "./Components/DisplayQuestions/DisplayDetailedQuestions";
 import { FontSizeAdjuster } from "./Components/FontSizeAdjuster";
@@ -51,35 +52,8 @@ function App() {
 
   return (
     <div className="App">
-      {/* Bootstrap Navbar */}
       <header>
-        <Navbar bg="primary" data-bs-theme="dark">
-          <Container>
-            <Navbar.Brand onClick={() => setPage("home")}>
-              Career Helpi
-            </Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link
-                className="custom-nav-link"
-                onClick={() => setPage("home")}
-              >
-                Home
-              </Nav.Link>
-              <Nav.Link
-                className="custom-nav-link"
-                onClick={() => setPage("basic")}
-              >
-                Basic Questions
-              </Nav.Link>
-              <Nav.Link
-                className="custom-nav-link"
-                onClick={() => setPage("detailed")}
-              >
-                Detailed Questions
-              </Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
+        <NavigationBar setPage={setPage} />
       </header>
       <hr />
       <FontSizeAdjuster setFontSize={setFontSize} />
