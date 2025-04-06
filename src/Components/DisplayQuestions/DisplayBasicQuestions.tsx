@@ -7,7 +7,7 @@ import {
   createQuestion,
   isQuestionAnswered,
 } from "../../Helpers/displayQuestionHelpers";
-import { Button } from "react-bootstrap";
+import { Button, ProgressBar } from "react-bootstrap";
 
 /**
  * DisplayBasicQuestions Component
@@ -21,6 +21,7 @@ import { Button } from "react-bootstrap";
  *
  * State:
  * - `index` (number): Tracks the index of the currently displayed question.
+ * - `answers` ({ [id: number]: string | string[] }): Stores the answers for each question.
  *
  */
 export function DisplayBasicQuestions({
@@ -52,8 +53,18 @@ export function DisplayBasicQuestions({
     }
   }
 
+  const totalQuestions = BASIC_QUESTIONS.length;
+  const answered = isAnswered ? index + 1 : index;
+  const progress = Math.round((answered / totalQuestions) * 100);
+
   return (
     <div>
+      <ProgressBar
+        now={progress}
+        label={`${progress}%`}
+        style={{ marginBottom: "20px" }}
+      />
+
       <Form.Group
         controlId={`formQuestion${currentQuestion.id}`}
         key={currentQuestion.id}
