@@ -22,6 +22,7 @@ import { QuestionType } from "../interfaces/question";
  * - `limit` (number | null): A limit to how many answer choices can be selected. If null,
  * then user can select any amount of answer choices (Applies to checklist_question type).
  * - `fontSize` (number): Font size.
+ * - `onChange` ((value: string | string[]) => void): Callback function to capture user responses.
  *
  * Returns:
  * - A JSX element representing the corresponding question component. The component returned depends
@@ -38,7 +39,8 @@ export function createQuestion(
   type: QuestionType,
   options: string[] | string[][],
   limit: number | null,
-  fontSize: number
+  fontSize: number,
+  onChange: (value: string | string[]) => void
 ) {
   switch (type) {
     case "multiple_choice_question":
@@ -49,6 +51,7 @@ export function createQuestion(
             body={body}
             options={options as string[]}
             fontSize={fontSize}
+            onChange={onChange}
           ></MultipleChoiceQuestion>
         </div>
       );
@@ -60,6 +63,7 @@ export function createQuestion(
             body={body}
             options={options as string[][]}
             fontSize={fontSize}
+            onChange={onChange}
           ></BinaryQuestion>
         </div>
       );
@@ -72,6 +76,7 @@ export function createQuestion(
             options={options as string[]}
             limit={limit}
             fontSize={fontSize}
+            onChange={onChange}
           ></ChecklistQuestion>
         </div>
       );
@@ -83,10 +88,56 @@ export function createQuestion(
             body={body}
             options={options as string[]}
             fontSize={fontSize}
+            onChange={onChange}
           ></OpinionQuestion>
         </div>
       );
     default:
       throw Error("Invalid question type!");
   }
+}
+
+/**
+ * isQuestionAnswered Function
+ *
+ * This function determines whether a question has been sufficiently answered
+ * based on its type and the user's current response.
+ *
+ * Params:
+ * - `type` (QuestionType): The type of the question.
+ * - `answer` (string | string[]): The user's current answer.
+ *   - For "binary_question": An array of strings representing choices for each binary pair.
+ *   - For "checklist_question": An array of selected options.
+ *   - For "multiple_choice_question" and "opinion_question": A single selected string.
+ * - `options` (string[] | string[][]): The list of options for the question.
+ *
+ * Returns:
+ * - `true` if the question has been answered according to its requirements.
+ * - `false` if the answer is missing or incomplete.
+ *   - For "binary_question": Returns true if all pairs are answered (non-empty and matching number of pairs).
+ *   - For "checklist_question": Returns true if at least one option is selected.
+ *   - For "multiple_choice_question" and "opinion_question": Returns true if a non-empty string is selected.
+ */
+export function isQuestionAnswered(
+  type: QuestionType,
+  answer: string | string[],
+  options: string[] | string[][]
+): boolean {
+  if (!answer) return false;
+
+  const isArray = Array.isArray(answer);
+
+  if (type === "binary_question") {
+    return (
+      isArray &&
+      answer.length === options.length &&
+      answer.every((a) => a !== "")
+    );
+  }
+
+  if (type === "checklist_question") {
+    return isArray && answer.length > 0;
+  }
+
+  return !isArray && answer !== "";
 }
