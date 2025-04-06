@@ -13,6 +13,7 @@ import "./Questions.css";
  * - `body` (string): The question instructions.
  * - `options` (string[]): An array of possible answer choices.
  * - `fontSize` (number): Font size.
+ * - `onChange` ((value: string | string[]) => void): Callback function to capture user responses.
  *
  * State:
  * - `answer` (string): Stores the selected answer.
@@ -23,20 +24,24 @@ export function MultipleChoiceQuestion({
   body,
   options,
   fontSize,
+  onChange,
 }: {
   name: string;
   body: string;
   options: string[];
   fontSize: number;
+  onChange: (value: string) => void;
 }): React.JSX.Element {
   const [answer, setAnswer] = useState<string>("");
 
   function updateAnswer(e: React.ChangeEvent<HTMLInputElement>) {
     setAnswer(e.target.value);
+    onChange(e.target.value); // Notifying the parent
   }
 
   function clearAnswer() {
     setAnswer("");
+    onChange("");
   }
 
   return (

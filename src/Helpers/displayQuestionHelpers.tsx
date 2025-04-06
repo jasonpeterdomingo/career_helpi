@@ -22,6 +22,7 @@ import { QuestionType } from "../interfaces/question";
  * - `limit` (number | null): A limit to how many answer choices can be selected. If null,
  * then user can select any amount of answer choices (Applies to checklist_question type).
  * - `fontSize` (number): Font size.
+ * - `onChange` ((value: string | string[]) => void): Callback function to capture user responses.
  *
  * Returns:
  * - A JSX element representing the corresponding question component. The component returned depends
@@ -38,7 +39,8 @@ export function createQuestion(
   type: QuestionType,
   options: string[] | string[][],
   limit: number | null,
-  fontSize: number
+  fontSize: number,
+  onChange: (value: string | string[]) => void
 ) {
   switch (type) {
     case "multiple_choice_question":
@@ -49,6 +51,7 @@ export function createQuestion(
             body={body}
             options={options as string[]}
             fontSize={fontSize}
+            onChange={onChange}
           ></MultipleChoiceQuestion>
         </div>
       );

@@ -26,7 +26,17 @@ export function DisplayBasicQuestions({
   fontSize: number;
 }): React.JSX.Element {
   const [index, setIndex] = useState<number>(0);
+  const [answers, setAnswers] = useState<{ [id: number]: string | string[] }>(
+    {}
+  );
   const currentQuestion = BASIC_QUESTIONS[index];
+
+  const isAnswered = Boolean(answers[currentQuestion.id]);
+
+  /* This functionality of storing user answer for given question ID is ChatGPT-generated code. */
+  function updateAnswers(questionId: number, value: string | string[]) {
+    setAnswers((prev) => ({ ...prev, [questionId]: value }));
+  }
 
   function next() {
     if (index < BASIC_QUESTIONS.length - 1) {
@@ -46,13 +56,31 @@ export function DisplayBasicQuestions({
           currentQuestion.type,
           currentQuestion.options,
           currentQuestion.limit,
-          fontSize
+          fontSize,
+          /* This functionality of storing answer is ChatGPT-generated code. */
+          (value: string | string[]) => updateAnswers(currentQuestion.id, value)
         )}
       </Form.Group>
 
-      <Button onClick={next} disabled={index >= BASIC_QUESTIONS.length - 1}>
+      <Button
+        onClick={next}
+        disabled={!isAnswered || index >= BASIC_QUESTIONS.length - 1}
+      >
         Next
       </Button>
+
+      {/* Display current answers */}
+      <div>
+        <h5>Debug:</h5>
+        <ul>
+          {Object.entries(answers).map(([id, value]) => (
+            <li key={id}>
+              Question {id}:{" "}
+              {Array.isArray(value) ? value.join(", ") : value || "No answer"}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
