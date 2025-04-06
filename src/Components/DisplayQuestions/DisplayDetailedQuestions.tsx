@@ -1,13 +1,12 @@
 //import ./DetailedQ1.css
 
-import { Form } from "react-bootstrap";
+import { Form, ProgressBar, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { DETAILED_QUESTIONS } from "../../data/questions";
 import {
   createQuestion,
   isQuestionAnswered,
 } from "../../Helpers/displayQuestionHelpers";
-import { Button } from "react-bootstrap";
 
 /**
  * DisplayDetailedQuestions Component
@@ -52,8 +51,18 @@ export function DisplayDetailedQuestions({
     setAnswers((prev) => ({ ...prev, [questionId]: value }));
   }
 
+  const totalQuestions = DETAILED_QUESTIONS.length;
+  const answered = isAnswered ? index + 1 : index;
+  const progress = Math.round((answered / totalQuestions) * 100);
+
   return (
     <div>
+      <ProgressBar
+        now={progress}
+        label={`${progress}%`}
+        style={{ marginBottom: "20px" }}
+      />
+
       <Form.Group
         controlId={`formQuestion${currentQuestion.id}`}
         key={currentQuestion.id}

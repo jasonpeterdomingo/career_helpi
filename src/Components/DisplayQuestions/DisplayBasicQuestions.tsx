@@ -1,13 +1,12 @@
 //import ./DetailedQ1.css
 
-import { Form } from "react-bootstrap";
+import { Form, Button, ProgressBar } from "react-bootstrap";
 import React, { useState } from "react";
 import { BASIC_QUESTIONS } from "../../data/questions";
 import {
   createQuestion,
   isQuestionAnswered,
 } from "../../Helpers/displayQuestionHelpers";
-import { Button, ProgressBar } from "react-bootstrap";
 
 /**
  * DisplayBasicQuestions Component
