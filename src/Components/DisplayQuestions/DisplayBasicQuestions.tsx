@@ -1,6 +1,6 @@
 //import ./DetailedQ1.css
 
-import { Form, Button, ProgressBar } from "react-bootstrap";
+import { Form, Button, ProgressBar, Modal } from "react-bootstrap";
 import React, { useState } from "react";
 import { BASIC_QUESTIONS } from "../../data/questions";
 import {
@@ -21,6 +21,7 @@ import {
  * State:
  * - `index` (number): Tracks the index of the currently displayed question.
  * - `answers` ({ [id: number]: string | string[] }): Stores the answers for each question.
+ * - `showModal` (boolean): State for whether the modal should be displayed.
  *
  */
 export function DisplayBasicQuestions({
@@ -32,7 +33,10 @@ export function DisplayBasicQuestions({
   const [answers, setAnswers] = useState<{ [id: number]: string | string[] }>(
     {}
   );
+  const [showModal, setShowModal] = useState<boolean>(false);
   const currentQuestion = BASIC_QUESTIONS[index];
+
+  const handleClose = () => setShowModal(false);
 
   const answer = answers[currentQuestion.id];
   const isAnswered = isQuestionAnswered(
@@ -49,6 +53,10 @@ export function DisplayBasicQuestions({
   function next() {
     if (index < BASIC_QUESTIONS.length - 1) {
       setIndex(index + 1); // Move to next question
+    } else {
+      if (progress === 100) {
+        setShowModal(true);
+      }
     }
   }
 
@@ -84,11 +92,8 @@ export function DisplayBasicQuestions({
         )}
       </Form.Group>
 
-      <Button
-        onClick={next}
-        disabled={!isAnswered || index >= BASIC_QUESTIONS.length - 1}
-      >
-        Next
+      <Button onClick={next} disabled={!isAnswered}>
+        {index === BASIC_QUESTIONS.length - 1 ? "Submit" : "Next"}
       </Button>
 
       {/* Display current answers */}
@@ -103,6 +108,20 @@ export function DisplayBasicQuestions({
           ))}
         </ul>
       </div>
+
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>You finish the Quiz!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Congratulations! You have completed all the questions.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
