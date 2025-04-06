@@ -15,6 +15,7 @@ import "./Questions.css";
  * - `limit` (number | null): A limit to how many answer choices can be selected. If null,
  * then user can select any amount of answer choices.
  * - `fontSize` (number): Font size.
+ * - `onChange` ((value: string[]) => void): Callback function to capture user responses.
  *
  * State:
  * - `answers` (string[]): Stores the selected answers.
@@ -26,12 +27,14 @@ export function ChecklistQuestion({
   options,
   limit,
   fontSize,
+  onChange,
 }: {
   name: string;
   body: string;
   options: string[];
   limit: number | null;
   fontSize: number;
+  onChange: (value: string[]) => void;
 }): React.JSX.Element {
   const [answers, setAnswers] = useState<string[]>([]);
 
@@ -41,16 +44,20 @@ export function ChecklistQuestion({
     if (answers.includes(answer)) {
       // Remove the given answer
       setAnswers(answers.filter((e) => e !== answer));
+      onChange(answers.filter((e) => e !== answer));
     } else if (limit !== null && limit >= answers.length + 1) {
       // Append answer if the limit is not met yet
       setAnswers([...answers, answer]);
+      onChange([...answers, answer]);
     } else if (limit === null) {
       setAnswers([...answers, answer]); // If there is not a limit, append answer
+      onChange([...answers, answer]);
     }
   }
 
   function clearAnswers() {
     setAnswers([]);
+    onChange([]);
   }
 
   return (

@@ -3,7 +3,10 @@
 import { Form } from "react-bootstrap";
 import React, { useState } from "react";
 import { BASIC_QUESTIONS } from "../../data/questions";
-import { createQuestion } from "../../Helpers/displayQuestionHelpers";
+import {
+  createQuestion,
+  isQuestionAnswered,
+} from "../../Helpers/displayQuestionHelpers";
 import { Button } from "react-bootstrap";
 
 /**
@@ -31,7 +34,12 @@ export function DisplayBasicQuestions({
   );
   const currentQuestion = BASIC_QUESTIONS[index];
 
-  const isAnswered = Boolean(answers[currentQuestion.id]);
+  const answer = answers[currentQuestion.id];
+  const isAnswered = isQuestionAnswered(
+    currentQuestion.type,
+    answer,
+    currentQuestion.options
+  );
 
   /* This functionality of storing user answer for given question ID is ChatGPT-generated code. */
   function updateAnswers(questionId: number, value: string | string[]) {

@@ -13,7 +13,7 @@ import "./Questions.css";
  * - `body` (string): The question instructions.
  * - `options` (string[]): An array of possible answer choices.
  * - `fontSize` (number): Font size.
- * - `onChange` ((value: string | string[]) => void): Callback function to capture user responses.
+ * - `onChange` ((value: string) => void): Callback function to capture user responses.
  *
  * State:
  * - `answer` (string): Stores the selected answer.
