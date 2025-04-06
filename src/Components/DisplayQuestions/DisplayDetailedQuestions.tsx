@@ -3,7 +3,10 @@
 import { Form } from "react-bootstrap";
 import React, { useState } from "react";
 import { DETAILED_QUESTIONS } from "../../data/questions";
-import { createQuestion } from "../../Helpers/displayQuestionHelpers";
+import {
+  createQuestion,
+  isQuestionAnswered,
+} from "../../Helpers/displayQuestionHelpers";
 import { Button } from "react-bootstrap";
 
 /**
@@ -26,12 +29,27 @@ export function DisplayDetailedQuestions({
   fontSize: number;
 }): React.JSX.Element {
   const [index, setIndex] = useState<number>(0);
+  const [answers, setAnswers] = useState<{ [id: number]: string | string[] }>(
+    {}
+  );
   const currentQuestion = DETAILED_QUESTIONS[index];
+
+  const answer = answers[currentQuestion.id];
+  const isAnswered = isQuestionAnswered(
+    currentQuestion.type,
+    answer,
+    currentQuestion.options
+  );
 
   function next() {
     if (index < DETAILED_QUESTIONS.length - 1) {
       setIndex(index + 1); // Move to next question
     }
+  }
+
+  /* This functionality of storing user answer for given question ID is ChatGPT-generated code. */
+  function updateAnswers(questionId: number, value: string | string[]) {
+    setAnswers((prev) => ({ ...prev, [questionId]: value }));
   }
 
   return (
@@ -46,13 +64,31 @@ export function DisplayDetailedQuestions({
           currentQuestion.type,
           currentQuestion.options,
           currentQuestion.limit,
-          fontSize
+          fontSize,
+          /* This functionality of storing answer is ChatGPT-generated code. */
+          (value: string | string[]) => updateAnswers(currentQuestion.id, value)
         )}
       </Form.Group>
 
-      <Button onClick={next} disabled={index >= DETAILED_QUESTIONS.length - 1}>
+      <Button
+        onClick={next}
+        disabled={!isAnswered || index >= DETAILED_QUESTIONS.length - 1}
+      >
         Next
       </Button>
+
+      {/* Display current answers */}
+      <div>
+        <h5>Debug:</h5>
+        <ul>
+          {Object.entries(answers).map(([id, value]) => (
+            <li key={id}>
+              Question {id}:{" "}
+              {Array.isArray(value) ? value.join(", ") : value || "No answer"}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
