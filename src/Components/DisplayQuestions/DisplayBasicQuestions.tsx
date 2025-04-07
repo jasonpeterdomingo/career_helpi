@@ -6,7 +6,7 @@ import { BASIC_QUESTIONS } from "../../data/questions";
 import {
   createQuestion,
   isQuestionAnswered,
-} from "../../Helpers/displayQuestionHelpers";
+} from "../../helpers/displayQuestionHelpers";
 
 /**
  * DisplayBasicQuestions Component

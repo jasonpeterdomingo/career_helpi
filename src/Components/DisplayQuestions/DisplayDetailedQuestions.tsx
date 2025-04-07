@@ -6,7 +6,7 @@ import { DETAILED_QUESTIONS } from "../../data/questions";
 import {
   createQuestion,
   isQuestionAnswered,
-} from "../../Helpers/displayQuestionHelpers";
+} from "../../helpers/displayQuestionHelpers";
 
 /**
  * DisplayDetailedQuestions Component
