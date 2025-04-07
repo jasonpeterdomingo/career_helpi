@@ -15,6 +15,7 @@ import "./Questions.css";
  * - `body` (string): The question instructions.
  * - `options` (string[][]): An array of pairs of answer choices for binary questions.
  * - `fontSize` (number): Font size.
+ * - `onChange` ((value: string[]) => void): Callback function to capture user responses.
  *
  * State:
  * - `answers` (string[]): Stores the selected answers for each pair.
@@ -25,11 +26,13 @@ export function BinaryQuestion({
   body,
   options,
   fontSize,
+  onChange,
 }: {
   name: string;
   body: string;
   options: string[][];
   fontSize: number;
+  onChange: (value: string[]) => void;
 }): React.JSX.Element {
   // Track selected answers for each option pair
   const [answers, setAnswers] = useState<string[]>(
@@ -41,10 +44,12 @@ export function BinaryQuestion({
     const updatedAnswers = [...answers];
     updatedAnswers[index] = answer;
     setAnswers(updatedAnswers);
+    onChange(updatedAnswers);
   }
 
   function clearAnswers() {
-    setAnswers([]);
+    setAnswers(new Array(options.length).fill(""));
+    onChange(new Array(options.length).fill(""));
   }
 
   return (
