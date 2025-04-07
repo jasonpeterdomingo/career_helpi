@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Form } from "react-bootstrap";
-import { Homepage } from "./components/Homepage";
 import { NavigationBar } from "./components/NavigationBar";
-import { DisplayBasicQuestions } from "./components/DisplayQuestions/DisplayBasicQuestions";
-import { DisplayDetailedQuestions } from "./components/DisplayQuestions/DisplayDetailedQuestions";
+import { RenderPage } from "./components/RenderPage";
 import { FontSizeAdjuster } from "./components/FontSizeAdjuster";
+import { PAGE } from "./types/page";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 
@@ -18,13 +17,10 @@ if (prevKey !== null) {
 }
   */
 
-// Pages
-type Page = "home" | "basic" | "detailed";
-
 function App() {
   const [key, setKey] = useState<string>(keyData); //for api key input
   const [fontSize, setFontSize] = useState<number>(16); // For adjusting font size
-  const [currentPage, setPage] = useState<Page>("home"); // For rendering different pages
+  const [currentPage, setPage] = useState<PAGE>("home"); // For rendering different pages
 
   //sets the local storage item to the api key the user inputed
   /*
@@ -38,18 +34,6 @@ function App() {
     setKey(event.target.value);
   }
 
-  // Conditional logic for deciding what component to render
-  function renderPage() {
-    switch (currentPage) {
-      case "basic":
-        return <DisplayBasicQuestions fontSize={fontSize} />;
-      case "detailed":
-        return <DisplayDetailedQuestions fontSize={fontSize} />;
-      default:
-        return <Homepage navigatePage={setPage} fontSize={fontSize} />; // Render the homepage by default
-    }
-  }
-
   return (
     <div className="App">
       <header>
@@ -58,8 +42,7 @@ function App() {
       <hr />
       <FontSizeAdjuster setFontSize={setFontSize} />
       <hr />
-      {renderPage()}
-
+      <RenderPage setPage={setPage} page={currentPage} fontSize={fontSize} />
       {/* Footer with API Key Input */}
       <footer className="App-footer">
         <Form>
