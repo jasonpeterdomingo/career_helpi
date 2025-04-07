@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Form } from "react-bootstrap";
-import { Homepage } from "./Components/Homepage";
-import { NavigationBar } from "./Components/NavigationBar";
-import { DisplayBasicQuestions } from "./Components/DisplayQuestions/DisplayBasicQuestions";
-import { DisplayDetailedQuestions } from "./Components/DisplayQuestions/DisplayDetailedQuestions";
-import { FontSizeAdjuster } from "./Components/FontSizeAdjuster";
+import { Homepage } from "./components/Homepage";
+import { NavigationBar } from "./components/NavigationBar";
+import { DisplayBasicQuestions } from "./components/DisplayQuestions/DisplayBasicQuestions";
+import { DisplayDetailedQuestions } from "./components/DisplayQuestions/DisplayDetailedQuestions";
+import { FontSizeAdjuster } from "./components/FontSizeAdjuster";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 
