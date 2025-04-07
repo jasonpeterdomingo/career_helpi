@@ -1,9 +1,8 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
-
-type Page = "home" | "basic" | "detailed";
+import { PAGE } from "../types/page";
 
 interface NavigationBarProps {
-  setPage: (page: Page) => void;
+  setPage: (page: PAGE) => void;
 }
 
 export function NavigationBar({ setPage }: NavigationBarProps) {
