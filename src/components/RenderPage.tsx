@@ -1,7 +1,9 @@
 import { PAGE } from "../types/page";
-import { Homepage } from "./Homepage";
-import { DisplayBasicQuestions } from "../components/DisplayQuestions/DisplayBasicQuestions";
-import { DisplayDetailedQuestions } from "../components/DisplayQuestions/DisplayDetailedQuestions";
+import {
+  Homepage,
+  DisplayBasicQuestions,
+  DisplayDetailedQuestions,
+} from "./index";
 
 interface RenderPageProps {
   page: PAGE;
