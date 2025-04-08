@@ -5,7 +5,7 @@ interface NavigationBarProps {
   setPage: (page: PAGE) => void;
 }
 
-export function NavigationBar({ setPage }: NavigationBarProps) {
+export function Navigation({ setPage }: NavigationBarProps) {
   return (
     <Navbar bg="primary" data-bs-theme="dark">
       <Container>
