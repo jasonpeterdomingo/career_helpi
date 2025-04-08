@@ -23,6 +23,7 @@ import { QuestionType } from "../types/question";
  * then user can select any amount of answer choices (Applies to checklist_question type).
  * - `fontSize` (number): Font size.
  * - `onChange` ((value: string | string[]) => void): Callback function to capture user responses.
+ * - `answer` (string | string[]): The current answer(s) passed from the parent component (DisplayBasicQuestions or DisplayDetailedQuestions). This helps sync the selected answer(s).
  *
  * Returns:
  * - A JSX element representing the corresponding question component. The component returned depends
@@ -40,7 +41,8 @@ export function createQuestion(
   options: string[] | string[][],
   limit: number | null,
   fontSize: number,
-  onChange: (value: string | string[]) => void
+  onChange: (value: string | string[]) => void,
+  answer: string | string[]
 ) {
   switch (type) {
     case "multiple_choice_question":
@@ -52,6 +54,7 @@ export function createQuestion(
             options={options as string[]}
             fontSize={fontSize}
             onChange={onChange}
+            answer={answer as string}
           ></MultipleChoiceQuestion>
         </div>
       );
@@ -64,6 +67,7 @@ export function createQuestion(
             options={options as string[][]}
             fontSize={fontSize}
             onChange={onChange}
+            answers={answer as string[]}
           ></BinaryQuestion>
         </div>
       );
@@ -77,6 +81,7 @@ export function createQuestion(
             limit={limit}
             fontSize={fontSize}
             onChange={onChange}
+            answers={answer as string[]}
           ></ChecklistQuestion>
         </div>
       );
@@ -89,6 +94,7 @@ export function createQuestion(
             options={options as string[]}
             fontSize={fontSize}
             onChange={onChange}
+            answer={answer as string}
           ></OpinionQuestion>
         </div>
       );

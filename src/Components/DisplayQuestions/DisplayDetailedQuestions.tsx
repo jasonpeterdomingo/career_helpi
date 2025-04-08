@@ -45,6 +45,11 @@ export function DisplayDetailedQuestions({
     currentQuestion.options
   );
 
+  /* This functionality of storing user answer for given question ID is ChatGPT-generated code. */
+  function updateAnswers(questionId: number, value: string | string[]) {
+    setAnswers((prev) => ({ ...prev, [questionId]: value }));
+  }
+
   function next() {
     if (index < DETAILED_QUESTIONS.length - 1) {
       setIndex(index + 1); // Move to next question
@@ -55,9 +60,10 @@ export function DisplayDetailedQuestions({
     }
   }
 
-  /* This functionality of storing user answer for given question ID is ChatGPT-generated code. */
-  function updateAnswers(questionId: number, value: string | string[]) {
-    setAnswers((prev) => ({ ...prev, [questionId]: value }));
+  function back() {
+    if (index > 0) {
+      setIndex(index - 1); // Move to previous question
+    }
   }
 
   const totalQuestions = DETAILED_QUESTIONS.length;
@@ -88,9 +94,15 @@ export function DisplayDetailedQuestions({
           currentQuestion.limit,
           fontSize,
           /* This functionality of storing answer is ChatGPT-generated code. */
-          (value: string | string[]) => updateAnswers(currentQuestion.id, value)
+          (value: string | string[]) =>
+            updateAnswers(currentQuestion.id, value),
+          answer
         )}
       </Form.Group>
+
+      <Button onClick={back} disabled={index === 0}>
+        Back
+      </Button>
 
       <Button onClick={next} disabled={!isAnswered}>
         {index === DETAILED_QUESTIONS.length - 1 ? "Submit" : "Next"}
