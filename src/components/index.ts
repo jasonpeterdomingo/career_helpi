@@ -4,5 +4,4 @@ export * from "./NavigationBar";
 export * from "./Footer";
 export * from "./RenderPage";
 export * from "./Homepage";
-export * from "./DisplayQuestions/DisplayBasicQuestions";
-export * from "./DisplayQuestions/DisplayDetailedQuestions";
+export * from "./DisplayQuestions";
