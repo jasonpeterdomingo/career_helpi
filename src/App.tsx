@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Navigation } from "./components/NavigationBar";
-import { RenderPage } from "./components/RenderPage";
-import { Footer } from "./components/Footer";
-import { FontSizeAdjuster } from "./components/FontSizeAdjuster";
+import {
+  NavigationBar,
+  Footer,
+  RenderPage,
+  FontSizeAdjuster,
+} from "./components";
 import { PAGE } from "./types/page";
 import { useApiKey } from "./hooks/useApiKey";
 
@@ -35,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <Navigation setPage={setPage} />
+        <NavigationBar setPage={setPage} />
       </header>
       <hr />
       <FontSizeAdjuster setFontSize={setFontSize} />
