@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "./Questions.css";
 
@@ -14,9 +13,11 @@ import "./Questions.css";
  * - `options` (string[]): An array of possible answer choices.
  * - `fontSize` (number): Font size.
  * - `onChange` ((value: string) => void): Callback function to capture user responses.
+ * - `answer` (string): The currently selected answer passed from the parent component.
  *
- * State:
- * - `answer` (string): Stores the selected answer.
+ * Notes:
+ * - This component is fully controlled; it relies on the parent to manage the selected answer via props.
+ * - No internal state is used to store the answer
  *
  */
 export function MultipleChoiceQuestion({
@@ -25,22 +26,20 @@ export function MultipleChoiceQuestion({
   options,
   fontSize,
   onChange,
+  answer,
 }: {
   name: string;
   body: string;
   options: string[];
   fontSize: number;
   onChange: (value: string) => void;
+  answer: string;
 }): React.JSX.Element {
-  const [answer, setAnswer] = useState<string>("");
-
   function updateAnswer(e: React.ChangeEvent<HTMLInputElement>) {
-    setAnswer(e.target.value);
     onChange(e.target.value); // Notifying the parent
   }
 
   function clearAnswer() {
-    setAnswer("");
     onChange("");
   }
 
@@ -58,13 +57,12 @@ export function MultipleChoiceQuestion({
           {options.map((option: string, index: number) => (
             <div key={index} className="mult-choice-item">
               <Form.Check
-                key={index}
                 type="radio"
                 name={name}
                 label={option}
                 value={option}
                 checked={answer === option}
-                onChange={(e) => updateAnswer(e)} // Update state when selection changes
+                onChange={updateAnswer} // Update state when selection changes
               />
             </div>
           ))}

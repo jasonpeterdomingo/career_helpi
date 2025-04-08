@@ -94,7 +94,9 @@ export function DisplayBasicQuestions({
           currentQuestion.limit,
           fontSize,
           /* This functionality of storing answer is ChatGPT-generated code. */
-          (value: string | string[]) => updateAnswers(currentQuestion.id, value)
+          (value: string | string[]) =>
+            updateAnswers(currentQuestion.id, value),
+          answer
         )}
       </Form.Group>
 

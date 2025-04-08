@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "./Questions.css";
 
@@ -16,9 +15,11 @@ import "./Questions.css";
  * then user can select any amount of answer choices.
  * - `fontSize` (number): Font size.
  * - `onChange` ((value: string[]) => void): Callback function to capture user responses.
+ * - `answers` (string[]): The currently selected answers passed from the parent component.
  *
- * State:
- * - `answers` (string[]): Stores the selected answers.
+ * Notes:
+ * - This component is fully controlled; it relies on the parent to manage the selected answer via props.
+ * - No internal state is used to store the answer
  *
  */
 export function ChecklistQuestion({
@@ -28,6 +29,7 @@ export function ChecklistQuestion({
   limit,
   fontSize,
   onChange,
+  answers = [],
 }: {
   name: string;
   body: string;
@@ -35,28 +37,22 @@ export function ChecklistQuestion({
   limit: number | null;
   fontSize: number;
   onChange: (value: string[]) => void;
+  answers: string[];
 }): React.JSX.Element {
-  const [answers, setAnswers] = useState<string[]>([]);
-
   function updateAnswers(e: React.ChangeEvent<HTMLInputElement>) {
-    const answer = e.target.value;
+    const selected = e.target.value;
     // Check if the answer is already present
-    if (answers.includes(answer)) {
-      // Remove the given answer
-      setAnswers(answers.filter((e) => e !== answer));
-      onChange(answers.filter((e) => e !== answer));
+    if (answers.includes(selected)) {
+      onChange(answers.filter((e) => e !== selected));
     } else if (limit !== null && limit >= answers.length + 1) {
       // Append answer if the limit is not met yet
-      setAnswers([...answers, answer]);
-      onChange([...answers, answer]);
+      onChange([...answers, selected]);
     } else if (limit === null) {
-      setAnswers([...answers, answer]); // If there is not a limit, append answer
-      onChange([...answers, answer]);
+      onChange([...answers, selected]); // If there is not a limit, append answer
     }
   }
 
   function clearAnswers() {
-    setAnswers([]);
     onChange([]);
   }
 
