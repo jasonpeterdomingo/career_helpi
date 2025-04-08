@@ -1,5 +1,5 @@
 import { PAGE } from "../types/page";
-import { Homepage } from "../components/Homepage";
+import { Homepage } from "./Homepage";
 import { DisplayBasicQuestions } from "../components/DisplayQuestions/DisplayBasicQuestions";
 import { DisplayDetailedQuestions } from "../components/DisplayQuestions/DisplayDetailedQuestions";
 
