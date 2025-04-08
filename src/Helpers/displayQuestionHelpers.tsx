@@ -1,8 +1,8 @@
-import { MultipleChoiceQuestion } from "../Components/QuestionTypes/MultipeChoiceQuestion";
-import { BinaryQuestion } from "../Components/QuestionTypes/BinaryQuestion";
-import { ChecklistQuestion } from "../Components/QuestionTypes/ChecklistQuestion";
-import { OpinionQuestion } from "../Components/QuestionTypes/OpinionQuestion";
-import { QuestionType } from "../interfaces/question";
+import { MultipleChoiceQuestion } from "../components/QuestionTypes/MultipeChoiceQuestion";
+import { BinaryQuestion } from "../components/QuestionTypes/BinaryQuestion";
+import { ChecklistQuestion } from "../components/QuestionTypes/ChecklistQuestion";
+import { OpinionQuestion } from "../components/QuestionTypes/OpinionQuestion";
+import { QuestionType } from "../types/question";
 
 /**
  * createQuestion Function
