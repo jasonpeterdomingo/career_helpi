@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "./Questions.css";
 
@@ -14,9 +13,11 @@ import "./Questions.css";
  * - `options` (string[]): An array of opinion choices (strongly agree, agree, neutral, etc).
  * - `fontSize` (number): Font size.
  * - `onChange` ((value: string) => void): Callback function to capture user responses.
+ * - `answer` (string): The currently selected answer passed from the parent component.
  *
- * State:
- * - `answer` (string): Stores the selected answer.
+ * Notes:
+ * - This component is fully controlled; it relies on the parent to manage the selected answer via props.
+ * - No internal state is used to store the answer
  *
  */
 
@@ -26,23 +27,21 @@ export function OpinionQuestion({
   options,
   fontSize,
   onChange,
+  answer,
 }: {
   name: string;
   body: string;
   options: string[];
   fontSize: number;
   onChange: (value: string) => void;
+  answer: string;
 }): React.JSX.Element {
-  const [answer, setAnswer] = useState<string>("");
-
   // Update answer for the selected option pair
-  function updateAnswers(answer: string) {
-    setAnswer(answer);
-    onChange(answer);
+  function updateAnswers(localAnswer: string) {
+    onChange(localAnswer);
   }
 
   function clearAnswers() {
-    setAnswer("");
     onChange("");
   }
 

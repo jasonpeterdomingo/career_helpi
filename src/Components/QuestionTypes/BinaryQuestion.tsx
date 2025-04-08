@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "./Questions.css";
 
@@ -16,9 +15,11 @@ import "./Questions.css";
  * - `options` (string[][]): An array of pairs of answer choices for binary questions.
  * - `fontSize` (number): Font size.
  * - `onChange` ((value: string[]) => void): Callback function to capture user responses.
+ * - `answers` (string[]): The currently selected answers passed from the parent component.
  *
- * State:
- * - `answers` (string[]): Stores the selected answers for each pair.
+ * Notes:
+ * - This component is fully controlled; it relies on the parent to manage the selected answer via props.
+ * - No internal state is used to store the answer
  *
  */
 export function BinaryQuestion({
@@ -27,28 +28,23 @@ export function BinaryQuestion({
   options,
   fontSize,
   onChange,
+  answers = [],
 }: {
   name: string;
   body: string;
   options: string[][];
   fontSize: number;
   onChange: (value: string[]) => void;
+  answers: string[];
 }): React.JSX.Element {
-  // Track selected answers for each option pair
-  const [answers, setAnswers] = useState<string[]>(
-    new Array(options.length).fill("")
-  );
-
   // Update answer for the selected option pair
-  function updateAnswers(index: number, answer: string) {
+  function updateAnswers(index: number, selected: string) {
     const updatedAnswers = [...answers];
-    updatedAnswers[index] = answer;
-    setAnswers(updatedAnswers);
+    updatedAnswers[index] = selected;
     onChange(updatedAnswers);
   }
 
   function clearAnswers() {
-    setAnswers(new Array(options.length).fill(""));
     onChange(new Array(options.length).fill(""));
   }
 

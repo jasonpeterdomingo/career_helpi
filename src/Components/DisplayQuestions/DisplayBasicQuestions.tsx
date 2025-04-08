@@ -60,6 +60,12 @@ export function DisplayBasicQuestions({
     }
   }
 
+  function back() {
+    if (index > 0) {
+      setIndex(index - 1); // Move to previous question
+    }
+  }
+
   const totalQuestions = BASIC_QUESTIONS.length;
   const answered = isAnswered ? index + 1 : index;
   const progress = Math.round((answered / totalQuestions) * 100);
@@ -88,9 +94,15 @@ export function DisplayBasicQuestions({
           currentQuestion.limit,
           fontSize,
           /* This functionality of storing answer is ChatGPT-generated code. */
-          (value: string | string[]) => updateAnswers(currentQuestion.id, value)
+          (value: string | string[]) =>
+            updateAnswers(currentQuestion.id, value),
+          answer
         )}
       </Form.Group>
+
+      <Button onClick={back} disabled={index === 0}>
+        Back
+      </Button>
 
       <Button onClick={next} disabled={!isAnswered}>
         {index === BASIC_QUESTIONS.length - 1 ? "Submit" : "Next"}
