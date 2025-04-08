@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { NavigationBar } from "./components/NavigationBar";
+import { Navigation } from "./components/NavigationBar";
 import { RenderPage } from "./components/RenderPage";
 import { Footer } from "./components/Footer";
 import { FontSizeAdjuster } from "./components/FontSizeAdjuster";
@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <NavigationBar setPage={setPage} />
+        <Navigation setPage={setPage} />
       </header>
       <hr />
       <FontSizeAdjuster setFontSize={setFontSize} />
