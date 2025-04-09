@@ -7,12 +7,15 @@
 
 .header {
   font-weight: bolder;
+  margin: 6% 0;
 }
 
 .title {
   margin-top: 2%;
   margin-bottom: 2%;
   font-weight: bold;
+  padding: 4%;
+  background-color: #8aaae5;
 }
 
 .description-text {
@@ -28,5 +31,22 @@ body {
 }
 
 .card-style {
-  width: 18rem;
+  width: 22rem;
+  max-width: 30rem;
+  justify-content: center;
+  background-color: #cadcfc;
+  border: primary;
+  border-width: 2%;
 }
+
+.card-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Dark to light
+#00246B
+#8AAAE5
+#CADCFC
+
+*/
