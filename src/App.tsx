@@ -45,7 +45,12 @@ function App() {
       <div className="content-wrapper">
         <RenderPage setPage={setPage} page={currentPage} fontSize={fontSize} />
       </div>
-      <Footer apiKey={key} onKeyChange={(e) => setKey(e.target.value)}></Footer>
+      <Footer
+        apiKey={key}
+        onKeyChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setKey(e.target.value)
+        }
+      ></Footer>
     </div>
   );
 }

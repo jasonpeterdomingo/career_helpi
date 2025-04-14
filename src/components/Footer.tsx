@@ -1,4 +1,4 @@
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import "../App.css";
 
 interface FooterProps {
@@ -20,6 +20,9 @@ export function Footer({
           onChange={onKeyChange}
         ></Form.Control>
       </Form>
+      <Button className="Submit-button" type="submit">
+        Submit
+      </Button>
       <p>Names: Winnie Li, Jason Domingo, Ember Kerstetter</p>
     </footer>
   );
