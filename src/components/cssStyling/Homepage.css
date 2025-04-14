@@ -16,11 +16,6 @@
   
   */
 
-.text {
-  font-family: "Nunito", sans-serif;
-  padding-bottom: 2rem;
-}
-
 .header {
   font-weight: bolder;
   margin: 6% 0;
@@ -51,117 +46,24 @@ body {
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem; /* optional extra spacing at bottom */
 }
 
-/* Outer card wrapper */
-.custom-card {
-  flex: 1 1 45%;
-  background: #8aaae5;
-  border-radius: 30px;
-  padding: 1rem;
-  position: relative;
-  min-width: 300px;
-  max-width: 500px;
-  aspect-ratio: 3 / 4;
+.homepage-wrapper {
+  min-height: 80vh;
+  padding-bottom: 120px; /* Give breathing room above footer */
+  box-sizing: border-box;
+}
+
+.page-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
 }
 
-/* Left and right accent panels */
-.card-accent-left,
-.card-accent-right {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  border: 1px solid black;
-  z-index: 1;
-}
-.card-accent-left {
-  left: 0;
-  background: #4a7cff;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 30px;
-}
-.card-accent-right {
-  right: 0;
-  background: white;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 30px;
-}
-
-/* Header section */
-.card-header-section {
-  position: relative;
-  width: 100%;
-  height: 40%;
-  background: #4a7cff;
-  border-radius: 25px;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.card-header-text {
-  font-size: 2rem;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  color: #e1e7f4;
-}
-
-/* Body section */
-.card-body-section {
-  position: relative;
-  width: 100%;
-  height: 60%;
-  background: white;
-  border-radius: 30px;
-  margin-top: -2rem;
-  padding: 1.5rem;
-  box-sizing: border-box;
-  z-index: 2;
-  text-align: center;
-  font-family: "Inter", sans-serif;
-  color: #423f3f;
-  font-size: 1rem;
-  overflow-y: auto;
-}
-
-/* Button container */
-.card-button-container {
-  background: #4b70f4;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-  gap: 0.5rem;
-  z-index: 3;
-}
-.card-button-text {
-  color: #e1e7f4;
-  font-size: 1rem;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-}
-
-@media (max-width: 768px) {
-  .custom-card {
-    flex: 1 1 100%;
-    max-width: 90%;
-  }
-  .card-header-text {
-    font-size: 1.5rem;
-  }
-  .card-body-section {
-    font-size: 0.9rem;
-  }
-  .card-button-text {
-    font-size: 0.9rem;
-  }
+.content-wrapper {
+  flex: 1;
+  padding-bottom: 2rem; /* spacing from footer */
+  font-family: "Nunito", sans-serif;
 }
