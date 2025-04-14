@@ -118,3 +118,11 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   filter: brightness(0.75); /* subtle darkening */
 }
+
+.card-wrapper {
+  width: 411px;
+  height: 459px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

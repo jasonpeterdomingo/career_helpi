@@ -46,6 +46,7 @@ body {
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
+  align-items: center;
   margin-top: 4rem;
   margin-bottom: 4rem; /* optional extra spacing at bottom */
 }
@@ -54,6 +55,8 @@ body {
   min-height: 80vh;
   padding-bottom: 120px; /* Give breathing room above footer */
   box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 
 .page-container {
