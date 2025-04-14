@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+.card-style {
+  width: 22rem;
+  max-width: 30rem;
+  justify-content: center;
+  background-color: #cadcfc;
+  border: primary;
+  border-width: 2%;
+}
+
+/* Dark to light
+  #00246B
+  #8AAAE5
+  #CADCFC
+  
+  */
+
+.header {
+  font-weight: bolder;
+  margin: 2% 0;
+}
+
+.title {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-weight: bold;
+  padding: 4%;
+  background-color: #8aaae5;
+}
+
+.description-text {
+  margin-top: 2%;
+  text-align: center;
+  max-width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  margin-bottom: 2%;
+}
+/* Container for the entire card section */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem; /* optional extra spacing at bottom */
+}
+
+.homepage-wrapper {
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+}
+
+.content-wrapper {
+  flex: 1;
+  font-family: "Nunito", sans-serif;
+}
