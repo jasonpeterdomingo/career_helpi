@@ -42,7 +42,9 @@ function App() {
       <hr />
       <FontSizeAdjuster setFontSize={setFontSize} />
       <hr />
-      <RenderPage setPage={setPage} page={currentPage} fontSize={fontSize} />
+      <div className="content-wrapper">
+        <RenderPage setPage={setPage} page={currentPage} fontSize={fontSize} />
+      </div>
       <Footer apiKey={key} onKeyChange={(e) => setKey(e.target.value)}></Footer>
     </div>
   );

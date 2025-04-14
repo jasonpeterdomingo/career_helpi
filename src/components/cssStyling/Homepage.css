@@ -18,7 +18,7 @@
 
 .header {
   font-weight: bolder;
-  margin: 6% 0;
+  margin: 2% 0;
 }
 
 .title {
@@ -52,8 +52,6 @@ body {
 }
 
 .homepage-wrapper {
-  min-height: 80vh;
-  padding-bottom: 120px; /* Give breathing room above footer */
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
@@ -62,11 +60,10 @@ body {
 .page-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 70vh;
 }
 
 .content-wrapper {
   flex: 1;
-  padding-bottom: 2rem; /* spacing from footer */
   font-family: "Nunito", sans-serif;
 }

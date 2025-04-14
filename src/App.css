@@ -19,6 +19,7 @@ body,
   width: 100%;
   color: black;
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .custom-nav-link {
@@ -29,6 +30,11 @@ body,
   background-color: lightskyblue !important;
   border-radius: 5px;
 }
+
+.content-wrapper {
+  flex: 1;
+}
+
 /*
 .custom-nav-link {
   transition: color 0.3s ease-in-out;
