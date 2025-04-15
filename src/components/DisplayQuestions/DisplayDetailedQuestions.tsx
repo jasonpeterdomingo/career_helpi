@@ -7,6 +7,9 @@ import {
   createQuestion,
   isQuestionAnswered,
 } from "../../helpers/displayQuestionHelpers";
+import nextArrow from "../../assets/arrow-right.png";
+import backArrow from "../../assets/arrow-left.png";
+import "./../cssStyling/Buttons.css";
 
 /**
  * DisplayDetailedQuestions Component
@@ -100,13 +103,39 @@ export function DisplayDetailedQuestions({
         )}
       </Form.Group>
 
-      <Button onClick={back} disabled={index === 0}>
-        Back
-      </Button>
+      <div id="CircleButtonContainer">
+        {/* Back Button */}
+        <Button
+          id="CircleButton"
+          className="button"
+          type="button"
+          onClick={back}
+          disabled={index === 0}
+          variant="light" // or "outline", "custom", etc., depending on your style
+        >
+          <img src={backArrow} alt="Back Button" className="buttonImage" />
+        </Button>
 
-      <Button onClick={next} disabled={!isAnswered}>
-        {index === DETAILED_QUESTIONS.length - 1 ? "Submit" : "Next"}
-      </Button>
+        {/* Next or Submit Button */}
+        <Button
+          id="CircleButton"
+          className="button"
+          type={index === DETAILED_QUESTIONS.length - 1 ? "submit" : "button"}
+          onClick={next}
+          disabled={!isAnswered}
+          variant="light"
+        >
+          <img
+            src={nextArrow}
+            alt={
+              index === DETAILED_QUESTIONS.length - 1
+                ? "Submit Button"
+                : "Next Button"
+            }
+            className="buttonImage"
+          />
+        </Button>
+      </div>
 
       {/* Display current answers */}
       <div>
