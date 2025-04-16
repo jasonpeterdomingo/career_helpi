@@ -25,6 +25,7 @@ export function FontSizeAdjuster({
 }: FontSizeAdjusterProps): JSX.Element {
   return (
     <div className="font-size-toggle">
+      <span className="font-size-label">Font size:</span>
       <Button
         className={fontSize === 12 ? "active" : ""}
         variant="custom"
