@@ -7,6 +7,7 @@ import {
   createQuestion,
   isQuestionAnswered,
 } from "../../helpers/displayQuestionHelpers";
+import "../cssStyling/Components.css";
 
 /**
  * DisplayBasicQuestions Component
@@ -75,11 +76,7 @@ export function DisplayBasicQuestions({
       <ProgressBar
         now={progress}
         label={`${progress}%`}
-        style={{
-          marginBottom: "20px",
-          marginLeft: "10%",
-          marginRight: "10%",
-        }}
+        className="custom-progress-bar"
       />
 
       <Form.Group

@@ -78,11 +78,7 @@ export function DisplayDetailedQuestions({
       <ProgressBar
         now={progress}
         label={`${progress}%`}
-        style={{
-          marginBottom: "20px",
-          marginLeft: "10%",
-          marginRight: "10%",
-        }}
+        className="custom-progress-bar"
       />
 
       <Form.Group
