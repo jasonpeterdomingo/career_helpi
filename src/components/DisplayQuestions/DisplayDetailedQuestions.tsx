@@ -7,8 +7,8 @@ import {
   createQuestion,
   isQuestionAnswered,
 } from "../../helpers/displayQuestionHelpers";
-import nextArrow from "../../assets/arrow-right.png";
-import backArrow from "../../assets/arrow-left.png";
+import nextArrow from "../../assets/black-right-arrow.png";
+import backArrow from "../../assets/black-left-arrow.png";
 import "./../cssStyling/Buttons.css";
 
 /**
@@ -111,7 +111,6 @@ export function DisplayDetailedQuestions({
           type="button"
           onClick={back}
           disabled={index === 0}
-          variant="light" // or "outline", "custom", etc., depending on your style
         >
           <img src={backArrow} alt="Back Button" className="buttonImage" />
         </Button>
