@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { PAGE } from "../types/page";
+import "./cssStyling/Components.css";
 
 interface NavigationBarProps {
   setPage: (page: PAGE) => void;
@@ -7,25 +8,15 @@ interface NavigationBarProps {
 
 export function NavigationBar({ setPage }: NavigationBarProps) {
   return (
-    <Navbar bg="primary" data-bs-theme="dark">
+    <Navbar className="nav">
       <Container>
         <Navbar.Brand onClick={() => setPage("home")}>
           Career Helpi
         </Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link className="custom-nav-link" onClick={() => setPage("home")}>
-            Home
-          </Nav.Link>
-          <Nav.Link
-            className="custom-nav-link"
-            onClick={() => setPage("basic")}
-          >
-            Basic Questions
-          </Nav.Link>
-          <Nav.Link
-            className="custom-nav-link"
-            onClick={() => setPage("detailed")}
-          >
+        <Nav className="ml-auto nav">
+          <Nav.Link onClick={() => setPage("home")}>Home</Nav.Link>
+          <Nav.Link onClick={() => setPage("basic")}>Basic Questions</Nav.Link>
+          <Nav.Link onClick={() => setPage("detailed")}>
             Detailed Questions
           </Nav.Link>
         </Nav>

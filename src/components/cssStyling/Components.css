@@ -1,0 +1,80 @@
+nav {
+  background-color: #6a0dad;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #b57edc;
+}
+
+nav a,
+.nav-link {
+  color: white !important;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover,
+.nav-link:hover {
+  text-decoration: underline;
+}
+/*
+.custom-nav-link {
+  transition: background-color 0.2s ease-in-out;
+}
+
+.custom-nav-link:hover {
+  background-color: lightskyblue !important;
+  border-radius: 5px;
+}
+
+.content-wrapper {
+  flex: 1;
+}
+*/
+
+.font-size-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.font-size-toggle button {
+  background-color: #b57edc;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, outline 0.2s ease;
+  outline: none;
+}
+
+.font-size-toggle button:hover {
+  outline: none;
+  outline: 3px solid #b57edc;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px var(--lightest-color);
+}
+
+.font-size-toggle button.active {
+  background-color: #6a0dad !important;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.font-size-toggle button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #b57edc;
+}
+/*
+  outline: 3px solid #b57edc;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px var(--lightest-color);
+}
+  */

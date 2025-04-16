@@ -4,6 +4,11 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  --darkest-color: #28104e;
+  --dark-color: #6237a0;
+  --medium-color: #9754cb;
+  --light-color: #deacf5;
+  --lightest-color: #ffd8fa;
 }
 
 .App {
@@ -11,7 +16,7 @@ body,
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f2f6ff;
+  background-color: var(--lightest-color);
 }
 
 .App-footer {
@@ -21,19 +26,6 @@ body,
   color: black;
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
-.custom-nav-link {
-  transition: background-color 0.2s ease-in-out;
-}
-
-.custom-nav-link:hover {
-  background-color: lightskyblue !important;
-  border-radius: 5px;
-}
-
-.content-wrapper {
-  flex: 1;
 }
 
 /*
