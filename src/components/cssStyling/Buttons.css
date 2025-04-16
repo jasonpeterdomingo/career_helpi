@@ -27,17 +27,12 @@
 
 #CircleButton.button:hover {
   outline: 3px solid var(--primary-purple);
+  /*background-color: var(--primary-purple);*/
   outline-offset: 2px;
   box-shadow: 0 0 0 1px var(--lightest-color);
 }
 
 #CircleButton.button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--accent-purple);
-}
-
-#CircleButton.button.active {
-  background-color: var(--primary-purple) !important;
-  color: white;
-  font-weight: bold;
+  box-shadow: 0 0 0 3px var(--lightest-color);
 }

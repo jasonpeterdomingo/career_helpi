@@ -7,6 +7,7 @@ import {
   createQuestion,
   isQuestionAnswered,
 } from "../../helpers/displayQuestionHelpers";
+import "../cssStyling/Components.css";
 import nextArrow from "../../assets/black-right-arrow.png";
 import backArrow from "../../assets/black-left-arrow.png";
 import "./../cssStyling/Buttons.css";
@@ -69,6 +70,17 @@ export function DisplayDetailedQuestions({
     }
   }
 
+  //This allows for proper focusing of the back button (for css styling)
+  const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
+    back();
+    e.currentTarget.blur();
+  };
+  //This allows for proper focusing of the next button (for css styling)
+  const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
+    next();
+    e.currentTarget.blur();
+  };
+
   const totalQuestions = DETAILED_QUESTIONS.length;
   const answered = isAnswered ? index + 1 : index;
   const progress = Math.round((answered / totalQuestions) * 100);
@@ -105,7 +117,7 @@ export function DisplayDetailedQuestions({
           id="CircleButton"
           className="button"
           type="button"
-          onClick={back}
+          onClick={handleBack}
           disabled={index === 0}
         >
           <img src={backArrow} alt="Back Button" className="buttonImage" />
@@ -116,7 +128,7 @@ export function DisplayDetailedQuestions({
           id="CircleButton"
           className="button"
           type={index === DETAILED_QUESTIONS.length - 1 ? "submit" : "button"}
-          onClick={next}
+          onClick={handleNext}
           disabled={!isAnswered}
           variant="light"
         >
@@ -133,6 +145,7 @@ export function DisplayDetailedQuestions({
       </div>
 
       {/* Display current answers */}
+      {/*
       <div>
         <h5>Debug:</h5>
         <ul>
@@ -144,6 +157,7 @@ export function DisplayDetailedQuestions({
           ))}
         </ul>
       </div>
+      */}
 
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
