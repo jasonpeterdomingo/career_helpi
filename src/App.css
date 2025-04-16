@@ -5,10 +5,13 @@ body,
   margin: 0;
   padding: 0;
   --darkest-color: #28104e;
-  --dark-color: #6237a0;
-  --medium-color: #9754cb;
+  --primary-purple: #6a0dad;
+  --accent-purple: #b57edc;
   --light-color: #deacf5;
   --lightest-color: #ffd8fa;
+  --text-gray: #333333;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --focus-purple: #e9d5ff;
 }
 
 .App {

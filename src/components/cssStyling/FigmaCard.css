@@ -25,7 +25,7 @@
   height: 459px;
   left: 0;
   top: 0;
-  background: var(--dark-color);
+  background: var(--primary-purple);
   border-top-left-radius: 25px;
   border-bottom-left-radius: 30px;
   outline: 1px solid black;
@@ -38,7 +38,7 @@
   height: 167px;
   left: 0;
   top: 0;
-  background: var(--dark-color);
+  background: var(--primary-purple);
   border-radius: 25px;
   z-index: 3;
 }

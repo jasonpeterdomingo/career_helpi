@@ -1,11 +1,11 @@
 nav {
-  background-color: #6a0dad;
+  background-color: var(--primary-purple);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid #b57edc;
+  border-bottom: 3px solid var(--accent-purple);
 }
 
 nav a,
@@ -43,7 +43,7 @@ nav a:hover,
 }
 
 .font-size-toggle button {
-  background-color: #b57edc;
+  background-color: var(--accent-purple);
   border: none;
   color: white;
   padding: 0.5rem 1rem;
@@ -56,13 +56,13 @@ nav a:hover,
 
 .font-size-toggle button:hover {
   outline: none;
-  outline: 3px solid #b57edc;
+  outline: 3px solid var(--accent-purple);
   outline-offset: 2px;
   box-shadow: 0 0 0 1px var(--lightest-color);
 }
 
 .font-size-toggle button.active {
-  background-color: #6a0dad !important;
+  background-color: var(--primary-purple) !important;
   color: white;
   border-radius: 8px;
   font-weight: bold;
@@ -70,7 +70,7 @@ nav a:hover,
 
 .font-size-toggle button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px #b57edc;
+  box-shadow: 0 0 0 3px var(--accent-purple);
 }
 /*
   outline: 3px solid #b57edc;
