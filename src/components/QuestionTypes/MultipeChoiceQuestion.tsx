@@ -1,5 +1,6 @@
 import { Button, Form } from "react-bootstrap";
 import "./Questions.css";
+import "./../cssStyling/Buttons.css";
 
 /**
  * MultipleChoiceQuestion Component
@@ -69,7 +70,9 @@ export function MultipleChoiceQuestion({
         </Form.Group>
       </div>
       <div> Answer: {answer}</div>
-      <Button onClick={clearAnswer}>Clear</Button>
+      <Button className="clear-button" variant="custom" onClick={clearAnswer}>
+        Clear
+      </Button>
     </div>
   );
 }

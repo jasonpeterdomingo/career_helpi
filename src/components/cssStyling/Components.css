@@ -20,20 +20,6 @@ nav a:hover,
 .nav-link:hover {
   text-decoration: underline;
 }
-/*
-.custom-nav-link {
-  transition: background-color 0.2s ease-in-out;
-}
-
-.custom-nav-link:hover {
-  background-color: lightskyblue !important;
-  border-radius: 5px;
-}
-
-.content-wrapper {
-  flex: 1;
-}
-*/
 
 .font-size-toggle {
   display: flex;
