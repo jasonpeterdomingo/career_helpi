@@ -1,7 +1,9 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import "./cssStyling/Components.css";
 
 interface FontSizeAdjusterProps {
+  fontSize: number;
   setFontSize: (size: number) => void;
 }
 
@@ -18,30 +20,39 @@ interface FontSizeAdjusterProps {
  *
  */
 export function FontSizeAdjuster({
+  fontSize,
   setFontSize,
 }: FontSizeAdjusterProps): JSX.Element {
   return (
-    <div>
-      Font Size:
+    <div className="font-size-toggle">
+      <span className="font-size-label">Font size:</span>
       <Button
+        className={fontSize === 12 ? "active" : ""}
+        variant="custom"
         onClick={() => setFontSize(12)}
         style={{ marginRight: "10px", fontSize: "12px" }}
       >
         Small
       </Button>
       <Button
+        className={fontSize === 16 ? "active" : ""}
+        variant="custom"
         onClick={() => setFontSize(16)}
         style={{ marginRight: "10px", fontSize: "16px" }}
       >
         Medium
       </Button>
       <Button
+        className={fontSize === 20 ? "active" : ""}
+        variant="custom"
         onClick={() => setFontSize(20)}
         style={{ marginRight: "10px", fontSize: "20px" }}
       >
         Large
       </Button>
       <Button
+        className={fontSize === 24 ? "active" : ""}
+        variant="custom"
         onClick={() => setFontSize(24)}
         style={{ marginRight: "10px", fontSize: "24px" }}
       >
