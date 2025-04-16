@@ -21,6 +21,31 @@ nav a:hover,
   text-decoration: underline;
 }
 
+.navbar-brand {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--primary-purple);
+  cursor: pointer;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/*
+.navbar-brand:hover {
+  color: var(--accent-purple);
+  text-shadow: 0 0 6px var(--accent-purple), 0 0 12px var(--accent-purple);
+}
+  */
+
+.navbar-brand:hover {
+  background: linear-gradient(90deg, #b892ff, #d1b3ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 6px rgba(185, 140, 255, 0.3),
+    0 0 10px rgba(185, 140, 255, 0.2);
+}
+
 .font-size-toggle {
   display: flex;
   justify-content: center;
