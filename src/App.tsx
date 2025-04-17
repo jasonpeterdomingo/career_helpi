@@ -39,9 +39,7 @@ function App() {
       <header>
         <NavigationBar setPage={setPage} />
       </header>
-      <hr />
-      <FontSizeAdjuster setFontSize={setFontSize} />
-      <hr />
+      <FontSizeAdjuster fontSize={fontSize} setFontSize={setFontSize} />
       <div className="content-wrapper">
         <RenderPage setPage={setPage} page={currentPage} fontSize={fontSize} />
       </div>

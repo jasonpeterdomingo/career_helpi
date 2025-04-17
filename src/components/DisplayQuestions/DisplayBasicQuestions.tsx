@@ -7,6 +7,10 @@ import {
   createQuestion,
   isQuestionAnswered,
 } from "../../helpers/displayQuestionHelpers";
+import "../cssStyling/Components.css";
+import nextArrow from "../../assets/black-right-arrow.png";
+import backArrow from "../../assets/black-left-arrow.png";
+import "./../cssStyling/Buttons.css";
 
 /**
  * DisplayBasicQuestions Component
@@ -65,7 +69,16 @@ export function DisplayBasicQuestions({
       setIndex(index - 1); // Move to previous question
     }
   }
-
+  //This allows for proper focusing of the back button (for css styling)
+  const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
+    back();
+    e.currentTarget.blur();
+  };
+  //This allows for proper focusing of the next button (for css styling)
+  const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
+    next();
+    e.currentTarget.blur();
+  };
   const totalQuestions = BASIC_QUESTIONS.length;
   const answered = isAnswered ? index + 1 : index;
   const progress = Math.round((answered / totalQuestions) * 100);
@@ -75,11 +88,7 @@ export function DisplayBasicQuestions({
       <ProgressBar
         now={progress}
         label={`${progress}%`}
-        style={{
-          marginBottom: "20px",
-          marginLeft: "10%",
-          marginRight: "10%",
-        }}
+        className="custom-progress-bar"
       />
 
       <Form.Group
@@ -100,15 +109,40 @@ export function DisplayBasicQuestions({
         )}
       </Form.Group>
 
-      <Button onClick={back} disabled={index === 0}>
-        Back
-      </Button>
+      <div id="CircleButtonContainer">
+        {/* Back Button */}
+        <Button
+          id="CircleButton"
+          className="button"
+          type="button"
+          onClick={handleBack}
+          disabled={index === 0}
+        >
+          <img src={backArrow} alt="Back Button" className="buttonImage" />
+        </Button>
 
-      <Button onClick={next} disabled={!isAnswered}>
-        {index === BASIC_QUESTIONS.length - 1 ? "Submit" : "Next"}
-      </Button>
+        {/* Next or Submit Button */}
+        <Button
+          id="CircleButton"
+          className="button"
+          type={index === BASIC_QUESTIONS.length - 1 ? "submit" : "button"}
+          onClick={handleNext}
+          disabled={!isAnswered}
+        >
+          <img
+            src={nextArrow}
+            alt={
+              index === BASIC_QUESTIONS.length - 1
+                ? "Submit Button"
+                : "Next Button"
+            }
+            className="buttonImage"
+          />
+        </Button>
+      </div>
 
       {/* Display current answers */}
+      {/*
       <div>
         <h5>Debug:</h5>
         <ul>
@@ -120,6 +154,7 @@ export function DisplayBasicQuestions({
           ))}
         </ul>
       </div>
+      */}
 
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
