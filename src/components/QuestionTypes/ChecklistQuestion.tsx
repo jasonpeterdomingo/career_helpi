@@ -1,6 +1,6 @@
 import { Button, Form } from "react-bootstrap";
 import "./Questions.css";
-
+import "./../cssStyling/Buttons.css";
 /**
  * ChecklistQuestion Component
  *
@@ -85,7 +85,9 @@ export function ChecklistQuestion({
         </Form.Group>
       </div>
       <div> Answers: {answers.join(", ")}</div>
-      <Button onClick={clearAnswers}>Clear</Button>
+      <Button className="clear-button" variant="custom" onClick={clearAnswers}>
+        Clear
+      </Button>
     </div>
   );
 }
