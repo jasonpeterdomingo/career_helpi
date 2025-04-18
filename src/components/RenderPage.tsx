@@ -15,7 +15,20 @@ interface RenderPageProps {
   setBasicAnswers: (answers: { [id: number]: string | string[] }) => void;
 }
 
-// Conditional logic for deciding what component to render
+/**
+ * RenderPage Component
+ *
+ * Control component that decide what component to render.
+ *
+ * Props:
+ * - `page` (PAGE): The page of the webpage.
+ * - `fontSize` (number): Font size.
+ * - `setPage` (function): Function that renders which page is displayed.
+ * - `apiKey` (string): API Key for OpenAI.
+ * - `basicAnswers` ({ [id: number]: string | string[] }): Stored answers for basic questions.
+ * - `setBasicAnswers` (function): Update the answers for basic questions.
+ *
+ */
 export function RenderPage({
   page,
   fontSize,
