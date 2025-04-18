@@ -6,6 +6,17 @@ interface FooterProps {
   onKeyChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
+/**
+ * Footer Component
+ *
+ * The footer of the webpage which consisted of an input box for entering API key
+ * and names of team members.
+ *
+ * Props:
+ * - `apiKey` (string): The API key for OpenAI.
+ * - `onKeyChange` (function): A function that updates API key whenever the input changes.
+ *
+ */
 export function Footer({
   apiKey,
   onKeyChange,
