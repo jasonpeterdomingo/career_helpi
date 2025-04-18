@@ -6,6 +6,15 @@ interface NavigationBarProps {
   setPage: (page: PAGE) => void;
 }
 
+/**
+ * NavigationBar Component
+ *
+ * The navigation bar where user can navigate to home page, basic question page, and detailed question page.
+ *
+ * Props:
+ * - `setPage` (function): Function that renders which page is displayed.
+ *
+ */
 export function NavigationBar({ setPage }: NavigationBarProps) {
   return (
     <Navbar className="nav">
