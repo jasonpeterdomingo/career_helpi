@@ -24,7 +24,12 @@ function App() {
       </header>
       <FontSizeAdjuster fontSize={fontSize} setFontSize={setFontSize} />
       <div className="content-wrapper">
-        <RenderPage setPage={setPage} page={currentPage} fontSize={fontSize} />
+        <RenderPage
+          setPage={setPage}
+          page={currentPage}
+          fontSize={fontSize}
+          apiKey={key}
+        />
       </div>
       <Footer
         apiKey={key}
