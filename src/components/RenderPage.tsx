@@ -11,6 +11,8 @@ interface RenderPageProps {
   fontSize: number;
   setPage: (page: PAGE) => void;
   apiKey: string;
+  basicAnswers: { [id: number]: string | string[] };
+  setBasicAnswers: (answers: { [id: number]: string | string[] }) => void;
 }
 
 // Conditional logic for deciding what component to render
@@ -19,11 +21,20 @@ export function RenderPage({
   fontSize,
   setPage,
   apiKey,
+  basicAnswers,
+  setBasicAnswers,
 }: RenderPageProps) {
   switch (page) {
     case "basic":
       return (
-        <DisplayBasicQuestions navigatePage={setPage} fontSize={fontSize} />
+        <DisplayBasicQuestions
+          fontSize={fontSize}
+          onFinishQuiz={(collectedAnswers) => {
+            setBasicAnswers(collectedAnswers);
+            setPage("basicResult");
+          }}
+          initialAnswers={basicAnswers}
+        />
       );
     case "detailed":
       return <DisplayDetailedQuestions fontSize={fontSize} />;

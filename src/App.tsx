@@ -16,6 +16,9 @@ function App() {
   const { key, setKey } = useApiKey(); // for api key input
   const [fontSize, setFontSize] = useState<number>(16); // For adjusting font size
   const [currentPage, setPage] = useState<PAGE>("home"); // For rendering different pages
+  const [basicAnswers, setBasicAnswers] = useState<{
+    [id: number]: string | string[];
+  }>({}); // For storing answers to basic questions
 
   return (
     <div className="App">
@@ -29,6 +32,8 @@ function App() {
           page={currentPage}
           fontSize={fontSize}
           apiKey={key}
+          basicAnswers={basicAnswers}
+          setBasicAnswers={setBasicAnswers}
         />
       </div>
       <Footer
