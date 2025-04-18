@@ -10,19 +10,36 @@ interface RenderPageProps {
   page: PAGE;
   fontSize: number;
   setPage: (page: PAGE) => void;
+  apiKey: string;
+  basicAnswers: { [id: number]: string | string[] };
+  setBasicAnswers: (answers: { [id: number]: string | string[] }) => void;
 }
 
 // Conditional logic for deciding what component to render
-export function RenderPage({ page, fontSize, setPage }: RenderPageProps) {
+export function RenderPage({
+  page,
+  fontSize,
+  setPage,
+  apiKey,
+  basicAnswers,
+  setBasicAnswers,
+}: RenderPageProps) {
   switch (page) {
     case "basic":
       return (
-        <DisplayBasicQuestions navigatePage={setPage} fontSize={fontSize} />
+        <DisplayBasicQuestions
+          fontSize={fontSize}
+          onFinishQuiz={(collectedAnswers) => {
+            setBasicAnswers(collectedAnswers);
+            setPage("basicResult");
+          }}
+          initialAnswers={basicAnswers}
+        />
       );
     case "detailed":
       return <DisplayDetailedQuestions fontSize={fontSize} />;
     case "basicResult":
-      return <BasicResultPage />;
+      return <BasicResultPage apiKey={apiKey} answers={basicAnswers} />;
     default:
       return <Homepage navigatePage={setPage} fontSize={fontSize} />; // Render the homepage by default
   }

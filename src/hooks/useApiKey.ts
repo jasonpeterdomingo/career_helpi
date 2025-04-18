@@ -1,8 +1,15 @@
-// Used chatgpt to temperatary move api code to another component
 import { useState, useEffect } from "react";
 
 const SAVE_KEY_NAME = "MYKEY";
 
+/**
+ * useAPiKey Hook
+ * 
+ * This hook handles the API key storage and retrieval from local storage.
+ * It initializes the key state from local storage, updates local storage
+ * whenever the key changes, and provides a function to set the key.
+ * 
+ */
 export const useApiKey = () => {
   const [key, setKey] = useState(() => {
     const stored = localStorage.getItem(SAVE_KEY_NAME);

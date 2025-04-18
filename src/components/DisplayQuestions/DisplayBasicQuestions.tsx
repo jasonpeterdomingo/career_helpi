@@ -7,11 +7,20 @@ import {
   createQuestion,
   isQuestionAnswered,
 } from "../../helpers/displayQuestionHelpers";
-import { PAGE } from "../../types/page";
+// import { PAGE } from "../../types/page";
 import "../cssStyling/Components.css";
 import nextArrow from "../../assets/black-right-arrow.png";
 import backArrow from "../../assets/black-left-arrow.png";
 import "./../cssStyling/Buttons.css";
+
+/**
+ * DisplayBasicQuestionsProps Interface
+ */
+interface DisplayBasicQuestionsProps {
+  fontSize: number;
+  onFinishQuiz: (answers: { [id: number]: string | string[] }) => void;
+  initialAnswers: { [id: number]: string | string[] };
+}
 
 /**
  * DisplayBasicQuestions Component
@@ -21,8 +30,8 @@ import "./../cssStyling/Buttons.css";
  *
  * Props:
  * - `fontSize` (number): Font size.
- * - `BASIC_QUESTIONS` (Question[]): An array of question objects.
- * - `navigatePage` (function): A function to navigate to different pages.
+ * - `onFinishQuiz` ((answers: { [id: number]: string | string[] }) => void): Callback function to capture user responses.
+ * - `initialAnswers` ({ [id: number]: string | string[] }): Initial answers for each question.
  *
  * State:
  * - `index` (number): Tracks the index of the currently displayed question.
@@ -32,14 +41,12 @@ import "./../cssStyling/Buttons.css";
  */
 export function DisplayBasicQuestions({
   fontSize,
-  navigatePage,
-}: {
-  fontSize: number;
-  navigatePage: (page: PAGE) => void;
-}): React.JSX.Element {
+  onFinishQuiz,
+  initialAnswers,
+}: DisplayBasicQuestionsProps): React.JSX.Element {
   const [index, setIndex] = useState<number>(0);
   const [answers, setAnswers] = useState<{ [id: number]: string | string[] }>(
-    {}
+    initialAnswers
   );
   const [showModal, setShowModal] = useState<boolean>(false);
   const currentQuestion = BASIC_QUESTIONS[index];
@@ -47,7 +54,8 @@ export function DisplayBasicQuestions({
   /* Navigate to result page after closing out of the modal */
   const handleClose = () => {
     setShowModal(false);
-    navigatePage("basicResult");
+    // navigatePage("basicResult");
+    onFinishQuiz(answers); // Pass the collected answers to the parent component
   };
 
   const answer = answers[currentQuestion.id];
