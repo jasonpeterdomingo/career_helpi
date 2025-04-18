@@ -39,7 +39,7 @@ export function RenderPage({
     case "detailed":
       return <DisplayDetailedQuestions fontSize={fontSize} />;
     case "basicResult":
-      return <BasicResultPage apiKey={apiKey} />;
+      return <BasicResultPage apiKey={apiKey} answers={basicAnswers} />;
     default:
       return <Homepage navigatePage={setPage} fontSize={fontSize} />; // Render the homepage by default
   }
