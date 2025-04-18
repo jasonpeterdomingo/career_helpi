@@ -9,6 +9,9 @@ import {
 import { PAGE } from "./types/page";
 import { useApiKey } from "./hooks/useApiKey";
 
+/**
+ * App Component
+ */
 function App() {
   const { key, setKey } = useApiKey(); // for api key input
   const [fontSize, setFontSize] = useState<number>(16); // For adjusting font size
