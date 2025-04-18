@@ -7,6 +7,7 @@ import {
   createQuestion,
   isQuestionAnswered,
 } from "../../helpers/displayQuestionHelpers";
+import { PAGE } from "../../types/page";
 import "../cssStyling/Components.css";
 import nextArrow from "../../assets/black-right-arrow.png";
 import backArrow from "../../assets/black-left-arrow.png";
@@ -21,6 +22,7 @@ import "./../cssStyling/Buttons.css";
  * Props:
  * - `fontSize` (number): Font size.
  * - `BASIC_QUESTIONS` (Question[]): An array of question objects.
+ * - `navigatePage` (function): A function to navigate to different pages.
  *
  * State:
  * - `index` (number): Tracks the index of the currently displayed question.
@@ -30,8 +32,10 @@ import "./../cssStyling/Buttons.css";
  */
 export function DisplayBasicQuestions({
   fontSize,
+  navigatePage,
 }: {
   fontSize: number;
+  navigatePage: (page: PAGE) => void;
 }): React.JSX.Element {
   const [index, setIndex] = useState<number>(0);
   const [answers, setAnswers] = useState<{ [id: number]: string | string[] }>(
@@ -40,7 +44,11 @@ export function DisplayBasicQuestions({
   const [showModal, setShowModal] = useState<boolean>(false);
   const currentQuestion = BASIC_QUESTIONS[index];
 
-  const handleClose = () => setShowModal(false);
+  /* Navigate to result page after closing out of the modal */
+  const handleClose = () => {
+    setShowModal(false);
+    navigatePage("basicResult");
+  };
 
   const answer = answers[currentQuestion.id];
   const isAnswered = isQuestionAnswered(
