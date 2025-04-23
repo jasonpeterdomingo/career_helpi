@@ -1,4 +1,4 @@
-import { Button, Form } from "react-bootstrap";
+import { Button, ButtonGroup, Form, ToggleButton } from "react-bootstrap";
 import "./Questions.css";
 import "./../cssStyling/Buttons.css";
 
@@ -46,27 +46,35 @@ export function MultipleChoiceQuestion({
 
   return (
     <div className="text" style={{ fontSize: `${fontSize}px` }}>
-      <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
+      <h3 style={{ fontWeight: "bold", fontSize: `${fontSize + 6}px` }}>
+        {name}
+      </h3>
       <div className="question">
         <Form.Group>
           <Form.Label
             className="question-prompt"
-            style={{ fontSize: `${fontSize - 2}px` }}
+            style={{ fontSize: `${fontSize}px` }}
           >
             {body}
           </Form.Label>
-          {options.map((option: string, index: number) => (
-            <div key={index} className="mult-choice-item">
-              <Form.Check
+          <ButtonGroup vertical className="w-100">
+            {options.map((option: string, index: number) => (
+              <ToggleButton
+                className="mult-choice-item custom-toggle"
+                key={index}
+                id={`radio-${index}`}
                 type="radio"
+                variant="custom"
                 name={name}
-                label={option}
                 value={option}
                 checked={answer === option}
                 onChange={updateAnswer} // Update state when selection changes
-              />
-            </div>
-          ))}
+                style={{ textAlign: "left", fontSize: `${fontSize - 2}px` }}
+              >
+                {option}
+              </ToggleButton>
+            ))}
+          </ButtonGroup>
         </Form.Group>
       </div>
       <div> Answer: {answer}</div>

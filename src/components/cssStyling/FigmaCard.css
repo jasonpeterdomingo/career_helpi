@@ -21,7 +21,7 @@
   background: white;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
-  border: 4px solid #ddd;
+  border: 4px solid var(--light-gray);
   z-index: 1;
 }
 
@@ -34,7 +34,7 @@
   background: var(--primary-purple);
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
-  border: 4px solid #ddd;
+  border: 4px solid var(--light-gray);
   z-index: 2;
 }
 
