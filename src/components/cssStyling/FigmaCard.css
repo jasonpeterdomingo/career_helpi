@@ -70,15 +70,17 @@
 
 .card-description {
   position: absolute;
-  width: 285px;
-  height: 159px;
-  left: 63px;
+  width: 350px;
+  left: 30px;
   top: 195px;
   text-align: center;
   color: var(--text-gray);
-  font-size: 16px;
   font-weight: 400;
   word-wrap: break-word;
+  height: 240px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd transparent;
   z-index: 4;
 }
 
@@ -113,37 +115,3 @@
   align-items: center;
   justify-content: center;
 }
-
-/*
-.card-wrapper {
-  width: 411px;
-  border-radius: 30px;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 4px 10px var(--card-shadow);
-}
-
-.top-header-block {
-  flex: 0 0 167px; 
-  background: var(--primary-purple);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bottom-body-block {
-  flex: 1 1 auto; 
-  padding: 1rem; 
-  position: relative;
-}
-
-.card-description {
-  font-size: var(--dynamic-font-size);
-  line-height: 1.5;
-  text-align: center;
-  color: var(--text-gray);
-  word-break: break-word;
-}
-*/

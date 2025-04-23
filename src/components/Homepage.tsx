@@ -22,7 +22,7 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
   return (
     <div className="page-container" style={{ fontSize: `${fontSize}px` }}>
       <div className="content-wrapper">
-        <h1 className="header" style={{ fontSize: `${fontSize + 15}px` }}>
+        <h1 className="header" style={{ fontSize: `${fontSize + 16}px` }}>
           Welcome to The Career Helpi!
         </h1>
         <div className="homepage-wrapper">
@@ -40,7 +40,7 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                     <div className="bottom-body-block" />
                     <div
                       className="card-title"
-                      style={{ fontSize: `${fontSize + 19}px` }}
+                      style={{ fontSize: `${fontSize + 18}px` }}
                     >
                       Basic Questions
                     </div>
@@ -80,7 +80,7 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                     <div className="bottom-body-block" />
                     <div
                       className="card-title"
-                      style={{ fontSize: `${fontSize + 18}px` }}
+                      style={{ fontSize: `${fontSize + 17}px` }}
                     >
                       Detailed Questions
                     </div>
