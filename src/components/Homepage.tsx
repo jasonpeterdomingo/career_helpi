@@ -22,7 +22,9 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
   return (
     <div className="page-container" style={{ fontSize: `${fontSize}px` }}>
       <div className="content-wrapper">
-        <h1 className="header">Welcome to The Career Helpi!</h1>
+        <h1 className="header" style={{ fontSize: `${fontSize + 15}px` }}>
+          Welcome to The Career Helpi!
+        </h1>
         <div className="homepage-wrapper">
           <div className="card-row-wrapper">
             <Row className="card-container">
@@ -36,8 +38,16 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                     <div className="accent-left" />
                     <div className="top-header-block" />
                     <div className="bottom-body-block" />
-                    <div className="card-title">Basic Questions</div>
-                    <div className="card-description">
+                    <div
+                      className="card-title"
+                      style={{ fontSize: `${fontSize + 19}px` }}
+                    >
+                      Basic Questions
+                    </div>
+                    <div
+                      className="card-description"
+                      style={{ fontSize: `${fontSize}px` }}
+                    >
                       Answer a set of fundamental questions to receive broad yet
                       insightful career recommendations. The results are
                       tailored to your interests and personality, providing a
@@ -68,8 +78,16 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                     <div className="accent-left" />
                     <div className="top-header-block" />
                     <div className="bottom-body-block" />
-                    <div className="card-title">Detailed Questions</div>
-                    <div className="card-description">
+                    <div
+                      className="card-title"
+                      style={{ fontSize: `${fontSize + 18}px` }}
+                    >
+                      Detailed Questions
+                    </div>
+                    <div
+                      className="card-description"
+                      style={{ fontSize: `${fontSize}px` }}
+                    >
                       Dive deeper into your career preferences by providing more
                       specific information about your work experience and
                       priorities. Additionally, you can filter career options
