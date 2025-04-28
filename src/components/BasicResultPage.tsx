@@ -4,6 +4,24 @@ import React, { useEffect, useState } from "react";
 import { GenerateCareerReport } from "../api/openaiApi";
 import { FormattedAnswerPrompt } from "../helpers/formatAnswers";
 import { BASIC_QUESTIONS } from "../data/questions";
+import { ResultsChart } from "./ResultsChart";
+
+/* Hard-coded data for now */
+const pieData = [
+  { name: "Humanitarian", value: 77 },
+  { name: "Innovator", value: 23 },
+  { name: "Caretaker", value: 45 },
+  { name: "Pragmatist", value: 56 },
+];
+
+const barData = [
+  { category: "Building", score: 100 },
+  { category: "Thinking", score: 78 },
+  { category: "Creating", score: 76 },
+  { category: "Helping", score: 63 },
+  { category: "Persuading", score: 69 },
+  { category: "Organizing", score: 69 },
+];
 
 /**
  * BasicResultPageProps Interface
@@ -51,7 +69,14 @@ export function BasicResultPage({
   return (
     <div>
       <h1>Career Report</h1>
-      {report ? <p>{report}</p> : <p>Generating report...</p>}
+      {report ? (
+        <div>
+          <ResultsChart pieData={pieData} barData={barData} />
+          <p>{report}</p>
+        </div>
+      ) : (
+        <p>Generating report...</p>
+      )}
       {/* <Form.Group controlId="basicResult">
         <Form.Label>This is the Basic Result Page!</Form.Label>
         <Form.Control />
