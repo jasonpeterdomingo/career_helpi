@@ -1,0 +1,10 @@
+.chart-container {
+  background-color: transparent !important;
+}
+
+.pie-chart .recharts-surface,
+.pie-chart .recharts-wrapper,
+.bar-chart .recharts-surface,
+.bar-chart .recharts-wrapper {
+  background-color: transparent !important;
+}
