@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import {
-  NavigationBar,
-  Footer,
-  RenderPage,
-  FontSizeAdjuster,
-} from "./components";
+import { NavigationBar, Footer, RenderPage } from "./components";
 import { PAGE } from "./types/page";
 import { useApiKey } from "./hooks/useApiKey";
 
