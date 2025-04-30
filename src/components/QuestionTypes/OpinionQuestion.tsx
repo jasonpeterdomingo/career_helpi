@@ -49,23 +49,26 @@ export function OpinionQuestion({
   return (
     <div className="text" style={{ fontSize: `${fontSize}px` }}>
       <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
-      <Form.Group>
-        <Form.Label style={{ fontSize: `${fontSize - 2}px` }}>
-          {body}
-        </Form.Label>
-        <div className="opinion-question">
-          {options.map((option, index) => (
-            <Button
-              key={index}
-              variant={answer === option ? "primary" : "outline-primary"}
-              style={{ fontSize: `${fontSize}px` }}
-              onClick={() => updateAnswers(option)}
-            >
-              {option}
-            </Button>
-          ))}
-        </div>
-      </Form.Group>
+      <div className="question">
+        <Form.Group>
+          <Form.Label style={{ fontSize: `${fontSize}px` }}>{body}</Form.Label>
+          <div className="opinion-question">
+            {options.map((option, index) => (
+              <Button
+                key={index}
+                variant="custom"
+                className={
+                  'opinion-button ${answer === option ? "selected" : ""}'
+                }
+                style={{ fontSize: `${fontSize}px` }}
+                onClick={() => updateAnswers(option)}
+              >
+                {option}
+              </Button>
+            ))}
+          </div>
+        </Form.Group>
+      </div>
 
       {/*For testing if answers are correctly updated.*/}
       <div>Answer: {answer} </div>
