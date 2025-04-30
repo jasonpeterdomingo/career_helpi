@@ -23,9 +23,12 @@ function App() {
   return (
     <div className="App">
       <header>
-        <NavigationBar setPage={setPage} />
+        <NavigationBar
+          setPage={setPage}
+          setFontSize={setFontSize}
+          fontSize={fontSize}
+        />
       </header>
-      <FontSizeAdjuster fontSize={fontSize} setFontSize={setFontSize} />
       <div className="content-wrapper">
         <RenderPage
           setPage={setPage}

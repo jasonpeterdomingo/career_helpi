@@ -1,5 +1,6 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
+import { GearFill } from "react-bootstrap-icons";
 import "./cssStyling/Components.css";
 
 interface FontSizeAdjusterProps {
@@ -25,39 +26,53 @@ export function FontSizeAdjuster({
 }: FontSizeAdjusterProps): JSX.Element {
   return (
     <div className="font-size-toggle">
-      <span className="font-size-label">Font size:</span>
-      <Button
-        className={fontSize === 12 ? "active" : ""}
-        variant="custom"
-        onClick={() => setFontSize(12)}
-        style={{ marginRight: "10px", fontSize: "12px" }}
-      >
-        Small
-      </Button>
-      <Button
-        className={fontSize === 16 ? "active" : ""}
-        variant="custom"
-        onClick={() => setFontSize(16)}
-        style={{ marginRight: "10px", fontSize: "16px" }}
-      >
-        Medium
-      </Button>
-      <Button
-        className={fontSize === 20 ? "active" : ""}
-        variant="custom"
-        onClick={() => setFontSize(20)}
-        style={{ marginRight: "10px", fontSize: "20px" }}
-      >
-        Large
-      </Button>
-      <Button
-        className={fontSize === 24 ? "active" : ""}
-        variant="custom"
-        onClick={() => setFontSize(24)}
-        style={{ marginRight: "10px", fontSize: "24px" }}
-      >
-        Extra Large
-      </Button>
+      <Dropdown align="end" autoClose="outside">
+        <Dropdown.Toggle
+          variant="link"
+          id="dropdown-settings"
+          className="settings-dropdown-toggle"
+        >
+          <GearFill className="custom-gear" size={26} />
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu className="settings-dropdown-menu">
+          <div className="font-size-dropdown">
+            <div className="font-size-label">Font size:</div>
+            <Dropdown.Item
+              className={fontSize === 12 ? "active" : ""}
+              active={fontSize === 12}
+              onClick={() => setFontSize(12)}
+              style={{ fontSize: "14px", margin: "4px" }}
+            >
+              Small
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={fontSize === 16 ? "active" : ""}
+              active={fontSize === 16}
+              onClick={() => setFontSize(16)}
+              style={{ fontSize: "16px", margin: "4px" }}
+            >
+              Medium
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={fontSize === 20 ? "active" : ""}
+              active={fontSize === 20}
+              onClick={() => setFontSize(20)}
+              style={{ fontSize: "17.5px", margin: "4px" }}
+            >
+              Large
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={fontSize === 24 ? "active" : ""}
+              active={fontSize === 24}
+              onClick={() => setFontSize(24)}
+              style={{ fontSize: "18px", margin: "4px" }}
+            >
+              Extra Large
+            </Dropdown.Item>
+          </div>
+        </Dropdown.Menu>
+      </Dropdown>
     </div>
   );
 }
