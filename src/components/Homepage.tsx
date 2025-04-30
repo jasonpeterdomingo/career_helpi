@@ -23,8 +23,11 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
     <div className="page-container" style={{ fontSize: `${fontSize}px` }}>
       <div className="content-wrapper">
         <h1 className="header" style={{ fontSize: `${fontSize + 16}px` }}>
-          Welcome to The Career Helpi!
+          Welcome to the Penguin Quest!
         </h1>
+        <p style={{ marginTop: "1.5rem", fontSize: `${fontSize + 1}px` }}>
+          Let penguin help you waddle down the right career path!{" "}
+        </p>
         <div className="homepage-wrapper">
           <div className="card-row-wrapper">
             <Row className="card-container">

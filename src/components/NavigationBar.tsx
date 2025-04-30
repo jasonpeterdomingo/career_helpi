@@ -20,7 +20,7 @@ export function NavigationBar({ setPage }: NavigationBarProps) {
     <Navbar className="nav">
       <Container>
         <Navbar.Brand className="navber-brand" onClick={() => setPage("home")}>
-          Career Helpi
+          Penguin Quest
         </Navbar.Brand>
         <Nav className="ml-auto nav">
           <Nav.Link onClick={() => setPage("home")}>Home</Nav.Link>
