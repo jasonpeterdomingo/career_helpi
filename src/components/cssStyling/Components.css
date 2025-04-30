@@ -46,6 +46,61 @@ nav a:hover,
     0 0 10px rgba(185, 140, 255, 0.2);
 }
 
+.custom-gear {
+  fill: #d3d3d3;
+  transition: fill 0.3s ease;
+}
+
+.settings-dropdown-toggle {
+  color: var(--primary-purple);
+  border: none;
+  background: transparent;
+  padding: 1rem;
+}
+
+.settings-dropdown-toggle:hover {
+  color: var(--accent-purple);
+}
+
+.settings-dropdown-toggle:focus,
+.settings-dropdown-menu:focus {
+  outline: var(--accent-purple) !important;
+  box-shadow: var(--accent-purple) !important;
+}
+
+.settings-dropdown-menu .dropdown-item {
+  color: black !important; /* ensures font is black by default */
+  background-color: transparent;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.settings-dropdown-menu .dropdown-item:hover {
+  background-color: rgba(185, 140, 255, 0.1); /* subtle purple hover */
+}
+
+.settings-dropdown-menu .dropdown-item.active,
+.settings-dropdown-menu .dropdown-item:active {
+  border: 2px solid var(--accent-purple);
+  background-color: transparent !important;
+  color: black !important;
+  border-radius: 6px;
+}
+
+.font-size-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.font-size-label {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+  margin-left: 1em;
+}
+
+/*
 .font-size-toggle {
   display: flex;
   justify-content: center;
@@ -91,12 +146,7 @@ nav a:hover,
   outline: none;
   box-shadow: 0 0 0 3px var(--accent-purple);
 }
-/*
-  outline: 3px solid #b57edc;
-  outline-offset: 2px;
-  box-shadow: 0 0 0 1px var(--lightest-color);
-}
-  */
+*/
 
 .custom-progress-bar {
   background-color: var(--lightest-color); /* Track color */

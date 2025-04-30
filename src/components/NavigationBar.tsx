@@ -1,9 +1,12 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { PAGE } from "../types/page";
 import "./cssStyling/Components.css";
+import { FontSizeAdjuster } from "./FontSizeAdjuster";
 
 interface NavigationBarProps {
   setPage: (page: PAGE) => void;
+  setFontSize: (size: number) => void;
+  fontSize: number;
 }
 
 /**
@@ -15,7 +18,11 @@ interface NavigationBarProps {
  * - `setPage` (function): Function that renders which page is displayed.
  *
  */
-export function NavigationBar({ setPage }: NavigationBarProps) {
+export function NavigationBar({
+  setPage,
+  setFontSize,
+  fontSize,
+}: NavigationBarProps) {
   return (
     <Navbar className="nav">
       <Container>
@@ -29,6 +36,7 @@ export function NavigationBar({ setPage }: NavigationBarProps) {
             Detailed Questions
           </Nav.Link>
         </Nav>
+        <FontSizeAdjuster fontSize={fontSize} setFontSize={setFontSize} />
       </Container>
     </Navbar>
   );
