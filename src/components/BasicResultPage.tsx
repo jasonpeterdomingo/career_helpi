@@ -94,6 +94,24 @@ export function BasicResultPage({
   return (
     <div>
       <h1>Career Report</h1>
+      {error && <p>{error}</p>}
+      {!report && !error && <p>Generating report...</p>}
+      {report && (
+        <>
+          <ResultsChart pieData={pieData} barData={barData} />
+          <h2>Top Career Matches for You</h2>
+          <ul>
+            {report.topCareerMatches.map((career, index) => (
+              <li key={index}>
+                <h3>{career.title}</h3>
+                <p>{career.description}</p>
+                <p>Average Annual Salary: ${career.averageAnnualSalary}</p>
+                <p>Projected Growth: {career.projectedGrowth}%</p>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 }
