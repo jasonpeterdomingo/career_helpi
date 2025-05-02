@@ -1,5 +1,6 @@
 import { PAGE } from "../types/page";
 import { BasicResultPage } from "./BasicResultPage";
+import { DetailedResultPage } from "./DetailedResultPage";
 import {
   Homepage,
   DisplayBasicQuestions,
@@ -13,6 +14,8 @@ interface RenderPageProps {
   apiKey: string;
   basicAnswers: { [id: number]: string | string[] };
   setBasicAnswers: (answers: { [id: number]: string | string[] }) => void;
+  detailedAnswers: { [id: number]: string | string[] };
+  setDetailedAnswers: (answers: { [id: number]: string | string[] }) => void;
 }
 
 /**
@@ -36,6 +39,8 @@ export function RenderPage({
   apiKey,
   basicAnswers,
   setBasicAnswers,
+  detailedAnswers,
+  setDetailedAnswers,
 }: RenderPageProps) {
   switch (page) {
     case "basic":
@@ -50,9 +55,20 @@ export function RenderPage({
         />
       );
     case "detailed":
-      return <DisplayDetailedQuestions fontSize={fontSize} />;
+      return (
+        <DisplayDetailedQuestions
+          fontSize={fontSize}
+          onFinishQuiz={(collectedAnswers) => {
+            setDetailedAnswers(collectedAnswers);
+            setPage("detailedResult");
+          }}
+          initialAnswers={detailedAnswers}
+        />
+      );
     case "basicResult":
       return <BasicResultPage apiKey={apiKey} answers={basicAnswers} />;
+    case "detailedResult":
+      return <DetailedResultPage apiKey={apiKey} answers={detailedAnswers} />;
     default:
       return <Homepage navigatePage={setPage} fontSize={fontSize} />; // Render the homepage by default
   }
