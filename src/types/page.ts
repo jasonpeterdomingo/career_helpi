@@ -1,1 +1,1 @@
-export type PAGE = "home" | "basic" | "detailed" | "basicResult";
+export type PAGE = "home" | "basic" | "detailed" | "basicResult" | "detailedResult";
