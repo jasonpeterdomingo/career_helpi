@@ -1,22 +1,9 @@
-//import ./DetailedQ1.css
 import React, { useEffect, useState } from "react";
-// import { Form } from "react-bootstrap";
 import { GenerateCareerReport } from "../api/openaiApi";
 import { FormattedAnswerPrompt } from "../helpers/formatAnswers";
 import { BASIC_QUESTIONS } from "../data/questions";
 import { ResultsChart } from "./ResultsChart";
 import { CareerReport } from "../helpers/careerReport";
-
-/**
- *      {report ? (
-        <div>
-          <ResultsChart pieData={pieData} barData={barData} />
-          <p>{report}</p>
-        </div>
-      ) : (
-        <p>Generating report...</p>
-      )}
- */
 
 /**
  * BasicResultPageProps Interface
@@ -30,7 +17,12 @@ interface BasicResultPageProps {
 /**
  * BasicResultPage Component
  *
- * This component displays a basic result page with a form.
+ * This component displays a basic result page.
+ * It generates a career report based on the user's answers to the questions.
+ * There are three main sections:
+ * 1. Pie chart showing the work style breakdown.
+ * 2. Bar chart showing the work activity preferences.
+ * 3. A list of top career matches with their details.
  *
  * Props:
  * - `apiKey` (string): The API key for OpenAI.
