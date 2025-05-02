@@ -57,9 +57,9 @@ export function OpinionQuestion({
               <Button
                 key={index}
                 variant="custom"
-                className={
-                  'opinion-button ${answer === option ? "selected" : ""}'
-                }
+                className={`opinion-button ${
+                  answer === option ? "selected" : ""
+                }`}
                 style={{ fontSize: `${fontSize}px` }}
                 onClick={() => updateAnswers(option)}
               >
