@@ -5,23 +5,18 @@ import { GenerateCareerReport } from "../api/openaiApi";
 import { FormattedAnswerPrompt } from "../helpers/formatAnswers";
 import { BASIC_QUESTIONS } from "../data/questions";
 import { ResultsChart } from "./ResultsChart";
+import { CareerReport } from "../helpers/careerReport";
 
-/* Hard-coded data for now */
-const pieData = [
-  { name: "Humanitarian", value: 77 },
-  { name: "Innovator", value: 23 },
-  { name: "Caretaker", value: 45 },
-  { name: "Pragmatist", value: 56 },
-];
-
-const barData = [
-  { category: "Building", score: 100 },
-  { category: "Thinking", score: 78 },
-  { category: "Creating", score: 76 },
-  { category: "Helping", score: 63 },
-  { category: "Persuading", score: 69 },
-  { category: "Organizing", score: 69 },
-];
+/**
+ *      {report ? (
+        <div>
+          <ResultsChart pieData={pieData} barData={barData} />
+          <p>{report}</p>
+        </div>
+      ) : (
+        <p>Generating report...</p>
+      )}
+ */
 
 /**
  * BasicResultPageProps Interface
@@ -48,39 +43,57 @@ export function BasicResultPage({
   apiKey,
   answers,
 }: BasicResultPageProps): React.JSX.Element {
-  const [report, setReport] = useState<string>("");
+  const [report, setReport] = useState<CareerReport | null>(null); // State to store the generated report
+  const [error, setError] = useState<string | null>(null); // State to store any error messages
 
   /**
-   * Function to generate a career report using the OpenAI API.
+   * useEffect Hook to generate the career report
    */
   useEffect(() => {
+    let localError: string | null = null; // Local error variable to capture errors (AI-Generated)
     async function generateReport() {
       if (!apiKey) {
-        console.error("Missing API Key");
+        localError = "Please enter your OpenAI API key.";
         return;
       }
-      const prompt = FormattedAnswerPrompt(BASIC_QUESTIONS, answers);
-      const careerReport = await GenerateCareerReport(prompt, apiKey);
-      setReport(careerReport);
+      try {
+        const prompt = FormattedAnswerPrompt(BASIC_QUESTIONS, answers);
+        const response = await GenerateCareerReport(prompt, apiKey);
+        const parsedReport: CareerReport = JSON.parse(response);
+        setReport(parsedReport);
+      } catch (e) {
+        console.error(e);
+        localError =
+          "An error occurred while generating the report. Please try again.";
+      }
     }
 
-    generateReport();
-  }, [apiKey, answers]); // Dependency array to re-run the effect when apiKey or answers change
+    generateReport().then(() => {
+      if (localError) setError(localError);
+    });
+  }, [apiKey, answers, error]); // Dependency array to re-run the effect when apiKey or answers change
+
+  // Pie chart data
+  const pieData = report
+    ? Object.entries(report.workStyleBreakdown).map(([name, value]) => ({
+        name,
+        value,
+      }))
+    : [];
+
+  // Bar chart data
+  const barData = report
+    ? Object.entries(report.workActivityPreferences).map(
+        ([category, score]) => ({
+          category,
+          score,
+        })
+      )
+    : [];
+
   return (
     <div>
       <h1>Career Report</h1>
-      {report ? (
-        <div>
-          <ResultsChart pieData={pieData} barData={barData} />
-          <p>{report}</p>
-        </div>
-      ) : (
-        <p>Generating report...</p>
-      )}
-      {/* <Form.Group controlId="basicResult">
-        <Form.Label>This is the Basic Result Page!</Form.Label>
-        <Form.Control />
-      </Form.Group> */}
     </div>
   );
 }
