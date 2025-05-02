@@ -1,8 +1,9 @@
+import {systemPrompt} from "./systemPrompt";
 /**
  * openaiApi.ts
  * 
  * This module provides a function to generate a career report using the OpenAI API.
- * Reference: https://platform.openai.com/docs/api-reference/introduction
+ * Reference: https://platform.openai.com/docs/api-reference/introduction & ChatGPT
  * 
  * @param prompt The prompt to be sent to the OpenAI API
  * @param apiKey The OpenAI API key
@@ -17,7 +18,10 @@ export async function GenerateCareerReport(prompt: string, apiKey: string): Prom
         // The body of the request contains the model and the messages
         body: JSON.stringify({
             model: "gpt-4.1",
-            messages: [{ role: "user", content: prompt }],
+            messages: [ 
+                {role: "system", content: systemPrompt},  // system prompt
+                { role: "user", content: prompt }],
+                temperature: 0.7 // controls randomness in the output
         }),
     });
 

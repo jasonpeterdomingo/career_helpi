@@ -73,7 +73,7 @@ export function ResultsChart({
 
       {/* Bar Chart */}
       <div className="bar-chart chart-container">
-        <h3>Career Interests</h3>
+        <h3>Work Activity Preferences</h3>
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={barData} layout="vertical">
             <XAxis type="number" domain={[0, 100]} />
