@@ -12,6 +12,7 @@ body,
   --card-shadow: rgba(0, 0, 0, 0.1);
   --focus-purple: #e9d5ff;
   --light-gray: #ddd;
+  --medium-gray: #555;
 }
 
 .App {

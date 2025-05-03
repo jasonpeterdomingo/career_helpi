@@ -57,29 +57,37 @@ export function BinaryQuestion({
           <Form.Label style={{ fontSize: `${fontSize}px` }}>{body}</Form.Label>
           {options.map((optionPair, index) => (
             <div className="binary-question" key={index}>
-              {/* Render two buttons for each pair of options */}
-              <Button
-                variant={
-                  answers[index] === optionPair[0]
-                    ? "primary"
-                    : "outline-primary"
-                }
-                style={{ fontSize: `${fontSize}px` }}
-                onClick={() => updateAnswers(index, optionPair[0])}
-              >
-                {optionPair[0]}
-              </Button>
-              <Button
-                variant={
-                  answers[index] === optionPair[1]
-                    ? "primary"
-                    : "outline-primary"
-                }
-                style={{ fontSize: `${fontSize}px` }}
-                onClick={() => updateAnswers(index, optionPair[1])}
-              >
-                {optionPair[1]}
-              </Button>
+              <div className="binary-choice-row">
+                <div className="binary-button-container">
+                  <Button
+                    className={`custom-binary-button ${
+                      answers[index] === optionPair[0] ? "selected" : ""
+                    }`}
+                    style={{
+                      fontSize: `${fontSize - 2}px`,
+                    }}
+                    onClick={() => updateAnswers(index, optionPair[0])}
+                  >
+                    {optionPair[0]}
+                  </Button>
+                </div>
+
+                <div className="or-label">OR</div>
+
+                <div className="binary-button-container">
+                  <Button
+                    className={`custom-binary-button ${
+                      answers[index] === optionPair[1] ? "selected" : ""
+                    }`}
+                    style={{
+                      fontSize: `${fontSize - 2}px`,
+                    }}
+                    onClick={() => updateAnswers(index, optionPair[1])}
+                  >
+                    {optionPair[1]}
+                  </Button>
+                </div>
+              </div>
             </div>
           ))}
         </Form.Group>
