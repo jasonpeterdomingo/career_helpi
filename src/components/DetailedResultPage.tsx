@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { GenerateCareerReport } from "../api/openaiApi";
 import { FormattedAnswerPrompt } from "../helpers/formatAnswers";
-import { BASIC_QUESTIONS } from "../data/questions";
+import { DETAILED_QUESTIONS } from "../data/questions";
 import { ResultsChart } from "./ResultsChart";
 import { CareerReport } from "../helpers/careerReport";
 
 /**
- * BasicResultPageProps Interface
+ * DetailedResultPageProps Interface
  * apiKey: string - The API key for OpenAI.
  */
-interface BasicResultPageProps {
+interface DetailedResultPageProps {
   apiKey: string;
   answers: { [id: number]: string | string[] };
 }
 
 /**
- * BasicResultPage Component
+ * DetailedResultPage Component
  *
- * This component displays a basic result page.
+ * This component displays a result page for the Detailed Quiz.
  * It generates a career report based on the user's answers to the questions.
  * There are three main sections:
  * 1. Pie chart showing the work style breakdown.
@@ -29,12 +29,12 @@ interface BasicResultPageProps {
  * - `answers` ({ [id: number]: string | string[] }): The answers to the questions.
  *
  * Returns:
- * - A JSX element representing the basic result page.
+ * - A JSX element representing the results for the Detailed Quiz.
  */
-export function BasicResultPage({
+export function DetailedResultPage({
   apiKey,
   answers,
-}: BasicResultPageProps): React.JSX.Element {
+}: DetailedResultPageProps): React.JSX.Element {
   const [report, setReport] = useState<CareerReport | null>(null); // State to store the generated report
   const [error, setError] = useState<string | null>(null); // State to store any error messages
 
@@ -49,7 +49,7 @@ export function BasicResultPage({
         return;
       }
       try {
-        const prompt = FormattedAnswerPrompt(BASIC_QUESTIONS, answers);
+        const prompt = FormattedAnswerPrompt(DETAILED_QUESTIONS, answers);
         const response = await GenerateCareerReport(prompt, apiKey);
         const parsedReport: CareerReport = JSON.parse(response);
         setReport(parsedReport);

@@ -14,7 +14,9 @@ function App() {
   const [basicAnswers, setBasicAnswers] = useState<{
     [id: number]: string | string[];
   }>({}); // For storing answers to basic questions
-
+  const [detailedAnswers, setDetailedAnswers] = useState<{
+    [id: number]: string | string[];
+  }>({}); // For storing answers to detailed questions
   return (
     <div className="App">
       <header>
@@ -32,6 +34,8 @@ function App() {
           apiKey={key}
           basicAnswers={basicAnswers}
           setBasicAnswers={setBasicAnswers}
+          detailedAnswers={detailedAnswers}
+          setDetailedAnswers={setDetailedAnswers}
         />
       </div>
       <Footer

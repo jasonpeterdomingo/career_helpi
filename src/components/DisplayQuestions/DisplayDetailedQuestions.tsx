@@ -13,6 +13,15 @@ import backArrow from "../../assets/black-left-arrow.png";
 import "./../cssStyling/Buttons.css";
 
 /**
+ * DisplayBasicQuestionsProps Interface
+ */
+interface DisplayDetailedQuestionsProps {
+  fontSize: number;
+  onFinishQuiz: (answers: { [id: number]: string | string[] }) => void;
+  initialAnswers: { [id: number]: string | string[] };
+}
+
+/**
  * DisplayDetailedQuestions Component
  *
  * This component renders questions where users can navigate through one question at a time.
@@ -30,9 +39,9 @@ import "./../cssStyling/Buttons.css";
  */
 export function DisplayDetailedQuestions({
   fontSize,
-}: {
-  fontSize: number;
-}): React.JSX.Element {
+  onFinishQuiz,
+  initialAnswers,
+}: DisplayDetailedQuestionsProps): React.JSX.Element {
   const [index, setIndex] = useState<number>(0);
   const [answers, setAnswers] = useState<{ [id: number]: string | string[] }>(
     {}
@@ -40,7 +49,12 @@ export function DisplayDetailedQuestions({
   const [showModal, setShowModal] = useState<boolean>(false);
   const currentQuestion = DETAILED_QUESTIONS[index];
 
-  const handleClose = () => setShowModal(false);
+  /* Navigate to result page after closing out of the modal */
+  const handleClose = () => {
+    setShowModal(false);
+    // navigatePage("basicResult");
+    onFinishQuiz(answers); // Pass the collected answers to the parent component
+  };
 
   const answer = answers[currentQuestion.id];
   const isAnswered = isQuestionAnswered(
