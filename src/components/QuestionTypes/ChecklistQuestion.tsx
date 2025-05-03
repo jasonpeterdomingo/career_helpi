@@ -69,17 +69,28 @@ export function ChecklistQuestion({
           </Form.Label>
           <div className="checklist-question">
             {options.map((option: string, index: number) => (
-              <div key={option} className="checklist-item">
-                <Form.Check
-                  key={index}
+              <label
+                key={index}
+                className={`custom-checkbox-option ${
+                  answers.includes(option) ? "checked" : ""
+                }`}
+              >
+                <input
                   type="checkbox"
                   name={name}
-                  label={option}
                   value={option}
                   checked={answers.includes(option)}
-                  onChange={(e) => updateAnswers(e)}
+                  onChange={updateAnswers}
+                  className="custom-checkbox-input"
                 />
-              </div>
+                <span className="custom-checkbox-box" />
+                <span
+                  className="custom-checkbox-label"
+                  style={{ fontSize: `${fontSize - 2}px` }}
+                >
+                  {option}
+                </span>
+              </label>
             ))}
           </div>
         </Form.Group>
