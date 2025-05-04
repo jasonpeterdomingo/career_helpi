@@ -4,6 +4,7 @@ import { FormattedAnswerPrompt } from "../helpers/formatAnswers";
 import { BASIC_QUESTIONS } from "../data/questions";
 import { ResultsChart } from "./ResultsChart";
 import { CareerReport } from "../helpers/careerReport";
+import "../components/cssStyling/Results.css";
 
 /**
  * BasicResultPageProps Interface
@@ -89,7 +90,7 @@ export function BasicResultPage({
       {error && <p>{error}</p>}
       {!report && !error && <p>Generating report...</p>}
       {report && (
-        <>
+        <div className="basic-result">
           <ResultsChart pieData={pieData} barData={barData} />
           <h2>Top Career Matches for You</h2>
           <ul>
@@ -102,7 +103,7 @@ export function BasicResultPage({
               </li>
             ))}
           </ul>
-        </>
+        </div>
       )}
     </div>
   );
