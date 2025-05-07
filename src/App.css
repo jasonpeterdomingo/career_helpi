@@ -13,6 +13,24 @@ body,
   --focus-purple: #e9d5ff;
   --light-gray: #ddd;
   --medium-gray: #555;
+  /*for arcticLandscape1.png */
+  --pale-blue: #e6f2f8;
+  --glacier-blue: #d0e7f2;
+  --deep-blue: #006d9c;
+  --icy-cyan: #4aaed9;
+  --midnight-navy: #082e44;
+  /* sunsetLandscape.png */
+  --sky-peach: #f6e4d4;
+  --sunset-orange: #fdbb74;
+  --frost-veil: #cfe9f2;
+  --water-blue: #cce8f4;
+  --arctic-mist: #a9d6e5;
+  --icecap-glow: #8ecbea;
+  --polar-blue: #385d74;
+  --iceberg-blue: #2b7fa8;
+  --moonlit-ocean: #154660;
+  --midnight-glacier: #1d3c5e;
+  --ocean-navy: #0a2a3f;
 }
 
 .App {
