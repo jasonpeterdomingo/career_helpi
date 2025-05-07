@@ -29,7 +29,7 @@ export function BinaryQuestion({
   options,
   fontSize,
   onChange,
-  answers = [],
+  answers = new Array(options.length).fill(""),
 }: {
   name: string;
   body: string;
