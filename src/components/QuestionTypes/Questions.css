@@ -7,7 +7,7 @@
   padding-left: 10%;
   padding-right: 10%;
   border-radius: 16px;
-  background-color: var(--light-color) !important;
+  background-color: var(--pale-blue) !important;
   box-shadow: 0 4px 12px var(--card-shadow);
   width: fit-content;
 }
@@ -39,9 +39,9 @@
 
 .custom-toggle {
   width: 100%;
-  background-color: var(--lightest-color);
-  border: 2px solid var(--primary-purple);
-  color: var(--primary-purple);
+  background-color: var(--arctic-mist);
+  border: 2px solid var(--midnight-glacier);
+  color: var(--midnight-glacier);
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   transition: all 0.1s ease-in-out;
@@ -54,20 +54,20 @@
 .custom-toggle:hover,
 .custom-toggle:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--accent-purple);
-  background-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px var(--iceberg-blue);
+  background-color: var(--iceberg-blue);
   color: white;
-  border-color: var(--primary-purple);
+  border-color: var(--midnight-glacier);
 }
 
 /* Active/selected state */
 .btn-check:checked + .custom-toggle {
   outline: none !important;
   box-shadow: none !important;
-  background-color: var(--primary-purple) !important;
+  background-color: var(--midnight-glacier) !important;
   color: white;
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 0 3px var(--accent-purple);
+  border-color: var(--iceberg-blue);
+  box-shadow: 0 0 0 3px var(--iceberg-blue);
   transform: scale(1.02);
 }
 
@@ -78,9 +78,9 @@
   cursor: pointer;
   margin-bottom: 1rem;
   padding: 0.75rem 1rem;
-  border: 2px solid var(--primary-purple);
+  border: 2px solid var(--midnight-glacier);
   border-radius: 12px;
-  background-color: var(--lightest-color);
+  background-color: var(--arctic-mist);
   transition: all 0.2s ease-in-out;
   box-shadow: 0 2px 6px var(--card-shadow);
   font-weight: 500;
@@ -89,12 +89,13 @@
 
 /* Hover state */
 .custom-checkbox-option:hover {
-  background-color: var(--accent-purple);
-  color: white;
+  background-color: var(--iceberg-blue);
+  color: var(--pale-blue);
 }
 
 .custom-checkbox-option.checked {
-  background-color: var(--accent-purple);
+  background-color: var(--iceberg-blue);
+  color: var(--pale-blue);
 }
 
 /* Hide the default checkbox */
@@ -106,7 +107,7 @@
 .custom-checkbox-box {
   width: 1.25rem;
   height: 1.25rem;
-  border: 2px solid var(--primary-purple);
+  border: 2px solid var(--midnight-glacier);
   background-color: white;
   margin-right: 1rem;
   border-radius: 4px;
@@ -123,15 +124,15 @@
   left: 5px;
   width: 5px;
   height: 10px;
-  border: solid var(--primary-purple);
+  border: solid var(--midnight-glacier);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
 
 /* Background change on checked */
 .custom-checkbox-input:checked + .custom-checkbox-box {
-  background-color: var(--focus-purple);
-  border-color: var(--primary-purple);
+  background-color: var(--water-blue);
+  border-color: var(--midnight-glacier);
 }
 
 /* Label text */
@@ -146,9 +147,9 @@
 }
 
 .opinion-button {
-  color: var(--primary-purple);
-  border: 2px solid var(--primary-purple);
-  background-color: var(--lightest-color);
+  color: var(--midnight-glacier);
+  border: 2px solid var(--midnight-glacier);
+  background-color: var(--arctic-mist);
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   transition: all 0.2s ease-in-out;
@@ -161,18 +162,18 @@
 .opinion-button:hover,
 .opinion-button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--accent-purple);
-  background-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px var(--iceberg-blue);
+  background-color: var(--iceberg-blue);
   color: white;
-  border-color: var(--primary-purple);
+  border-color: var(--midnight-glacier);
 }
 
 /* Active/selected state */
 .opinion-button.selected {
-  background-color: var(--accent-purple);
+  background-color: var(--iceberg-blue);
   color: white;
-  border-color: var(--primary-purple);
-  box-shadow: 0 0 0 3px var(--accent-purple);
+  border-color: white;
+  box-shadow: 0 0 0 3px var(--midnight-glacier);
   transform: scale(1.02);
 }
 
@@ -192,9 +193,9 @@
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1rem;
-  border: 2px solid var(--primary-purple) !important;
+  border: 2px solid var(--midnight-glacier) !important;
   border-radius: 12px;
-  background-color: var(--lightest-color) !important;
+  background-color: var(--arctic-mist) !important;
   transition: all 0.2s ease-in-out;
   box-shadow: 0 2px 6px var(--card-shadow);
   font-weight: 500;
@@ -205,15 +206,15 @@
 }
 
 .custom-binary-button:hover {
-  background-color: var(--accent-purple) !important;
+  background-color: var(--iceberg-blue) !important;
   color: white !important;
 }
 
 .custom-binary-button.selected {
-  background-color: var(--primary-purple) !important;
+  background-color: var(--midnight-glacier) !important;
   color: white !important;
-  border-color: var(--accent-purple) !important;
-  box-shadow: 0 0 0 3px var(--accent-purple);
+  border-color: var(--pale-blue) !important;
+  box-shadow: 0 0 0 4px var(--iceberg-blue);
   transform: scale(1.02);
 }
 

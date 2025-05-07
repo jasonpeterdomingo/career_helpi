@@ -18,28 +18,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--accent-purple);
+  background-color: var(--iceberg-blue);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease, outline 0.15s ease;
   outline: none;
-  box-shadow: 0 0 0 1px var(--lightest-color);
+  box-shadow: 0 0 0 1px var(--arctic-mist);
 }
 
 #CircleButton.button:hover {
-  outline: 3px solid var(--primary-purple);
+  outline: 3px solid var(--midnight-glacier);
   outline-offset: 2px;
-  box-shadow: 0 0 0 1px var(--lightest-color);
+  box-shadow: 0 0 0 1px var(--arctic-mist);
 }
 
 #CircleButton.button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--lightest-color);
+  box-shadow: 0 0 0 3px var(--arctic-mist);
 }
 
 .clear-button {
   margin: 2%;
-  background-color: var(--primary-purple);
+  background-color: var(--midnight-glacier);
   border: none;
   color: white;
   padding: 0.5rem 1rem;
@@ -52,9 +52,9 @@
 
 .clear-button:hover {
   color: white;
-  outline: 3px solid var(--accent-purple);
+  outline: 3px solid var(--iceberg-blue);
   outline-offset: 2px;
-  box-shadow: 0 0 0 1px var(--lightest-color);
+  box-shadow: 0 0 0 1px var(--arctic-mist);
 }
 
 .clear-button:focus {
