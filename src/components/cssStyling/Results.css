@@ -10,7 +10,7 @@
   background-color: transparent !important;
 }
 
-/*Add a card border that encased basic result content*/
+/*Add a card border that encased basic & detailed result content*/
 .basic-result {
   display: flex;
   justify-content: center;
@@ -23,6 +23,21 @@
   border-radius: 16px;
   /*background-color: var(--light-color) !important;
     box-shadow: 0 4px 12px var(--card-shadow);*/
+  width: fit-content;
+}
+
+.detailed-result {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2rem auto;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 16px;
+  /*background-color: var(--light-color) !important;
+      box-shadow: 0 4px 12px var(--card-shadow);*/
   width: fit-content;
 }
 
