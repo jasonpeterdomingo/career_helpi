@@ -93,8 +93,8 @@ export function BinaryQuestion({
         </Form.Group>
       </div>
 
-      {/*For testing if answers are correctly updated.*/}
-      <div>Answer: {answers.join(", ")}</div>
+      {/*For testing if answers are correctly updated.
+      <div>Answer: {answers.join(", ")}</div> */}
       <Button className="clear-button" variant="custom" onClick={clearAnswers}>
         Clear
       </Button>

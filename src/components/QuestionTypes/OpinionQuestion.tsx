@@ -71,7 +71,7 @@ export function OpinionQuestion({
       </div>
 
       {/*For testing if answers are correctly updated.*/}
-      <div>Answer: {answer} </div>
+      {/*<div>Answer: {answer} </div>*/}
       <Button className="clear-button" variant="custom" onClick={clearAnswers}>
         Clear
       </Button>
