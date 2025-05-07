@@ -4,6 +4,7 @@ import { FormattedAnswerPrompt } from "../helpers/formatAnswers";
 import { DETAILED_QUESTIONS } from "../data/questions";
 import { ResultsChart } from "./ResultsChart";
 import { CareerReport } from "../helpers/careerReport";
+import "../components/cssStyling/Results.css";
 
 /**
  * DetailedResultPageProps Interface
@@ -89,20 +90,24 @@ export function DetailedResultPage({
       {error && <p>{error}</p>}
       {!report && !error && <p>Generating report...</p>}
       {report && (
-        <>
+        <div className="detailed-result">
           <ResultsChart pieData={pieData} barData={barData} />
-          <h2>Top Career Matches for You</h2>
-          <ul>
-            {report.topCareerMatches.map((career, index) => (
-              <li key={index}>
-                <h3>{career.title}</h3>
-                <p>{career.description}</p>
-                <p>Average Annual Salary: ${career.averageAnnualSalary}</p>
-                <p>Projected Growth: {career.projectedGrowth}%</p>
-              </li>
-            ))}
-          </ul>
-        </>
+          <div className="career-matches-wrapper">
+            <h2>Top Career Matches for You</h2>
+            <ul>
+              {report.topCareerMatches.map((career, index) => (
+                <div className="career-item">
+                  <div key={index}>
+                    <h3>{career.title}</h3>
+                    <p>{career.description}</p>
+                    <p>Average Annual Salary: ${career.averageAnnualSalary}</p>
+                    <p>Projected Growth: {career.projectedGrowth}%</p>
+                  </div>
+                </div>
+              ))}
+            </ul>
+          </div>
+        </div>
       )}
     </div>
   );
