@@ -90,7 +90,7 @@
   height: auto;
   top: 13%;
   text-align: center;
-  color: #f8f4ff;
+  color: var(--pale-blue);
   font-weight: 600;
   word-wrap: break-word;
   z-index: 4;

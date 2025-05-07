@@ -1,16 +1,16 @@
 nav {
-  background-color: var(--ocean-navy);
+  background-color: var(--midnight-glacier);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid var(--ocean-navy);
+  border-bottom: 3px solid var(--midnight-glacier);
 }
 
 nav a,
 .nav-link {
-  color: white !important;
+  color: var(--pale-blue) !important;
   margin: 0 1rem;
   text-decoration: none;
   font-weight: 600;
@@ -24,26 +24,18 @@ nav a:hover,
 .navbar-brand {
   font-family: "Poppins", "Segoe UI", sans-serif;
   font-weight: 700;
+  color: white !important;
   font-size: 1.8rem;
-  color: var(--midnight-navy);
   cursor: pointer;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/*
 .navbar-brand:hover {
-  color: var(--accent-purple);
-  text-shadow: 0 0 6px var(--accent-purple), 0 0 12px var(--accent-purple);
-}
-  */
-
-.navbar-brand:hover {
-  background: linear-gradient(90deg, #b892ff, #d1b3ff);
+  background: linear-gradient(90deg, var(--icecap-glow), var(--water-blue));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 6px rgba(185, 140, 255, 0.3),
-    0 0 10px rgba(185, 140, 255, 0.2);
+  text-shadow: 0 0 6px rgba(43, 127, 168, 0.3), 0 0 10px rgba(43, 127, 168, 0.2);
 }
 
 .custom-gear {
@@ -52,20 +44,20 @@ nav a:hover,
 }
 
 .settings-dropdown-toggle {
-  color: var(--pale-blue);
+  color: transparent;
   border: none;
   background: transparent;
   padding: 1rem;
 }
 
 .settings-dropdown-toggle:hover {
-  color: var(--accent-purple);
+  color: var(--frost-veil);
 }
 
 .settings-dropdown-toggle:focus,
 .settings-dropdown-menu:focus {
-  outline: var(--accent-purple) !important;
-  box-shadow: var(--accent-purple) !important;
+  outline: none;
+  box-shadow: none;
 }
 
 .settings-dropdown-menu .dropdown-item {
@@ -76,12 +68,12 @@ nav a:hover,
 }
 
 .settings-dropdown-menu .dropdown-item:hover {
-  background-color: rgba(185, 140, 255, 0.1); /* subtle purple hover */
+  background-color: rgba(43, 127, 168, 0.15);
 }
 
 .settings-dropdown-menu .dropdown-item.active,
 .settings-dropdown-menu .dropdown-item:active {
-  border: 2px solid var(--accent-purple);
+  border: 2px solid var(--polar-blue);
   background-color: transparent !important;
   color: black !important;
   border-radius: 6px;

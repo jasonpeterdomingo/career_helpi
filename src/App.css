@@ -14,7 +14,7 @@ body,
   --light-gray: #ddd;
   --medium-gray: #555;
   /*for arcticLandscape1.png */
-  --pale-blue: #e6f2f8;
+  --pale-blue: #ecf8fe; /*#e6f2f8*/
   --glacier-blue: #d0e7f2;
   --deep-blue: #006d9c;
   --icy-cyan: #4aaed9;
@@ -38,7 +38,6 @@ body,
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--lightest-color);
 }
 
 .App-footer {
