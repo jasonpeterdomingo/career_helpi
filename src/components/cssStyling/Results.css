@@ -10,15 +10,42 @@
   background-color: transparent !important;
 }
 
-/* pie chart styling */
-.chart-wrapper {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  padding: 50px 40px;
+/*Add a card border that encased basic result content*/
+.basic-result {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2rem auto;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 16px;
+  /*background-color: var(--light-color) !important;
+    box-shadow: 0 4px 12px var(--card-shadow);*/
+  width: fit-content;
 }
 
-.result-chart {
+/* Pie chart styling */
+.pie-chart-wrapper {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2rem auto;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-radius: 16px;
+  background-color: var(--light-color) !important;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  width: fit-content;
+}
+
+.work-style-description {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -29,7 +56,6 @@
 
 .quadrant {
   max-width: 400px;
-  font-family: sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -67,12 +93,13 @@
   z-index: 2;
 }
 
-.subheader {
+.pie-chart h3 {
   margin-bottom: 5%;
+  margin-top: -5%;
 }
 
-/* Add a card border that encased basic result content*/
-.basic-result {
+/* Bar chart styling */
+.bar-chart-wrapper {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -85,4 +112,74 @@
   background-color: var(--light-color) !important;
   box-shadow: 0 4px 12px var(--card-shadow);
   width: fit-content;
+}
+
+.interest-description {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  line-height: 1.6;
+}
+
+.interest-item {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.interest-item h3 {
+  flex: 0 0 160px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Career section styling */
+.career-matches-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2rem auto;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-radius: 16px;
+  background-color: var(--light-color) !important;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  width: fit-content;
+}
+
+.career-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2rem auto;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-radius: 16px;
+  background-color: var(--light-color) !important;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  width: fit-content;
+}
+
+.career-item h3 {
+  flex: 0 0 160px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.career-item p {
+  margin-top: 2%;
+  text-align: left;
 }
