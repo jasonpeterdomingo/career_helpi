@@ -1,6 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import "./cssStyling/Homepage.css";
 import "./cssStyling/FigmaCard.css";
+import penguin from "../assets/fullPenguin.png";
 
 type Page = "home" | "basic" | "detailed";
 
@@ -22,12 +23,17 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
   return (
     <div className="page-container" style={{ fontSize: `${fontSize}px` }}>
       <div className="content-wrapper">
-        <h1 className="header" style={{ fontSize: `${fontSize + 16}px` }}>
-          Welcome to the Penguin Quest!
-        </h1>
-        <p style={{ marginTop: "1.5rem", fontSize: `${fontSize + 1}px` }}>
-          Let penguin help you waddle down the right career path!{" "}
-        </p>
+        <div className="header-section">
+          <div className="text-content">
+            <h1 className="header" style={{ fontSize: `${fontSize + 16}px` }}>
+              Welcome to the Penguin Quest!
+            </h1>
+            <p style={{ marginTop: "1.5rem", fontSize: `${fontSize + 1}px` }}>
+              Let penguin help you waddle down the right career path!{" "}
+            </p>
+          </div>
+          <img src={penguin} alt="Penguin" className="penguin-image" />
+        </div>
         <div className="homepage-wrapper">
           <div className="card-row-wrapper">
             <Row className="card-container">

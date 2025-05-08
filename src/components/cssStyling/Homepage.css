@@ -1,8 +1,42 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 81vh;
+  background-image: url("../../assets/sunsetLandscape.png");
+  background-size: cover;
+  background-position: center top -7rem;
+}
+
+.content-wrapper {
+  flex: 1;
+  font-family: "Nunito", sans-serif;
+  justify-content: center;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.text-content {
+  flex-shrink: 1;
+}
+
+.penguin-image {
+  width: 110px;
+  height: auto;
+}
+
 .header {
-  font-weight: bolder;
-  margin: 2% 0;
+  font-weight: 900;
+  text-shadow: 0.5px 0 currentColor; /* bolder font*/
+  letter-spacing: 0.5px;
+  margin-top: 7%;
 }
 
 .title {
@@ -23,6 +57,13 @@
 body {
   margin-bottom: 2%;
 }
+
+.homepage-wrapper {
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Container for the entire card section */
 .card-container {
   display: flex;
@@ -32,23 +73,6 @@ body {
   align-items: center;
   margin-top: 4rem;
   margin-bottom: 4rem;
-}
-
-.homepage-wrapper {
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-}
-
-.page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 70vh;
-}
-
-.content-wrapper {
-  flex: 1;
-  font-family: "Nunito", sans-serif;
 }
 
 .card-row-wrapper {

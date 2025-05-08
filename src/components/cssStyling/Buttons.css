@@ -1,8 +1,10 @@
 #CircleButtonContainer {
   display: flex;
   justify-content: center;
-  gap: 70vw;
+  gap: 30vh;
   padding: 2%;
+  margin-top: -8vh;
+  margin-bottom: 5%;
 }
 
 .buttonImage {
@@ -11,36 +13,35 @@
 }
 
 #CircleButton.button {
-  margin-top: -9.1%; /*This put arrow buttons on level with the 'clear' button*/
   border-radius: 50%;
   width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--accent-purple);
+  background-color: var(--iceberg-blue);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease, outline 0.15s ease;
   outline: none;
-  box-shadow: 0 0 0 1px var(--lightest-color);
+  box-shadow: 0 0 0 1px var(--arctic-mist);
 }
 
 #CircleButton.button:hover {
-  outline: 3px solid var(--primary-purple);
+  outline: 3px solid var(--midnight-glacier);
   outline-offset: 2px;
-  box-shadow: 0 0 0 1px var(--lightest-color);
+  box-shadow: 0 0 0 1px var(--arctic-mist);
 }
 
 #CircleButton.button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--lightest-color);
+  box-shadow: 0 0 0 3px var(--arctic-mist);
 }
 
 .clear-button {
   margin: 2%;
-  background-color: var(--primary-purple);
-  border: none;
+  background-color: var(--midnight-glacier);
+  border: 2px solid rgba(163, 223, 245, 0.5);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -52,9 +53,10 @@
 
 .clear-button:hover {
   color: white;
-  outline: 3px solid var(--accent-purple);
+  outline: 3px solid var(--iceberg-blue);
+  border: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: 0 0 0 1px var(--lightest-color);
+  box-shadow: 0 0 0 1px var(--arctic-mist);
 }
 
 .clear-button:focus {

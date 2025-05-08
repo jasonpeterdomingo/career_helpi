@@ -12,6 +12,7 @@ import "../cssStyling/Components.css";
 import nextArrow from "../../assets/black-right-arrow.png";
 import backArrow from "../../assets/black-left-arrow.png";
 import "./../cssStyling/Buttons.css";
+import "./../cssStyling/QuestionBackground.css";
 
 /**
  * DisplayBasicQuestionsProps Interface
@@ -100,7 +101,7 @@ export function DisplayBasicQuestions({
   const progress = Math.round((answered / totalQuestions) * 100);
 
   return (
-    <div>
+    <div className="background-container">
       <ProgressBar
         now={progress}
         label={`${progress}%`}
