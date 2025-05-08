@@ -1,7 +1,7 @@
 .background-container {
   position: relative;
-  z-index: 0; /* Ensure pseudo stays behind content */
-  overflow: hidden; /* Prevent pseudo from spilling */
+  z-index: 0;
+  overflow: hidden;
 }
 .background-container::before {
   content: "";
