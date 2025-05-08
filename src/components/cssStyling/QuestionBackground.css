@@ -2,7 +2,11 @@
   position: relative;
   z-index: 0;
   overflow: hidden;
+  min-height: calc(
+    100vh - 19.5vh
+  ); /*adjust -#vh according to height of footer and navbar*/
 }
+
 .background-container::before {
   content: "";
   position: absolute;

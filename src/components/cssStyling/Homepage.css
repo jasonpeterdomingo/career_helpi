@@ -6,6 +6,7 @@
   min-height: 81vh;
   background-image: url("../../assets/sunsetLandscape.png");
   background-size: cover;
+  background-position: center top -70px;
 }
 
 .header {
