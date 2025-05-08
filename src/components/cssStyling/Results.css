@@ -44,7 +44,6 @@
 /* Pie chart styling */
 .pie-chart-wrapper {
   position: relative;
-  width: 100%;
 
   display: flex;
   justify-content: center;
@@ -58,6 +57,7 @@
   background-color: var(--light-color) !important;
   box-shadow: 0 4px 12px var(--card-shadow);
   width: fit-content;
+  max-width: 1450px; /* Set a max width to prevent it from growing too large */
 }
 
 .work-style-description {
@@ -100,17 +100,11 @@
 }
 
 .pie-chart {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: -28%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
-}
-
-.pie-chart h3 {
-  margin-bottom: 5%;
-  margin-top: -5%;
 }
 
 /* Bar chart styling */
@@ -127,6 +121,7 @@
   background-color: var(--light-color) !important;
   box-shadow: 0 4px 12px var(--card-shadow);
   width: fit-content;
+  max-width: 1450px; /* Set a max width to prevent it from growing too large */
 }
 
 .interest-description {
@@ -168,6 +163,7 @@
   background-color: var(--light-color) !important;
   box-shadow: 0 4px 12px var(--card-shadow);
   width: fit-content;
+  max-width: 1450px; /* Set a max width to prevent it from growing too large */
 }
 
 .career-item {

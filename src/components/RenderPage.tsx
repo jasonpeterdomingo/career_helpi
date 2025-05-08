@@ -66,9 +66,21 @@ export function RenderPage({
         />
       );
     case "basicResult":
-      return <BasicResultPage apiKey={apiKey} answers={basicAnswers} />;
+      return (
+        <BasicResultPage
+          apiKey={apiKey}
+          answers={basicAnswers}
+          fontSize={fontSize}
+        />
+      );
     case "detailedResult":
-      return <DetailedResultPage apiKey={apiKey} answers={detailedAnswers} />;
+      return (
+        <DetailedResultPage
+          apiKey={apiKey}
+          answers={detailedAnswers}
+          fontSize={fontSize}
+        />
+      );
     default:
       return <Homepage navigatePage={setPage} fontSize={fontSize} />; // Render the homepage by default
   }

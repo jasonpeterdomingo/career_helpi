@@ -9,10 +9,13 @@ import "../components/cssStyling/Results.css";
 /**
  * DetailedResultPageProps Interface
  * apiKey: string - The API key for OpenAI.
+ * answers: { [id: number]: string | string[] } - Stored answers.
+ * fontSize: number - Font size.
  */
 interface DetailedResultPageProps {
   apiKey: string;
   answers: { [id: number]: string | string[] };
+  fontSize: number;
 }
 
 /**
@@ -28,6 +31,7 @@ interface DetailedResultPageProps {
  * Props:
  * - `apiKey` (string): The API key for OpenAI.
  * - `answers` ({ [id: number]: string | string[] }): The answers to the questions.
+ * - `fontSize` (number): The font size.
  *
  * Returns:
  * - A JSX element representing the results for the Detailed Quiz.
@@ -35,6 +39,7 @@ interface DetailedResultPageProps {
 export function DetailedResultPage({
   apiKey,
   answers,
+  fontSize,
 }: DetailedResultPageProps): React.JSX.Element {
   const [report, setReport] = useState<CareerReport | null>(null); // State to store the generated report
   const [error, setError] = useState<string | null>(null); // State to store any error messages
@@ -91,14 +96,25 @@ export function DetailedResultPage({
       {!report && !error && <p>Generating report...</p>}
       {report && (
         <div className="detailed-result">
-          <ResultsChart pieData={pieData} barData={barData} />
+          <ResultsChart
+            pieData={pieData}
+            barData={barData}
+            fontSize={fontSize}
+          />
           <div className="career-matches-wrapper">
-            <h2>Top Career Matches for You</h2>
+            <h2 style={{ fontSize: `${fontSize + 17}px` }}>
+              Top Career Matches for You
+            </h2>
             <ul>
               {report.topCareerMatches.map((career, index) => (
-                <div className="career-item">
+                <div
+                  className="career-item"
+                  style={{ fontSize: `${fontSize}px` }}
+                >
                   <div key={index}>
-                    <h3>{career.title}</h3>
+                    <h3 style={{ fontSize: `${fontSize + 2}px` }}>
+                      {career.title}
+                    </h3>
                     <p>{career.description}</p>
                     <p>Average Annual Salary: ${career.averageAnnualSalary}</p>
                     <p>Projected Growth: {career.projectedGrowth}%</p>
