@@ -21,10 +21,24 @@ nav a:hover,
   text-decoration: underline;
 }
 
+.navbar-brand-container {
+  cursor: pointer;
+}
+
+.navbar-brand-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* ✅ Creates spacing without layout shift */
+}
+
 .navbar-logo {
-  margin-right: 10px;
-  vertical-align: middle;
-  height: 40px;
+  width: 72px;
+  height: 70px;
+  background-color: var(--pale-blue);
+  border-radius: 49%;
+  padding: 1px;
+  object-fit: contain;
+  margin-right: 5%;
 }
 
 .navbar-brand {
@@ -32,7 +46,6 @@ nav a:hover,
   font-weight: 700;
   color: white !important;
   font-size: 1.8rem;
-  cursor: pointer;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 

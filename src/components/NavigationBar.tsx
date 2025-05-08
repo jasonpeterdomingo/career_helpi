@@ -2,6 +2,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { PAGE } from "../types/page";
 import "./cssStyling/Components.css";
 import { FontSizeAdjuster } from "./FontSizeAdjuster";
+import logo from "../assets/penguinHead.png";
 
 interface NavigationBarProps {
   setPage: (page: PAGE) => void;
@@ -26,8 +27,14 @@ export function NavigationBar({
   return (
     <Navbar className="nav">
       <Container>
-        <Navbar.Brand className="navber-brand" onClick={() => setPage("home")}>
-          Penguin Quest
+        <Navbar.Brand
+          onClick={() => setPage("home")}
+          className="navbar-brand-container"
+        >
+          <div className="navbar-brand-inner">
+            <img src={logo} alt="Penguin Logo" className="navbar-logo" />
+            <span className="navbar-brand">Penguin Quest</span>
+          </div>
         </Navbar.Brand>
         <Nav className="ml-auto nav">
           <Nav.Link onClick={() => setPage("home")}>Home</Nav.Link>

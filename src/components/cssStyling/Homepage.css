@@ -6,7 +6,30 @@
   min-height: 81vh;
   background-image: url("../../assets/sunsetLandscape.png");
   background-size: cover;
-  background-position: center top -70px;
+  background-position: center top -7rem;
+}
+
+.content-wrapper {
+  flex: 1;
+  font-family: "Nunito", sans-serif;
+  justify-content: center;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.text-content {
+  flex-shrink: 1;
+}
+
+.penguin-image {
+  width: 110px;
+  height: auto;
 }
 
 .header {
@@ -34,6 +57,13 @@
 body {
   margin-bottom: 2%;
 }
+
+.homepage-wrapper {
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Container for the entire card section */
 .card-container {
   display: flex;
@@ -43,17 +73,6 @@ body {
   align-items: center;
   margin-top: 4rem;
   margin-bottom: 4rem;
-}
-
-.homepage-wrapper {
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-}
-
-.content-wrapper {
-  flex: 1;
-  font-family: "Nunito", sans-serif;
 }
 
 .card-row-wrapper {
