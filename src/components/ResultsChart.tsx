@@ -25,11 +25,13 @@ const COLORS = ["#FF8C00", "#6A0DAD", "#1E90FF", "#3CB371"];
  *    for the pie chart, where `name` is the label and `value` is the numerical portion.
  * - `barData` (Array<{ category: string; score: number }>): Data representing career interest
  *    scores for the bar chart, where `category` is the interest area and `score` is the percentage.
+ * -  `fontSize` (number): The font size.
  *
  */
 export function ResultsChart({
   pieData,
   barData,
+  fontSize,
 }: {
   pieData: {
     name: string;
@@ -39,35 +41,68 @@ export function ResultsChart({
     category: string;
     score: number;
   }[];
+  fontSize: number;
 }) {
   return (
     <div>
       <div className="pie-chart-wrapper">
         <div className="work-style-description">
-          <div className="quadrant top-left">
-            <h3 className="title humanitarian">HUMANITARIAN</h3>
+          <div
+            className="quadrant top-left"
+            style={{ fontSize: `${fontSize}px` }}
+          >
+            <h3
+              className="title humanitarian"
+              style={{ fontSize: `${fontSize + 2}px` }}
+            >
+              HUMANITARIAN
+            </h3>
             <p>
               Driven to make the world a better place. Creative and imaginative
               in coming up with insightful solutions to meaningful problems.
             </p>
           </div>
-          <div className="quadrant top-right">
-            <h3 className="title innovator">INNOVATOR</h3>
+          <div
+            className="quadrant top-right"
+            style={{ fontSize: `${fontSize}px` }}
+          >
+            <h3
+              className="title innovator"
+              style={{ fontSize: `${fontSize + 2}px` }}
+            >
+              INNOVATOR
+            </h3>
             <p>
               Likes to solve complex, rational problems. Uses analytical skills
               to come up with innovative ways to improve logical systems.
             </p>
           </div>
-          <div className="quadrant bottom-left">
-            <h3 className="title caretaker">CARETAKER</h3>
+          <div
+            className="quadrant bottom-left"
+            style={{ fontSize: `${fontSize}px` }}
+          >
+            <h3
+              className="title caretaker"
+              style={{ fontSize: `${fontSize + 2}px` }}
+            >
+              CARETAKER
+            </h3>
             <p>
               Wants to be of service to others. Prefers to work within
               established institutions to find ways to maintain stability and
               security.
             </p>
           </div>
-          <div className="quadrant bottom-right">
-            <h3 className="title pragmatist">PRAGMATIST</h3>
+          <div
+            className="quadrant bottom-right"
+            style={{ fontSize: `${fontSize}px` }}
+          >
+            <h3
+              className="title pragmatist"
+              style={{ fontSize: `${fontSize + 2}px` }}
+            >
+              PRAGMATIST
+            </h3>
             <p>
               Wants to ensure accuracy and efficiency. Enjoys working within
               established, logical systems to accomplish practical, real-world
@@ -78,7 +113,7 @@ export function ResultsChart({
 
         {/* Pie Chart */}
         <div className="pie-chart chart-container">
-          <h3>Work Style</h3>
+          <h3 style={{ fontSize: `${fontSize + 17}px` }}>Work Style</h3>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
               <Pie
@@ -109,7 +144,9 @@ export function ResultsChart({
       {/* Bar Chart */}
       <div className="bar-chart-wrapper">
         <div className="bar-chart chart-container">
-          <h3>Work Activity Preferences</h3>
+          <h3 style={{ fontSize: `${fontSize + 17}px` }}>
+            Work Activity Preferences
+          </h3>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={barData} layout="vertical">
               <XAxis type="number" domain={[0, 100]} />
@@ -120,9 +157,12 @@ export function ResultsChart({
           </ResponsiveContainer>
         </div>
 
-        <div className="interest-description">
+        <div
+          className="interest-description"
+          style={{ fontSize: `${fontSize}px` }}
+        >
           <div className="interest-item">
-            <h3>Building</h3>
+            <h3 style={{ fontSize: `${fontSize + 2}px` }}>Building</h3>
             <p>
               Waddle over here if you love getting your flippers dirty! Builders
               thrive on hands-on work, whether it's with tools, nature, or
@@ -131,7 +171,7 @@ export function ResultsChart({
             </p>
           </div>
           <div className="interest-item">
-            <h3>Thinking</h3>
+            <h3 style={{ fontSize: `${fontSize + 2}px` }}>Thinking</h3>
             <p>
               Need a little brain freeze? Thinkers dive deep into ideas,
               research, and the world of intellect. If you’re into solving
@@ -140,7 +180,7 @@ export function ResultsChart({
           </div>
 
           <div className="interest-item">
-            <h3>Creating</h3>
+            <h3 style={{ fontSize: `${fontSize + 2}px` }}>Creating</h3>
             <p>
               Got a flair for the artistic side? Creators excel in turning ideas
               into reality. Whether it’s painting, designing, or telling
@@ -149,7 +189,7 @@ export function ResultsChart({
           </div>
 
           <div className="interest-item">
-            <h3>Helping</h3>
+            <h3 style={{ fontSize: `${fontSize + 2}px` }}>Helping</h3>
             <p>
               Got a heart of gold? Helpers are all about making life better for
               others. Whether it’s teaching, coaching, or lending a flipper,
@@ -158,7 +198,7 @@ export function ResultsChart({
           </div>
 
           <div className="interest-item">
-            <h3>Persuading</h3>
+            <h3 style={{ fontSize: `${fontSize + 2}px` }}>Persuading</h3>
             <p>
               If leading the way is your thing, Persuaders thrive in positions
               where they can influence, motivate, and guide others. Power,
@@ -167,7 +207,7 @@ export function ResultsChart({
           </div>
 
           <div className="interest-item">
-            <h3>Organizing</h3>
+            <h3 style={{ fontSize: `${fontSize + 2}px` }}>Organizing</h3>
             <p>
               Like things neat and tidy? Organizers are the masters of structure
               and precision. If you’re a planner who loves keeping things on
