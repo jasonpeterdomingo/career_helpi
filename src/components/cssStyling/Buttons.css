@@ -41,7 +41,7 @@
 .clear-button {
   margin: 2%;
   background-color: var(--midnight-glacier);
-  border: none;
+  border: 2px solid rgba(163, 223, 245, 0.5);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -54,6 +54,7 @@
 .clear-button:hover {
   color: white;
   outline: 3px solid var(--iceberg-blue);
+  border: 2px solid transparent;
   outline-offset: 2px;
   box-shadow: 0 0 0 1px var(--arctic-mist);
 }
