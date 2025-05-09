@@ -31,6 +31,8 @@ export function FontSizeAdjuster({
           variant="link"
           id="dropdown-settings"
           className="settings-dropdown-toggle"
+          title="Change font size setting"
+          aria-label="Change font size setting" /* Screen reader reads the gear button */
         >
           <GearFill className="custom-gear" size={26} />
         </Dropdown.Toggle>
