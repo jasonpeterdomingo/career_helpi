@@ -2,7 +2,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { PAGE } from "../types/page";
 import "./cssStyling/Components.css";
 import { FontSizeAdjuster } from "./FontSizeAdjuster";
-import logo from "../assets/bluePenguinHead.png";
+import logo from "../assets/penguinHead.png";
 
 interface NavigationBarProps {
   setPage: (page: PAGE) => void;
