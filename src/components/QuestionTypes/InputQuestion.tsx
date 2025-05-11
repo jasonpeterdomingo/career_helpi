@@ -42,7 +42,9 @@ export function InputQuestion({
 
   return (
     <div className="text" style={{ fontSize: `${fontSize}px` }}>
-      <h3 style={{ fontSize: `${fontSize + 4}px` }}>{name}</h3>
+      <h3 style={{ fontWeight: "bold", fontSize: `${fontSize + 6}px` }}>
+        {name}
+      </h3>
       <div className="question">
         <Form.Group>
           <Form.Label
