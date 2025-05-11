@@ -133,6 +133,14 @@ export const DETAILED_QUESTIONS: Question[] = [
   {
     id: 1,
     name: "Detailed Question 1",
+    body: "Please describe your educational background, any work experience you have, and the kind of career or industry you’re interested in?",
+    type: "input_question",
+    options: [],
+    limit: null,
+  },
+  {
+    id: 2,
+    name: "Detailed Question 2",
     body: "What long-term career goal do you hope to achieve?",
     type: "multiple_choice_question",
     options: [
@@ -147,8 +155,8 @@ export const DETAILED_QUESTIONS: Question[] = [
     limit: null,
   },
   {
-    id: 2,
-    name: "Detailed Question 2",
+    id: 3,
+    name: "Detailed Question 3",
     body: "What do you value most in a career? (Select up to 2)",
     type: "checklist_question",
     options: [
@@ -167,8 +175,8 @@ export const DETAILED_QUESTIONS: Question[] = [
     limit: 2,
   },
   {
-    id: 3,
-    name: "Detailed Question 3",
+    id: 4,
+    name: "Detailed Question 4",
     body: "What does work-life balance mean to you?",
     type: "multiple_choice_question",
     options: [
@@ -181,8 +189,8 @@ export const DETAILED_QUESTIONS: Question[] = [
     limit: null,
   },
   {
-    id: 4,
-    name: "Detailed Question 4",
+    id: 5,
+    name: "Detailed Question 5",
     body: "What type of work environment do you thrive in?",
     type: "multiple_choice_question",
     options: [
@@ -195,8 +203,8 @@ export const DETAILED_QUESTIONS: Question[] = [
     limit: null,
   },
   {
-    id: 5,
-    name: "Detailed Question 5",
+    id: 6,
+    name: "Detailed Question 6",
     body: "What is your ideal work setting?",
     type: "multiple_choice_question",
     options: [
@@ -209,8 +217,8 @@ export const DETAILED_QUESTIONS: Question[] = [
     limit: null,
   },
   {
-    id: 6,
-    name: "Detailed Question 6",
+    id: 7,
+    name: "Detailed Question 7",
     body: "How important is workplace culture to you?",
     type: "multiple_choice_question",
     options: [
@@ -221,8 +229,8 @@ export const DETAILED_QUESTIONS: Question[] = [
     limit: null,
   },
   {
-    id: 7,
-    name: "Detailed Question 7",
+    id: 8,
+    name: "Detailed Question 8",
     body: "What is your preferred career trajectory?",
     type: "multiple_choice_question",
     options: [
@@ -235,8 +243,8 @@ export const DETAILED_QUESTIONS: Question[] = [
     limit: null,
   },
   {
-    id: 8,
-    name: "Detailed Question 8",
+    id: 9,
+    name: "Detailed Question 9",
     body: "How do you feel about taking career risks?",
     type: "multiple_choice_question",
     options: [
@@ -247,8 +255,8 @@ export const DETAILED_QUESTIONS: Question[] = [
     limit: null,
   },
   {
-    id: 9,
-    name: "Detailed Question 9",
+    id: 10,
+    name: "Detailed Question 10",
     body: "How do you prefer to work?",
     type: "multiple_choice_question",
     options: [

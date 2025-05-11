@@ -2,6 +2,7 @@ import { MultipleChoiceQuestion } from "../components/QuestionTypes/MultipeChoic
 import { BinaryQuestion } from "../components/QuestionTypes/BinaryQuestion";
 import { ChecklistQuestion } from "../components/QuestionTypes/ChecklistQuestion";
 import { OpinionQuestion } from "../components/QuestionTypes/OpinionQuestion";
+import { InputQuestion } from "../components/QuestionTypes/InputQuestion";
 import { QuestionType } from "../types/question";
 
 /**
@@ -98,6 +99,16 @@ export function createQuestion(
           ></OpinionQuestion>
         </div>
       );
+    case "input_question":
+      return (
+        <InputQuestion
+          name={name}
+          body={body}
+          fontSize={fontSize}
+          onChange={onChange}
+          answer={answer as string}
+        ></InputQuestion>
+      );
     default:
       throw Error("Invalid question type!");
   }
@@ -122,7 +133,7 @@ export function createQuestion(
  * - `false` if the answer is missing or incomplete.
  *   - For "binary_question": Returns true if all pairs are answered (non-empty and matching number of pairs).
  *   - For "checklist_question": Returns true if at least one option is selected.
- *   - For "multiple_choice_question" and "opinion_question": Returns true if a non-empty string is selected.
+ *   - For "multiple_choice_question", "opinion_question", "input_question": Returns true if a non-empty string is selected or if response is non-empty.
  */
 export function isQuestionAnswered(
   type: QuestionType,
