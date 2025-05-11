@@ -1,7 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import "./cssStyling/Homepage.css";
 import "./cssStyling/FigmaCard.css";
-import penguin from "../assets/fullPenguin.png";
+import penguin from "../assets/blueFullPenguin.png";
 
 type Page = "home" | "basic" | "detailed";
 
