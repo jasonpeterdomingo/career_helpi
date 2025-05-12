@@ -188,10 +188,26 @@
   width: min(90%, 925px);
 }
 
-.custom-binary-button {
+.binary-choice-row {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.binary-button-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.custom-binary-button {
+  width: 100%;
   padding: 0.75rem 1rem;
   border: 2px solid var(--midnight-glacier) !important;
   border-radius: 12px;
@@ -200,9 +216,12 @@
   box-shadow: 0 2px 6px var(--card-shadow);
   font-weight: 500;
   user-select: none;
-  min-width: 150px;
   text-align: center;
   color: var(--text-gray) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 300px;
 }
 
 .custom-binary-button:hover {
@@ -216,19 +235,6 @@
   border-color: var(--pale-blue) !important;
   box-shadow: 0 0 0 4px var(--iceberg-blue);
   transform: scale(1.02);
-}
-
-.binary-choice-row {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.binary-button-container {
-  display: flex;
-  justify-content: center;
 }
 
 .or-label {
