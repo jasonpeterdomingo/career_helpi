@@ -11,7 +11,12 @@ import {
 } from "recharts";
 import "../components/cssStyling/Results.css";
 
-const COLORS = ["#FF8C00", "#6A0DAD", "#1E90FF", "#3CB371"];
+const COLORS = [
+  "#ccefff",
+  "var(--iceberg-blue)",
+  "#2c9cbf",
+  "var(--midnight-glacier)",
+];
 
 /**
  * ResultsChart Component
@@ -149,10 +154,15 @@ export function ResultsChart({
           </h3>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={barData} layout="vertical">
-              <XAxis type="number" domain={[0, 100]} />
-              <YAxis type="category" dataKey="category" width={100} />
+              <XAxis type="number" domain={[0, 100]} stroke={"black"} />
+              <YAxis
+                type="category"
+                dataKey="category"
+                width={100}
+                stroke={"black"}
+              />
               <Tooltip />
-              <Bar dataKey="score" fill="#4B9CD3" />
+              <Bar dataKey="score" fill={"var(--iceberg-blue)"} />
             </BarChart>
           </ResponsiveContainer>
         </div>
