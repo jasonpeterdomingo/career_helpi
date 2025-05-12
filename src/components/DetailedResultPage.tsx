@@ -91,7 +91,6 @@ export function DetailedResultPage({
 
   return (
     <div>
-      <h1>Career Report</h1>
       {error && <p>{error}</p>}
       {!report && !error && <p>Generating report...</p>}
       {report && (

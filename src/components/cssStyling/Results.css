@@ -16,7 +16,7 @@
   justify-content: center;
   flex-direction: column;
   margin: 2rem auto;
-  padding-top: 2rem;
+  padding-top: 0;
   padding-bottom: 3rem;
   padding-left: 5%;
   padding-right: 5%;
@@ -31,7 +31,7 @@
   justify-content: center;
   flex-direction: column;
   margin: 2rem auto;
-  padding-top: 2rem;
+  padding-top: 0;
   padding-bottom: 3rem;
   padding-left: 5%;
   padding-right: 5%;
@@ -43,6 +43,7 @@
 
 /* Pie chart styling */
 .pie-chart-wrapper {
+  /* it doesn't horizontally scroll, it just goes off screen when you make the window too small*/
   position: relative;
 
   display: flex;
@@ -54,7 +55,7 @@
   padding-left: 10%;
   padding-right: 10%;
   border-radius: 16px;
-  background-color: var(--light-color) !important;
+  background-color: #afcfe3 !important;
   box-shadow: 0 4px 12px var(--card-shadow);
   width: fit-content;
   max-width: 1450px; /* Set a max width to prevent it from growing too large */
@@ -84,19 +85,19 @@
 }
 
 .humanitarian {
-  color: #d39349;
+  color: #f4fbfe;
 }
 
 .innovator {
-  color: #4c2fa2;
+  color: var(--iceberg-blue);
 }
 
 .caretaker {
-  color: #8d4a8c;
+  color: #2c9cbf;
 }
 
 .pragmatist {
-  color: #5d8b2e;
+  color: var(--midnight-glacier);
 }
 
 .pie-chart {
@@ -118,7 +119,7 @@
   padding-left: 10%;
   padding-right: 10%;
   border-radius: 16px;
-  background-color: var(--light-color) !important;
+  background-color: #afcfe3 !important;
   box-shadow: 0 4px 12px var(--card-shadow);
   width: fit-content;
   max-width: 1450px; /* Set a max width to prevent it from growing too large */
@@ -146,7 +147,7 @@
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 1px;
-  margin: 0;
+  margin-top: 6px;
 }
 
 /* Career section styling */
@@ -154,13 +155,13 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: 2rem auto;
+  margin: 0 auto;
   padding-top: 2rem;
   padding-bottom: 3rem;
   padding-left: 10%;
   padding-right: 10%;
   border-radius: 16px;
-  background-color: var(--light-color) !important;
+  background-color: #afcfe3 !important;
   box-shadow: 0 4px 12px var(--card-shadow);
   width: fit-content;
   max-width: 1450px; /* Set a max width to prevent it from growing too large */
@@ -176,9 +177,11 @@
   padding-left: 10%;
   padding-right: 10%;
   border-radius: 16px;
-  background-color: var(--light-color) !important;
+  background-color: var(--iceberg-blue) !important;
   box-shadow: 0 4px 12px var(--card-shadow);
   width: fit-content;
+  font-weight: bold;
+  color: #f4fbfe;
 }
 
 .career-item h3 {

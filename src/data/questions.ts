@@ -133,7 +133,7 @@ export const DETAILED_QUESTIONS: Question[] = [
   {
     id: 1,
     name: "Detailed Question 1",
-    body: "Please describe your educational background, any work experience you have, and the kind of career or industry you’re interested in?",
+    body: "Please describe your educational background, any work experience you have, and the kind of career or industry you’re interested in.",
     type: "input_question",
     options: [],
     limit: null,
