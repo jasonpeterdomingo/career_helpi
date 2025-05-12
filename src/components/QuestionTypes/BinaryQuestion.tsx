@@ -64,6 +64,7 @@ export function BinaryQuestion({
                       answers[index] === optionPair[0] ? "selected" : ""
                     }`}
                     style={{
+                      width: `${(fontSize / 4) ** 3 + 125}px`,
                       fontSize: `${fontSize - 2}px`,
                     }}
                     onClick={() => updateAnswers(index, optionPair[0])}
@@ -80,6 +81,7 @@ export function BinaryQuestion({
                       answers[index] === optionPair[1] ? "selected" : ""
                     }`}
                     style={{
+                      width: `${(fontSize / 4) ** 3 + 125}px`,
                       fontSize: `${fontSize - 2}px`,
                     }}
                     onClick={() => updateAnswers(index, optionPair[1])}
