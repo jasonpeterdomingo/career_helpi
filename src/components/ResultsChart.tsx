@@ -119,7 +119,7 @@ export function ResultsChart({
         </div>
 
         {/* Pie Chart */}
-        <div className="pie-chart">
+        <div className="pie-chart" data-testid="pie-chart">
           <h3 style={{ fontSize: `${fontSize + 17}px` }}>Work Style</h3>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
@@ -150,7 +150,7 @@ export function ResultsChart({
 
       {/* Bar Chart */}
       <div className="bar-chart-wrapper">
-        <div className="bar-chart chart-container">
+        <div className="bar-chart chart-container" data-testid="bar-chart">
           <h3 style={{ fontSize: `${fontSize + 17}px` }}>
             Work Activity Preferences
           </h3>
