@@ -97,7 +97,6 @@ export function ChecklistQuestion({
           </div>
         </Form.Group>
       </div>
-      {/*<div> Answers: {answers.join(", ")}</div>*/}
       <Button className="clear-button" variant="custom" onClick={clearAnswers}>
         Clear
       </Button>

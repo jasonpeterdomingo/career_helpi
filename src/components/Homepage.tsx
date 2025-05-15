@@ -65,14 +65,6 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                       once all questions are answered, you'll unlock your
                       results.
                     </div>
-                    {/*
-                  <div
-                    className="card-button"
-                    onClick={() => navigatePage("basic")}
-                  >
-                    <div className="card-button-text">Start Here</div>
-                  </div>
-      */}
                   </div>
                 </div>
               </Col>
@@ -105,14 +97,6 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                       personality and interests to reflect your ideal work
                       environment.
                     </div>
-                    {/*
-                <div
-                  className="card-button"
-                  onClick={() => navigatePage("detailed")}
-                >
-                  <div className="card-button-text">Start Here</div>
-                </div>
-                */}
                   </div>
                 </div>
               </Col>
