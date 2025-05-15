@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import { DisplayBasicQuestions } from "./DisplayBasicQuestions";
-import { BASIC_QUESTIONS } from "../../data/questions";
+import { DisplayDetailedQuestions } from "./DisplayDetailedQuestions";
+import { DETAILED_QUESTIONS } from "../../data/questions";
 
-describe("DisplayBasicQuestions Component", () => {
+describe("DisplayDetailedQuestions Component", () => {
   beforeEach(() => {
     render(
-      <DisplayBasicQuestions
+      <DisplayDetailedQuestions
         fontSize={16}
         onFinishQuiz={jest.fn()}
         initialAnswers={{}}
@@ -14,9 +14,9 @@ describe("DisplayBasicQuestions Component", () => {
   });
 
   test("Check that title and first question appears", () => {
-    expect(screen.getByText("Basic Question 1")).toBeInTheDocument();
-    // Check if basic question prompt is displayed
-    expect(screen.getByText(BASIC_QUESTIONS[0].body)).toBeInTheDocument();
+    expect(screen.getByText("Detailed Question 1")).toBeInTheDocument();
+    // Check if detailed question prompt is displayed
+    expect(screen.getByText(DETAILED_QUESTIONS[0].body)).toBeInTheDocument();
   });
 
   test("Check for that the buttons (Clear, Next, Back) appears", () => {
