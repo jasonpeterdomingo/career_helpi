@@ -73,7 +73,9 @@ export function ResultsChart({
           >
             <h3
               className="title innovator"
-              style={{ fontSize: `${fontSize + 2}px` }}
+              style={{
+                fontSize: `${fontSize + 2}px`,
+              }}
             >
               INNOVATOR
             </h3>
@@ -117,7 +119,7 @@ export function ResultsChart({
         </div>
 
         {/* Pie Chart */}
-        <div className="pie-chart chart-container">
+        <div className="pie-chart">
           <h3 style={{ fontSize: `${fontSize + 17}px` }}>Work Style</h3>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
