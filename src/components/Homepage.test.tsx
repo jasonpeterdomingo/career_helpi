@@ -1,13 +1,24 @@
 import { render, screen } from "@testing-library/react";
 import { Homepage } from "./Homepage";
 
+const setup = (overrides = {}) =>
+  render(
+    <Homepage
+      navigatePage={jest.fn()}
+      fontSize={16}
+      isValidKey={true}
+      triggerWarning={jest.fn()}
+      {...overrides}
+    />
+  );
+
 test("Homepage renders without crashing", () => {
-  render(<Homepage navigatePage={jest.fn()} fontSize={16} />);
+  setup();
 });
 
 // check if welcome message is rendered
 test("Homepage welcome message displays", () => {
-  render(<Homepage navigatePage={jest.fn()} fontSize={16} />);
+  setup();
   expect(
     screen.getByRole("heading", { name: /welcome to the penguin quest!/i })
   ).toBeInTheDocument();
@@ -15,14 +26,14 @@ test("Homepage welcome message displays", () => {
 
 // check if cards are displayed
 test("renders Basic and Detailed question cards", () => {
-  render(<Homepage navigatePage={jest.fn()} fontSize={16} />);
+  setup();
   expect(screen.getByTestId("basic-card")).toBeInTheDocument();
   expect(screen.getByTestId("detailed-card")).toBeInTheDocument();
 });
 
 // check if font size is applied dynamically
 test("correct font-sizes are applied based on props", () => {
-  render(<Homepage navigatePage={jest.fn()} fontSize={20} />);
+  setup();
   const header = screen.getByRole("heading", {
     name: /welcome to the penguin quest!/i,
   });
@@ -35,7 +46,7 @@ test("correct font-sizes are applied based on props", () => {
 // verify functional basic-card click navigation
 test("clicking Basic Q card navigates to basic page", () => {
   const navigate = jest.fn();
-  render(<Homepage navigatePage={navigate} fontSize={16} />);
+  setup();
 
   const basicCard = screen.getByTestId("basic-card");
   basicCard.click();
@@ -46,7 +57,7 @@ test("clicking Basic Q card navigates to basic page", () => {
 // verify functional detailed-card click navigation
 test("clicking detailed Q card navigates to detailed page", () => {
   const navigate = jest.fn();
-  render(<Homepage navigatePage={navigate} fontSize={16} />);
+  setup();
 
   const detailedCard = screen.getByTestId("detailed-card");
   detailedCard.click();
