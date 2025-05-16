@@ -47,6 +47,7 @@ export function Homepage({
               <Col className="d-flex justify-content-center">
                 <div className="card-wrapper">
                   <div
+                    data-testid="basic-card"
                     className="figma-card clickable-card"
                     onClick={() => {
                       if (isValidKey) {
@@ -78,14 +79,6 @@ export function Homepage({
                       once all questions are answered, you'll unlock your
                       results.
                     </div>
-                    {/*
-                  <div
-                    className="card-button"
-                    onClick={() => navigatePage("basic")}
-                  >
-                    <div className="card-button-text">Start Here</div>
-                  </div>
-      */}
                   </div>
                 </div>
               </Col>
@@ -93,6 +86,7 @@ export function Homepage({
               <Col className="d-flex justify-content-center">
                 <div className="card-wrapper">
                   <div
+                    data-testid="detailed-card"
                     className="figma-card clickable-card"
                     onClick={() => {
                       if (isValidKey) {
@@ -124,14 +118,6 @@ export function Homepage({
                       personality and interests to reflect your ideal work
                       environment.
                     </div>
-                    {/*
-                <div
-                  className="card-button"
-                  onClick={() => navigatePage("detailed")}
-                >
-                  <div className="card-button-text">Start Here</div>
-                </div>
-                */}
                   </div>
                 </div>
               </Col>
