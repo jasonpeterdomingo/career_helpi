@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "../App.css";
+import "../components/cssStyling/Buttons.css";
 
 interface FooterProps {
   apiKey: string;
@@ -12,12 +13,13 @@ interface FooterProps {
 /**
  * Footer Component
  *
- * The footer of the webpage which consisted of an input box for entering API key
+ * The footer of the webpage which consisted of an input box for entering API key, a submit button,
  * and names of team members.
  *
  * Props:
  * - `apiKey` (string): The API key for OpenAI.
  * - `onKeyChange` (function): A function that updates API key whenever the input changes.
+ * - `onSubmit` (function): A function that is called when the user submits the API key.
  *
  */
 export function Footer({
@@ -54,7 +56,13 @@ export function Footer({
           }}
           value={apiKey}
         />
-        <Button onClick={handleSubmit}>Submit</Button>
+        <Button
+          className="clear-button"
+          variant="custom"
+          onClick={handleSubmit}
+        >
+          Submit
+        </Button>
         {error && (
           <div style={{ color: "red", marginTop: "0.5rem" }}>
             Please enter a valid OpenAI API key
