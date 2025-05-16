@@ -55,7 +55,6 @@ export function Homepage({
                         triggerWarning();
                       }
                     }}
-                    style={{ opacity: isValidKey ? 1 : 0.5 }} // change opacity of the card if the key is invalid
                   >
                     <div className="accent-right" />
                     <div className="accent-left" />
@@ -102,7 +101,6 @@ export function Homepage({
                         triggerWarning();
                       }
                     }}
-                    style={{ opacity: isValidKey ? 1 : 0.5 }} // change opacity of the card if the key is invalid
                   >
                     <div className="accent-right" />
                     <div className="accent-left" />

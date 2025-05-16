@@ -93,7 +93,7 @@ function App() {
       )}
       {warning && (
         <div className="toast-popup toast-error">
-          Please enter a valid API key to access questions.
+          Please enter a valid OpenAI API key & submit to access questions.
         </div>
       )}
     </div>
