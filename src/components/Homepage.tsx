@@ -8,6 +8,8 @@ type Page = "home" | "basic" | "detailed";
 interface HomepageProps {
   navigatePage: (page: Page) => void;
   fontSize: number;
+  isValidKey: boolean;
+  triggerWarning: () => void;
 }
 
 /**
@@ -19,7 +21,12 @@ interface HomepageProps {
  *  - `navigatePage` (function): A function to navigate to different pages.
  *
  */
-export function Homepage({ navigatePage, fontSize }: HomepageProps) {
+export function Homepage({
+  navigatePage,
+  fontSize,
+  isValidKey,
+  triggerWarning,
+}: HomepageProps) {
   return (
     <div className="page-container" style={{ fontSize: `${fontSize}px` }}>
       <div className="content-wrapper">
@@ -42,7 +49,13 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                   <div
                     data-testid="basic-card"
                     className="figma-card clickable-card"
-                    onClick={() => navigatePage("basic")}
+                    onClick={() => {
+                      if (isValidKey) {
+                        navigatePage("basic");
+                      } else {
+                        triggerWarning();
+                      }
+                    }}
                   >
                     <div className="accent-right" />
                     <div className="accent-left" />
@@ -75,7 +88,13 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                   <div
                     data-testid="detailed-card"
                     className="figma-card clickable-card"
-                    onClick={() => navigatePage("detailed")}
+                    onClick={() => {
+                      if (isValidKey) {
+                        navigatePage("detailed");
+                      } else {
+                        triggerWarning();
+                      }
+                    }}
                   >
                     <div className="accent-right" />
                     <div className="accent-left" />

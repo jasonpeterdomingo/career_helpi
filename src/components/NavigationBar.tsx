@@ -8,6 +8,8 @@ interface NavigationBarProps {
   setPage: (page: PAGE) => void;
   setFontSize: (size: number) => void;
   fontSize: number;
+  isValidKey: boolean;
+  triggerWarning: () => void;
 }
 
 /**
@@ -17,12 +19,18 @@ interface NavigationBarProps {
  *
  * Props:
  * - `setPage` (function): Function that renders which page is displayed.
+ * - `setFontSize` (function): Function that sets the font size.
+ * - `fontSize` (number): The current font size.
+ * - `isValidKey` (boolean): Indicates if the API key is valid.
+ * - `triggerWarning` (function): Function that triggers a warning message.
  *
  */
 export function NavigationBar({
   setPage,
   setFontSize,
   fontSize,
+  isValidKey,
+  triggerWarning,
 }: NavigationBarProps) {
   return (
     <Navbar className="nav">
@@ -38,8 +46,26 @@ export function NavigationBar({
         </Navbar.Brand>
         <Nav className="ml-auto nav">
           <Nav.Link onClick={() => setPage("home")}>Home</Nav.Link>
-          <Nav.Link onClick={() => setPage("basic")}>Basic Questions</Nav.Link>
-          <Nav.Link onClick={() => setPage("detailed")}>
+          <Nav.Link
+            onClick={() => {
+              if (isValidKey) {
+                setPage("basic");
+              } else {
+                triggerWarning();
+              }
+            }}
+          >
+            Basic Questions
+          </Nav.Link>
+          <Nav.Link
+            onClick={() => {
+              if (isValidKey) {
+                setPage("detailed");
+              } else {
+                triggerWarning();
+              }
+            }}
+          >
             Detailed Questions
           </Nav.Link>
         </Nav>

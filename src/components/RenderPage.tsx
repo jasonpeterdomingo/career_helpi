@@ -16,6 +16,8 @@ interface RenderPageProps {
   setBasicAnswers: (answers: { [id: number]: string | string[] }) => void;
   detailedAnswers: { [id: number]: string | string[] };
   setDetailedAnswers: (answers: { [id: number]: string | string[] }) => void;
+  isValidKey: boolean;
+  triggerWarning: () => void;
 }
 
 /**
@@ -41,6 +43,8 @@ export function RenderPage({
   setBasicAnswers,
   detailedAnswers,
   setDetailedAnswers,
+  isValidKey,
+  triggerWarning,
 }: RenderPageProps) {
   switch (page) {
     case "basic":
@@ -82,6 +86,13 @@ export function RenderPage({
         />
       );
     default:
-      return <Homepage navigatePage={setPage} fontSize={fontSize} />; // Render the homepage by default
+      return (
+        <Homepage
+          navigatePage={setPage}
+          fontSize={fontSize}
+          isValidKey={isValidKey}
+          triggerWarning={triggerWarning}
+        />
+      ); // Render the homepage by default
   }
 }

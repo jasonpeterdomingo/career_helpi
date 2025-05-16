@@ -9,16 +9,14 @@ test("Title exists", () => {
 });
 
 describe("NavigationBar Component", () => {
-  beforeEach(() => {
-    render(<App />);
-  });
-
   test("Check that we're on the home page", () => {
+    render(<App />);
     const header = "Welcome to the Penguin Quest!";
     expect(screen.getByText(header)).toBeInTheDocument();
   });
 
   test("Renders all the link on navigation bar", () => {
+    render(<App />);
     const homeLink = screen.getByRole("button", { name: "Home" });
     const basicQuestionLink = screen.getByRole("button", {
       name: "Basic Questions",
@@ -33,6 +31,7 @@ describe("NavigationBar Component", () => {
   });
 
   test("Clicking basic question goes to basic question page", () => {
+    render(<App />);
     const basicQuestionLink = screen.getByRole("button", {
       name: "Basic Questions",
     });
@@ -47,6 +46,7 @@ describe("NavigationBar Component", () => {
   });
 
   test("Clicking detailed question goes to detailed question page", () => {
+    render(<App />);
     const detailedQuestionLink = screen.getByRole("button", {
       name: "Detailed Questions",
     });
@@ -61,6 +61,7 @@ describe("NavigationBar Component", () => {
   });
 
   test("Clicking home goes to home page", () => {
+    render(<App />);
     // Goes to basic question page
     const basicQuestionLink = screen.getByRole("button", {
       name: "Basic Questions",
