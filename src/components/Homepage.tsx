@@ -8,6 +8,8 @@ type Page = "home" | "basic" | "detailed";
 interface HomepageProps {
   navigatePage: (page: Page) => void;
   fontSize: number;
+  isValidKey: boolean;
+  triggerWarning: () => void;
 }
 
 /**
@@ -19,7 +21,12 @@ interface HomepageProps {
  *  - `navigatePage` (function): A function to navigate to different pages.
  *
  */
-export function Homepage({ navigatePage, fontSize }: HomepageProps) {
+export function Homepage({
+  navigatePage,
+  fontSize,
+  isValidKey,
+  triggerWarning,
+}: HomepageProps) {
   return (
     <div className="page-container" style={{ fontSize: `${fontSize}px` }}>
       <div className="content-wrapper">
@@ -41,7 +48,14 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                 <div className="card-wrapper">
                   <div
                     className="figma-card clickable-card"
-                    onClick={() => navigatePage("basic")}
+                    onClick={() => {
+                      if (isValidKey) {
+                        navigatePage("basic");
+                      } else {
+                        triggerWarning();
+                      }
+                    }}
+                    style={{ opacity: isValidKey ? 1 : 0.5 }} // change opacity of the card if the key is invalid
                   >
                     <div className="accent-right" />
                     <div className="accent-left" />
@@ -81,7 +95,14 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                 <div className="card-wrapper">
                   <div
                     className="figma-card clickable-card"
-                    onClick={() => navigatePage("detailed")}
+                    onClick={() => {
+                      if (isValidKey) {
+                        navigatePage("detailed");
+                      } else {
+                        triggerWarning();
+                      }
+                    }}
+                    style={{ opacity: isValidKey ? 1 : 0.5 }} // change opacity of the card if the key is invalid
                   >
                     <div className="accent-right" />
                     <div className="accent-left" />
