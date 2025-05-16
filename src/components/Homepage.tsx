@@ -40,6 +40,7 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
               <Col className="d-flex justify-content-center">
                 <div className="card-wrapper">
                   <div
+                    data-testid="basic-card"
                     className="figma-card clickable-card"
                     onClick={() => navigatePage("basic")}
                   >
@@ -72,6 +73,7 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
               <Col className="d-flex justify-content-center">
                 <div className="card-wrapper">
                   <div
+                    data-testid="detailed-card"
                     className="figma-card clickable-card"
                     onClick={() => navigatePage("detailed")}
                   >
