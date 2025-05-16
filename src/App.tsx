@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { NavigationBar, Footer, RenderPage } from "./components";
 import { PAGE } from "./types/page";
@@ -18,7 +18,23 @@ function App() {
   const [detailedAnswers, setDetailedAnswers] = useState<{
     [id: number]: string | string[];
   }>({}); // For storing answers to detailed questions
-  const [showToast, setShowToast] = useState<boolean>(false); // For showing toast notifications
+  const [toast, setToast] = useState<boolean>(false); // For showing toast notifications
+  const [warning, setWarning] = useState<boolean>(false); // For showing warning messages for disabled buttons
+
+  // Check if the API key is valid after reloading the site
+  useEffect(() => {
+    if (key && /^sk-[A-Za-z0-9-_]+$/.test(key)) {
+      setValidKey(true);
+    }
+  }, [key]);
+
+  // Have warning message disappear after 1.5 seconds
+  useEffect(() => {
+    if (warning) {
+      const timeout = setTimeout(() => setWarning(false), 1500);
+      return () => clearTimeout(timeout);
+    }
+  });
   return (
     <div className="App">
       <header>
@@ -26,6 +42,8 @@ function App() {
           setPage={setPage}
           setFontSize={setFontSize}
           fontSize={fontSize}
+          isValidKey={validKey}
+          triggerWarning={() => setWarning(true)}
         />
       </header>
       <div className="content-wrapper">
@@ -49,18 +67,23 @@ function App() {
           setValidKey(valid);
           if (valid) {
             saveKey(); // only save the key on Submit
-            setShowToast(true); // show toast notification
+            setToast(true); // show toast notification
             setTimeout(() => {
-              setShowToast(false); // hide toast notification after 1.5 seconds
+              setToast(false); // hide toast notification after 1.5 seconds
               window.location.reload(); // reload the page to apply the new key
             }, 1500);
           }
         }}
         validKey={validKey} // Pass the validKey state to Footer
       ></Footer>
-      {showToast && (
+      {toast && (
         <div className="toast-popup">
           <p>API Key saved! Reloading...</p>
+        </div>
+      )}
+      {warning && (
+        <div className="toast-popup toast-error">
+          Please enter a valid API key to access questions.
         </div>
       )}
     </div>

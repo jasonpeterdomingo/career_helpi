@@ -65,6 +65,10 @@ body,
   animation: fade-in-out 1.5s ease-in-out;
 }
 
+.toast-error {
+  background-color: #dc3545;
+}
+
 
 /*
 .custom-nav-link {
