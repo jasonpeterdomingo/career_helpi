@@ -2,7 +2,7 @@
 
 ## Website Link
 
-You can try the application directly at [https://jasonpeterdomingo.github.io/career_helpi/)](https://jasonpeterdomingo.github.io/career_helpi/).
+You can try the application directly at [https://jasonpeterdomingo.github.io/career_helpi/](https://jasonpeterdomingo.github.io/career_helpi/).
 
 ---
 
