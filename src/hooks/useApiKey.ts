@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const SAVE_KEY_NAME = "MYKEY";
 
@@ -6,9 +6,7 @@ const SAVE_KEY_NAME = "MYKEY";
  * useAPiKey Hook
  * 
  * This hook handles the API key storage and retrieval from local storage.
- * It initializes the key state from local storage, updates local storage
- * whenever the key changes, and provides a function to set the key.
- * 
+ * It initializes the key state from local storage and updates local storage only when `saveKey()` is called
  */
 export const useApiKey = () => {
   const [key, setKey] = useState(() => {
@@ -16,11 +14,11 @@ export const useApiKey = () => {
     return stored ? JSON.parse(stored) : "";
   });
 
-  useEffect(() => {
+  function saveKey() {
     localStorage.setItem(SAVE_KEY_NAME, JSON.stringify(key));
-  }, [key]);
+  }
 
-  return { key, setKey };
+  return { key, setKey, saveKey };
 };
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 

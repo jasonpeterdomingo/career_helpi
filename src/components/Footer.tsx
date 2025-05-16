@@ -60,11 +60,6 @@ export function Footer({
             Please enter a valid OpenAI API key
           </div>
         )}
-        {validKey && (
-          <div style={{ color: "green", marginTop: "0.5rem" }}>
-            API Key is valid
-          </div>
-        )}
       </Form>
       <p>Names: Winnie Li, Jason Domingo, Ember Kerstetter</p>
     </footer>

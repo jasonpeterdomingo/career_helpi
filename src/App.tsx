@@ -8,7 +8,7 @@ import { useApiKey } from "./hooks/useApiKey";
  * App Component
  */
 function App() {
-  const { key, setKey } = useApiKey(); // for api key input
+  const { key, setKey, saveKey } = useApiKey(); // for api key input
   const [validKey, setValidKey] = useState<boolean>(false); // for checking if the key is valid
   const [fontSize, setFontSize] = useState<number>(16); // For adjusting font size
   const [currentPage, setPage] = useState<PAGE>("home"); // For rendering different pages
@@ -18,6 +18,7 @@ function App() {
   const [detailedAnswers, setDetailedAnswers] = useState<{
     [id: number]: string | string[];
   }>({}); // For storing answers to detailed questions
+  const [showToast, setShowToast] = useState<boolean>(false); // For showing toast notifications
   return (
     <div className="App">
       <header>
@@ -44,9 +45,24 @@ function App() {
         onKeyChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setKey(e.target.value)
         }
-        onSubmit={(valid: boolean) => setValidKey(valid)}
+        onSubmit={(valid: boolean) => {
+          setValidKey(valid);
+          if (valid) {
+            saveKey(); // only save the key on Submit
+            setShowToast(true); // show toast notification
+            setTimeout(() => {
+              setShowToast(false); // hide toast notification after 1.5 seconds
+              window.location.reload(); // reload the page to apply the new key
+            }, 1500);
+          }
+        }}
         validKey={validKey} // Pass the validKey state to Footer
       ></Footer>
+      {showToast && (
+        <div className="toast-popup">
+          <p>API Key saved! Reloading...</p>
+        </div>
+      )}
     </div>
   );
 }
