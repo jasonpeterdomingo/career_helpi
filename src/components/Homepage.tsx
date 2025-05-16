@@ -40,6 +40,7 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
               <Col className="d-flex justify-content-center">
                 <div className="card-wrapper">
                   <div
+                    data-testid="basic-card"
                     className="figma-card clickable-card"
                     onClick={() => navigatePage("basic")}
                   >
@@ -65,14 +66,6 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                       once all questions are answered, you'll unlock your
                       results.
                     </div>
-                    {/*
-                  <div
-                    className="card-button"
-                    onClick={() => navigatePage("basic")}
-                  >
-                    <div className="card-button-text">Start Here</div>
-                  </div>
-      */}
                   </div>
                 </div>
               </Col>
@@ -80,6 +73,7 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
               <Col className="d-flex justify-content-center">
                 <div className="card-wrapper">
                   <div
+                    data-testid="detailed-card"
                     className="figma-card clickable-card"
                     onClick={() => navigatePage("detailed")}
                   >
@@ -105,14 +99,6 @@ export function Homepage({ navigatePage, fontSize }: HomepageProps) {
                       personality and interests to reflect your ideal work
                       environment.
                     </div>
-                    {/*
-                <div
-                  className="card-button"
-                  onClick={() => navigatePage("detailed")}
-                >
-                  <div className="card-button-text">Start Here</div>
-                </div>
-                */}
                   </div>
                 </div>
               </Col>

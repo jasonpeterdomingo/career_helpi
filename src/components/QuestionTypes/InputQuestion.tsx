@@ -62,7 +62,6 @@ export function InputQuestion({
           />
         </Form.Group>
       </div>
-      {/*<div> Answer: {answer}</div>*/}
       <Button className="clear-button" variant="custom" onClick={clearAnswer}>
         Clear
       </Button>

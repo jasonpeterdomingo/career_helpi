@@ -50,11 +50,9 @@ export function DisplayDetailedQuestions({
   const [showModal, setShowModal] = useState<boolean>(false);
   const currentQuestion = DETAILED_QUESTIONS[index];
 
-  /* Navigate to result page after closing out of the modal */
   const handleClose = () => {
     setShowModal(false);
-    // navigatePage("basicResult");
-    onFinishQuiz(answers); // Pass the collected answers to the parent component
+    onFinishQuiz(answers);
   };
 
   const answer = answers[currentQuestion.id];
@@ -158,22 +156,6 @@ export function DisplayDetailedQuestions({
           />
         </Button>
       </div>
-
-      {/* Display current answers */}
-      {/*
-      <div>
-        <h5>Debug:</h5>
-        <ul>
-          {Object.entries(answers).map(([id, value]) => (
-            <li key={id}>
-              Question {id}:{" "}
-              {Array.isArray(value) ? value.join(", ") : value || "No answer"}
-            </li>
-          ))}
-        </ul>
-      </div>
-      */}
-
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>You finish the Quiz!</Modal.Title>
