@@ -9,6 +9,7 @@ import { useApiKey } from "./hooks/useApiKey";
  */
 function App() {
   const { key, setKey } = useApiKey(); // for api key input
+  const [validKey, setValidKey] = useState<boolean>(false); // for checking if the key is valid
   const [fontSize, setFontSize] = useState<number>(16); // For adjusting font size
   const [currentPage, setPage] = useState<PAGE>("home"); // For rendering different pages
   const [basicAnswers, setBasicAnswers] = useState<{
@@ -43,6 +44,8 @@ function App() {
         onKeyChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setKey(e.target.value)
         }
+        onSubmit={(valid: boolean) => setValidKey(valid)}
+        validKey={validKey} // Pass the validKey state to Footer
       ></Footer>
     </div>
   );
