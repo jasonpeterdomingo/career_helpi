@@ -1,61 +1,88 @@
-# Getting Started with Helpi
+# Penguin Quest
 
-Packages Included:
-* npm
-* bootstrap
-* react
-* openai
-* other configurations
+## Website Link
 
-Career Helpi Goal:
-To showcase various job fields and advise someone on which field or job would best suit them based on their answers to questions.
-- the ultimate decision making algorithm should be done through openai (GPT). Not a long list of if-else statements.
+You can try the application directly at [https://jasonpeterdomingo.github.io/career_helpi/)](https://jasonpeterdomingo.github.io/career_helpi/).
 
+---
 
+**Penguin Quest** is a deployable, accessibility-focused career quiz web application. It enhances traditional quiz experiences with clean, responsive design and AI-generated personalized career results. Designed with inclusivity in mind, Penguin Quest addresses the limitations of existing career tools by offering improved accessibility for visually impaired users.
 
-## React Project Information:
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+* [Overview](#overview)
+* [Features](#features)
+* [Tech Stack](#tech-stack)
+* [Team](#team)
+* [References](#references)
+* [License](#license)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Problem:**
+Many existing online career quizzes suffer from generic or inaccurate results, outdated interfaces, and a lack of features for users with visual impairments.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Solution:**
+Penguin Quest improves the career quiz experience by:
 
-### `npm test`
+* Integrating AI for more accurate, personalized career recommendations
+* Designing a simple, attractive, and intuitive user interface
+* Incorporating accessibility features like font size adjusters and screen reader compatibility
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Responsive and accessible layout
+* Progress tracking and quiz completion pop-ups
+* Font size adjuster for readability
+* AI-generated career reports via ChatGPT
+* Visual data representation using charts
+* Clear branding with a friendly penguin mascot
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+* **React** – Dynamic user interface development
+* **TypeScript** – Typed JavaScript for frontend development
+* **Bootstrap** – Responsive styling framework
+* **Figma** – UI mockups and design planning
+* **OpenAI (ChatGPT)** – AI-generated quiz result integration
+* **Chart.js** – Data visualization for career outcomes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Team
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* **Jason Domingo** – Team Manager
+  *Responsibilities: ChatGPT integration and career report refinements*
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* **Ember Kerstetter**
+  *Responsibilities: UI enhancements and quiz question generation*
 
-## Learn More
+* **Winnie Li**
+  *Responsibilities: Core question functionality and logo design*
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## References
+
+* OpenAI API documentation
+* Chart.js documentation
+* Bootstrap documentation
+* Figma design assets
+* [https://realfavicongenerator.net/](https://realfavicongenerator.net/) – Favicon generation
+* [https://www.aiscribbles.com/img/91615/serene-arctic-landscape-at-sunrise/](https://www.aiscribbles.com/img/91615/serene-arctic-landscape-at-sunrise/) – Background image reference
+* ChatGPT – Assistance with CSS and other code generation and debugging
+
+---
+
+## License
+
+For educational use only
+
