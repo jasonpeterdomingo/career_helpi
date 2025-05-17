@@ -1,5 +1,26 @@
 
 /**
+ * This helper function Validates the answers to the questions by checking if they are empty or not.
+ * @param questions The questions to be validated
+ * @param answers - The user answers to validate
+ * @returns - True if all answers are valid, false otherwise
+ */
+export function ValidateAnswers(questions: {id: number, body: string}[], answers: {[id: number]: string | string[]}): boolean {
+    return questions.every(({id}) => {
+        const answer = answers[id];
+        if (Array.isArray(answer)) {
+            return answer.length > 0 && answer.every((a) => a.trim() !== "")
+        } else if (typeof answer === "string") {
+            return answer.trim() !== "";
+        } else {
+            return false;  // Handle unexpected types
+        }
+    })
+    // this validation check covers all the cases of the answers since users are forced to answer all the questions (UI enforcement)
+}
+
+
+/**
  * This is a helper function to help format the answers to the questions to be used as a prompt for ChatGPT.
  * @param questions The questions to be formatted
  * @param answers The user answer to the questions
