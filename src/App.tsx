@@ -7,9 +7,9 @@ import { useApiKey } from "./hooks/useApiKey";
 /**
  * App Component
  */
-function App() {
+function App({ forceValidKey = false }: { forceValidKey?: boolean }) {
   const { key, setKey, saveKey } = useApiKey(); // for api key input
-  const [validKey, setValidKey] = useState<boolean>(false); // for checking if the key is valid
+  const [validKey, setValidKey] = useState<boolean>(forceValidKey); // for checking if the key is valid
   const [fontSize, setFontSize] = useState<number>(16); // For adjusting font size
   const [currentPage, setPage] = useState<PAGE>("home"); // For rendering different pages
   const [basicAnswers, setBasicAnswers] = useState<{
