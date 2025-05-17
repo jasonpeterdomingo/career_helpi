@@ -8,6 +8,7 @@ import { DETAILED_QUESTIONS } from "../data/questions";
 import { ResultsChart } from "./ResultsChart";
 import { CareerReport } from "../helpers/careerReport";
 import "../components/cssStyling/Results.css";
+import { LoadingScreen } from "./LoadingScreen";
 
 /**
  * DetailedResultPageProps Interface
@@ -101,7 +102,7 @@ export function DetailedResultPage({
   return (
     <div>
       {error && <p>{error}</p>}
-      {!report && !error && <p>Generating report...</p>}
+      {!report && !error && <LoadingScreen />}
       {report && (
         <div className="detailed-result">
           <ResultsChart

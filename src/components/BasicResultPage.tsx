@@ -8,6 +8,7 @@ import { BASIC_QUESTIONS } from "../data/questions";
 import { ResultsChart } from "./ResultsChart";
 import { CareerReport } from "../helpers/careerReport";
 import "../components/cssStyling/Results.css";
+import { LoadingScreen } from "./LoadingScreen";
 
 /**
  * BasicResultPageProps Interface
@@ -101,7 +102,7 @@ export function BasicResultPage({
   return (
     <div>
       {error && <p>{error}</p>}
-      {!report && !error && <p>Generating report...</p>}
+      {!report && !error && <LoadingScreen />}
       {report && (
         <div className="basic-result">
           <ResultsChart
