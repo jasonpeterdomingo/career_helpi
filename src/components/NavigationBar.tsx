@@ -33,7 +33,7 @@ export function NavigationBar({
   triggerWarning,
 }: NavigationBarProps) {
   return (
-    <Navbar className="nav">
+    <Navbar className="nav" data-testid="navbar">
       <Container>
         <Navbar.Brand
           onClick={() => setPage("home")}

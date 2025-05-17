@@ -46,16 +46,18 @@ export function Footer({
   return (
     <footer className="App-footer">
       <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder={apiKey ? "" : "Insert API Key Here"}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            onKeyChange(e); // Call the function passed from App.tsx to update the API key
-            setError(false); // Reset error state when user types
-          }}
-          value={apiKey}
-        />
+        <Form.Group controlId="api-key">
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder={apiKey ? "" : "Insert API Key Here"}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              onKeyChange(e); // Call the function passed from App.tsx to update the API key
+              setError(false); // Reset error state when user types
+            }}
+            value={apiKey}
+          />
+        </Form.Group>
         <Button
           className="clear-button"
           variant="custom"

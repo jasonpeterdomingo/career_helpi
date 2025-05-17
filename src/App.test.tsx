@@ -30,8 +30,8 @@ describe("NavigationBar Component", () => {
     expect(detailedQuestionLink).toBeInTheDocument();
   });
 
-  test("Clicking basic question goes to basic question page", () => {
-    render(<App />);
+  test("after API key is entered, clicking basic question goes to basic question page", () => {
+    render(<App forceValidKey={true} />);
     const basicQuestionLink = screen.getByRole("button", {
       name: "Basic Questions",
     });
@@ -45,8 +45,8 @@ describe("NavigationBar Component", () => {
     expect(screen.getByText("Basic Question 1")).toBeInTheDocument();
   });
 
-  test("Clicking detailed question goes to detailed question page", () => {
-    render(<App />);
+  test("after API key is entered, clicking detailed question goes to detailed question page", () => {
+    render(<App forceValidKey={true} />);
     const detailedQuestionLink = screen.getByRole("button", {
       name: "Detailed Questions",
     });
@@ -61,7 +61,7 @@ describe("NavigationBar Component", () => {
   });
 
   test("Clicking home goes to home page", () => {
-    render(<App />);
+    render(<App forceValidKey={true} />);
     // Goes to basic question page
     const basicQuestionLink = screen.getByRole("button", {
       name: "Basic Questions",
@@ -80,5 +80,36 @@ describe("NavigationBar Component", () => {
     expect(
       screen.getByText("Welcome to the Penguin Quest!")
     ).toBeInTheDocument();
+  });
+
+  test("Before API key is entered, navigation links do not work", () => {
+    render(<App />);
+
+    // Try to click "Basic Questions"
+    const basicQuestionLink = screen.getByRole("button", {
+      name: "Basic Questions",
+    });
+
+    // Click on basic question button on nav bar
+    act(() => {
+      basicQuestionLink.click();
+    });
+
+    // Try to click "Detailed Questions"
+    const detailedQuestionLink = screen.getByRole("button", {
+      name: "Detailed Questions",
+    });
+    act(() => {
+      detailedQuestionLink.click();
+    });
+
+    // Assert that we are still on the home screen or API input screen
+    expect(
+      screen.getByText("Welcome to the Penguin Quest!")
+    ).toBeInTheDocument();
+
+    // Ensure no questions are shown
+    expect(screen.queryByText("Basic Question 1")).not.toBeInTheDocument();
+    expect(screen.queryByText("Detailed Question 1")).not.toBeInTheDocument();
   });
 });
