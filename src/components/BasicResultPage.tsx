@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { GenerateCareerReport } from "../api/openaiApi";
-import { FormattedAnswerPrompt } from "../helpers/formatAnswers";
+import {
+  FormattedAnswerPrompt,
+  ValidateAnswers,
+} from "../helpers/formatAnswers";
 import { BASIC_QUESTIONS } from "../data/questions";
 import { ResultsChart } from "./ResultsChart";
 import { CareerReport } from "../helpers/careerReport";
@@ -55,6 +58,12 @@ export function BasicResultPage({
         return;
       }
       try {
+        if (!ValidateAnswers(BASIC_QUESTIONS, answers)) {
+          alert(
+            "Some answers are missing or invalid. Please check your answers."
+          );
+          return;
+        }
         const prompt = FormattedAnswerPrompt(BASIC_QUESTIONS, answers);
         const response = await GenerateCareerReport(prompt, apiKey);
         const parsedReport: CareerReport = JSON.parse(response);
