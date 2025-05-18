@@ -32,6 +32,10 @@ interface RenderPageProps {
  * - `apiKey` (string): API Key for OpenAI.
  * - `basicAnswers` ({ [id: number]: string | string[] }): Stored answers for basic questions.
  * - `setBasicAnswers` (function): Update the answers for basic questions.
+ * - `detailedAnswers` ({ [id: number]: string | string[] }): Stored answers for detailed questions.
+ * - `setDetailedAnswers` (function): Update the answers for detailed questions.
+ * - `isValidKey` (boolean): Flag to check if the API key is valid.
+ * - `triggerWarning` (function): Function to trigger a warning message.
  *
  */
 export function RenderPage({
