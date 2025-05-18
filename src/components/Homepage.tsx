@@ -19,6 +19,9 @@ interface HomepageProps {
  *
  * Props:
  *  - `navigatePage` (function): A function to navigate to different pages.
+ *  - `fontSize` (number): The font size for the text.
+ *  - `isValidKey` (boolean): A flag to check if the API key is valid.
+ *  - `triggerWarning` (function): A function to trigger a warning message.
  *
  */
 export function Homepage({
