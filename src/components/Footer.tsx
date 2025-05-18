@@ -20,6 +20,7 @@ interface FooterProps {
  * - `apiKey` (string): The API key for OpenAI.
  * - `onKeyChange` (function): A function that updates API key whenever the input changes.
  * - `onSubmit` (function): A function that is called when the user submits the API key.
+ * - `validKey` (boolean): A boolean indicating whether the API key is valid or not.
  *
  */
 export function Footer({
